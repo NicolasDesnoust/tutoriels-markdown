@@ -5,8 +5,6 @@ category: css
 tags: [css, footer, responsive, flex]
 ---
 
-# Comment rendre son footer responsive en CSS ?
-
 Voici comment rendre un footer responsive uniquement en **CSS**.  le footer sera toujours placé en dessous du contenu de la page. Si cette dernière déborde il ne sera pas fixé en bas et si le contenu est trop petit il se fixera en bas de la fenêtre du navigateur.
 
 ## CSS
