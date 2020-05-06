@@ -5,8 +5,6 @@ category: spring
 tags: [spring, rest, spring-boot, spring-data, maven, lombok, mysql, jpa, spring-initializr]
 ---
 
-# Développement d'une API REST avec Spring
-
 ## Introduction
 Ce mini-tutoriel permet d'explorer les possibilités de **Github Pages** et de la rédaction de tutoriels en **Markdown**. 
 Il s'agit principalement de présenter comment réaliser rapidement les fondements d'une **API REST** à l'aide du framework **Spring**.
