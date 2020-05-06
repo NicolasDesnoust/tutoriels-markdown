@@ -1,5 +1,5 @@
 ---
 layout: tag
-title: "Tag: spring"
+title: "Resources associées au tag **spring**"
 tag: spring
 ---
