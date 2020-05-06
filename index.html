@@ -45,6 +45,11 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+
+    const db = firebase.firestore();
+    db.collection('tutoriels').get().then((snapshot) => {
+      console.log(snapshot.docs);
+    });
   </script>
 </body>
 </html>
