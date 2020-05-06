@@ -1,2 +1,3 @@
 title: Démonstration de Github Pages
-theme: jekyll-theme-cayman
+# Le thème utilisé se trouve dans le dossier _layouts
+# theme: jekyll-theme-cayman
