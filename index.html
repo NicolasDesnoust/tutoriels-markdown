@@ -50,7 +50,9 @@
 
     const db = firebase.firestore();
     db.collection('tutoriels').get().then((snapshot) => {
-      console.log(snapshot.docs);
+      snapshot.forEach(document => {
+        console.log(document.data());
+      });
     });
   </script>
 </body>
