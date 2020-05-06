@@ -1,3 +1,10 @@
+---
+layout: post
+title: Développement d'une API REST avec Spring
+category: spring
+tags: [spring, rest, spring-boot, spring-data, maven, lombok, mysql, jpa, spring-initializr]
+---
+
 # Développement d'une API REST avec Spring
 
 ## Introduction
