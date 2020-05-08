@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: Développement d'une API REST avec Spring
