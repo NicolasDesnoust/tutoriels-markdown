@@ -1,4 +1,4 @@
 title: Démonstration de Github Pages
-permalink: /:categories/:title:output_ext
+permalink: :categories/:title:output_ext
 # Le thème utilisé se trouve dans le dossier _layouts
 #theme: jekyll-theme-cayman
