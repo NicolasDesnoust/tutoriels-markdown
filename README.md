@@ -4,3 +4,4 @@
 
 - [Roadmap (sur Trello)](https://trello.com/b/FCkYsLGO/roadmap-des-tutoriels-nicovicky)
 - [Page d'accueil](https://nicolasdesnoust.github.io/github-pages-test/)
+- [Variables sous Jekyll](https://jekyllrb.com/docs/variables/)
