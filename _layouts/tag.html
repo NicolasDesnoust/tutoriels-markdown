@@ -3,7 +3,7 @@ layout: default
 ---
 <div class="post">
     <h1>Tag: {{ page.tag }}</h1>
-    {{ site.tags | jsonify }}<br>
+    {{ site.tags }}<br>
     {% for post in site.tags[page.tag] %}
         <p>test</p>
     {% endfor %}
