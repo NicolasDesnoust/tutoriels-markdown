@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "Tag: rest"
-tag: rest
+title: "Tag: flex"
+tag: flex
 robots: noindex
 ---

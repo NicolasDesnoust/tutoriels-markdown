@@ -1,5 +1,6 @@
 ---
 layout: tag
-title: "Tag : spring"
+title: "Tag: spring"
 tag: spring
+robots: noindex
 ---

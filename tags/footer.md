@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "Tag: rest"
-tag: rest
+title: "Tag: footer"
+tag: footer
 robots: noindex
 ---

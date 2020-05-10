@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "Tag: rest"
-tag: rest
+title: "Tag: maven"
+tag: maven
 robots: noindex
 ---
