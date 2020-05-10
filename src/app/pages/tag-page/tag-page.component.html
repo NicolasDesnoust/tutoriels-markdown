@@ -1,0 +1,11 @@
+<div class="post">
+    <h1>Tag : {{ tag }}</h1>
+    <ul>
+        <ng-container *ngFor="let post of allTags[tag]">
+            <li><a href="{{ baseurl }}{{ url }}">{{ post.title }}</a> ({{ post.date }})<br>
+                {{ post.description }}
+            </li>
+        </ng-container>
+    </ul>
+</div>
+<hr>

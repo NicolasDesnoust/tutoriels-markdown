@@ -1,0 +1,10 @@
+<main class="main-content" role="main">
+    <span>
+        <ng-container *ngFor="let tag of tags">
+            <a class="custom-tag" href="/tags/{{ tag }}"><code class="highligher-rouge">{{ tag }}</code>&nbsp;</a>
+        </ng-container>
+    </span>
+
+    <!-- loaded from remote url -->
+    <markdown [src]="postUrl" (error)="onError($event)"></markdown>
+</main>

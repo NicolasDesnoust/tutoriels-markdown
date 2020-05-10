@@ -1,0 +1,8 @@
+<h1>Page d'accueil</h1>
+<h2>Voici nos tous premiers tutoriels :)</h2>
+
+<ul>
+    <li *ngFor="let link of links">
+        <a [routerLink]="link.path">{{ link.text }}</a>
+    </li>
+</ul>
