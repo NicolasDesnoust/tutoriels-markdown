@@ -1,0 +1,33 @@
+.app container{
+   min-height:100vh;
+}
+
+.example-container{
+    display: flex;
+}
+
+app-navbar{
+  height: 40px;
+  background-color: aquamarine;
+  position: sticky;
+  top:0;
+  right:0;
+  left: 0;
+  z-index: 2;
+  display: inline-block;
+  width: 100%;
+}
+
+mat-sidenav-content{
+    background-color: brown;
+    width: 100%;
+    margin-left: 250px;
+    display:flex;
+    justify-content: center;
+}
+
+.content-wrapper{
+    background-color: cadetblue;
+    margin: 2em;
+    width: 100%;
+}

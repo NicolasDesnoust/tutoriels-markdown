@@ -1,54 +1,22 @@
+<div class="app-container">
+  <app-navbar></app-navbar>
+
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened>
+      <app-left-sidenav></app-left-sidenav>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="content-wrapper">
+        Main content
+        <p *ngFor="let item of [].constructor(100); let i = index">szészssés ésé sésés ésés ésé sé"s "és é"sé" sé"s
+          ésé"sé"s sé"sé"s </p>
+      </div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</div>
 <!--
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#157878">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
--->
-
-<!--
-<mat-sidenav-container class="example-container" style="width:100%; height: 100%">
-  <mat-sidenav mode="side" opened style="width: 250px;">
-
-    <mat-nav-list>
-
-      <mat-divider></mat-divider>
-
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <b>Tutoriels</b>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-
-        <mat-divider></mat-divider>
-
-        <mat-list-item *ngFor="let link of links">
-          <a matLine href="...">{{ link }}</a>
-          <button mat-icon-button>
-          </button>
-        </mat-list-item>
-      </mat-expansion-panel>
-
-      <mat-divider></mat-divider>
-
-
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Self aware panel
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>I'm visible because I am open</p>
-      </mat-expansion-panel>
-
-
-    </mat-nav-list>
-
-  </mat-sidenav>
-  <mat-sidenav-content>Main content</mat-sidenav-content>
-</mat-sidenav-container>-->
-
 <header class="page-header" role="banner">
   <h1 class="project-name">{{ title }}</h1><br>
   <ng-container *ngIf="showProjectPage">
@@ -66,3 +34,5 @@
   </footer>
 
 </main>
+
+-->
