@@ -7,7 +7,7 @@
 }
 
 app-navbar{
-  height: 40px;
+  height: 70px;
   background-color: aquamarine;
   position: sticky;
   top:0;
@@ -18,16 +18,26 @@ app-navbar{
   width: 100%;
 }
 
-mat-sidenav-content{
-    background-color: brown;
+mat-sidenav {
+    width: 268px;
+    margin-top: 70px;
+    position: fixed;
+}
+
+mat-sidenav-content {
+    background-color: #e8eaed;
     width: 100%;
-    margin-left: 250px;
+    margin-left: 268px;
     display:flex;
     justify-content: center;
 }
 
-.content-wrapper{
-    background-color: cadetblue;
+.content-wrapper {
+    background-color: #fff;
     margin: 2em;
-    width: 100%;
+    padding: 10px 10px 0 0;
+    border-radius: 2px;
+    //width: 100%;
+    //width: fit-content;
+   // max-width: 936px;
 }

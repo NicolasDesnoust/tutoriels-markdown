@@ -2,9 +2,16 @@
 
 Voici comment rendre un footer responsive uniquement en **CSS**.  le footer sera toujours placé en dessous du contenu de la page. Si cette dernière déborde il ne sera pas fixé en bas et si le contenu est trop petit il se fixera en bas de la fenêtre du navigateur.
 
-## CSS
+## Code
 
-**style.css :**
+<ul class="nav nav-tabs">
+  <li class="active nav-item"><a data-toggle="tab" class="nav-link active show" href="#CSS">CSS</a></li>
+  <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#HTML">HTML</a></li>
+</ul>
+
+<div class="tab-content">
+  <div name="CSS" class="tab-pane fade in active show">
+
 ```css
 body {
 	display: flex;
@@ -17,8 +24,9 @@ body {
 }
 ```
 
-## HTML
-
+  </div>
+  <div name="HTML" class="tab-pane fade">
+    
 ```html
 <!doctype html>
 
@@ -51,4 +59,7 @@ body {
 	</footer>
 </body>
 </html>
-````
+```
+
+</div>
+</div>

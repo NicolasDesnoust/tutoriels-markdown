@@ -1,0 +1,33 @@
+
+mat-sidenav {
+    position: fixed;
+    display: inline-block;
+    height: 100%;
+    margin-top: 40px
+}
+
+mat-nav-list {
+    background-color: #e8eaed !important;
+}
+
+mat-expansion-panel {
+    border-radius: 0;
+}
+
+.mat-list-base {
+    padding-top: 0;
+}
+
+mat-panel-title {
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+a span {
+    font-size: smaller !important;
+}
+
+
+.active-link {
+    background-color: rgba(55, 118, 255, 0.308);
+}

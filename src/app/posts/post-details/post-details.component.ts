@@ -21,12 +21,14 @@ export class PostDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.title = this.route.snapshot.paramMap.get('title');
-    this.category = this.route.snapshot.paramMap.get('category');
-
-    this.postFound = true;
-    this.postUrl = `posts/${this.title}.md`;
-    console.log(this.postUrl);
+    this.route.paramMap.subscribe(params => { // unsubscribe on destroy
+      this.postFound = false;
+      this.title = params.get('title');
+      this.category = params.get('category');
+      this.postFound = true;
+      this.postUrl = `posts/${this.title}.md`;
+      console.log(this.postUrl);
+    });
   }
 
   onError(error) {

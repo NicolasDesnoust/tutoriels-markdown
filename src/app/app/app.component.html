@@ -2,16 +2,14 @@
   <app-navbar></app-navbar>
 
   <mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" opened>
+    <mat-sidenav mode="side" opened class="mat-elevation-z2">
       <app-left-sidenav></app-left-sidenav>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <div class="content-wrapper">
-        Main content
-        <p *ngFor="let item of [].constructor(100); let i = index">szészssés ésé sésés ésés ésé sé"s "és é"sé" sé"s
-          ésé"sé"s sé"sé"s </p>
-      </div>
+        <main id="content" class="mat-elevation-z2 content-wrapper main-content" role="main">
+          <router-outlet></router-outlet>
+        </main>
     </mat-sidenav-content>
 
   </mat-sidenav-container>

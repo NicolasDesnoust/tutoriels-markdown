@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './navbar/navbar.component';
-import { LeftSidenavComponent } from './left-sidenav/left-sidenav.component';
-import { RightSidenavComponent } from './right-sidenav/right-sidenav.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { LeftSidenavComponent } from './components/left-sidenav/left-sidenav.component';
+import { RightSidenavComponent } from './components/right-sidenav/right-sidenav.component';
 import { MaterialModule } from '../shared/material/material.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [NavbarComponent, LeftSidenavComponent, RightSidenavComponent],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule
   ],
   exports: [
     RightSidenavComponent,
