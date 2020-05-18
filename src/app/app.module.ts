@@ -1,6 +1,6 @@
 // Modules d'Angular
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, SecurityContext } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Modules permettant d'utiliser les fonctionnalités de Firebase
@@ -9,7 +9,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
 // Modules externes
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 
 // Variables d'environnement, qui diffèrent si l'application est lancée en mode production ou non
 import { environment } from '../environments/environment';
@@ -34,7 +34,16 @@ import { MaterialModule } from './shared/material/material.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    MarkdownModule.forRoot({ loader: HttpClient }),
+    MarkdownModule.forRoot({ 
+      loader: HttpClient, 
+      markedOptions: { 
+        provide: MarkedOptions,
+        useValue: {
+          headerIds: true
+        }
+      },
+      sanitize: SecurityContext.NONE
+    }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,

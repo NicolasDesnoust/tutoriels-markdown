@@ -5,6 +5,8 @@
         </ng-container>
     </span>
 
+    <a [routerLink]="'./'" fragment="création-du-projet-sur-spring-initializr">lien</a>
+
     <!-- loaded from remote url -->
     <markdown [src]="postUrl" lineNumbers (error)="onError($event)"></markdown>
 </main>
