@@ -2,6 +2,8 @@ import { Component, OnInit, HostListener, AfterViewInit } from '@angular/core';
 import { PostService } from 'src/app/posts/post.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
+declare var ClipboardJS: any;
+
 @Component({
   selector: 'app-post-details',
   templateUrl: './post-details.component.html',
@@ -23,6 +25,22 @@ export class PostDetailsComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
+
+    const clipboard = new ClipboardJS('.btn');
+
+    clipboard.on('success', function (e) {
+      console.info('Action:', e.action);
+      console.info('Text:', e.text);
+      console.info('Trigger:', e.trigger);
+
+      e.clearSelection();
+    });
+
+    clipboard.on('error', function (e) {
+      console.error('Action:', e.action);
+      console.error('Trigger:', e.trigger);
+    });
+
     this.route.paramMap.subscribe(params => { // no need to unsubscribe on destroy
       this.postFound = false;
       this.title = params.get('title');
@@ -34,20 +52,20 @@ export class PostDetailsComponent implements OnInit, AfterViewInit {
     });
 
     this.route.fragment.subscribe(fragment => { // no need to unsubscribe on destroy
-      if(fragment && fragment.length != 0) {
+      if (fragment && fragment.length != 0) {
         this.offsetAnchor(fragment);
       }
     });
   }
 
   ngAfterViewInit(): void {
-   this.offsetAnchor('a');
+    this.offsetAnchor('a');
   }
 
   // The function actually applying the offset
   offsetAnchor(target: string) {
     console.log("scrolling to " + target);
-    
+
   }
 
   onError(error) {
@@ -55,29 +73,29 @@ export class PostDetailsComponent implements OnInit, AfterViewInit {
   }
 
   onLoad(currentUrl: string, loadedData) {
-    
+
     var documentRef = documentRef || document;
     var toc = documentRef.getElementById('toc');
     var headings = [].slice.call(documentRef.body.querySelectorAll('h2, h3'));
 
     // Supprime les anciens liens
-    while (toc.lastChild.classList.contains("h2") || toc.lastChild.classList.contains("h3")) {    
+    while (toc.lastChild.classList.contains("h2") || toc.lastChild.classList.contains("h3")) {
       toc.removeChild(toc.lastChild);
     }
 
     headings.forEach(function (heading, index) {
-        console.log("found");
-        const anchor = "#" + heading.id;
-        
-        var link = documentRef.createElement('a');
-        link.setAttribute('href', currentUrl + anchor);
-        link.textContent = heading.textContent;
-        
-        var div = documentRef.createElement('div');
-        div.setAttribute('class', heading.tagName.toLowerCase());
-        
-        div.appendChild(link);
-        toc.appendChild(div);
+      console.log("found");
+      const anchor = "#" + heading.id;
+
+      var link = documentRef.createElement('a');
+      link.setAttribute('href', currentUrl + anchor);
+      link.textContent = heading.textContent;
+
+      var div = documentRef.createElement('div');
+      div.setAttribute('class', heading.tagName.toLowerCase());
+
+      div.appendChild(link);
+      toc.appendChild(div);
     });
   }
 }

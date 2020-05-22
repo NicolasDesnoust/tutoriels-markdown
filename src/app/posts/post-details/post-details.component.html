@@ -4,7 +4,7 @@
             <a class="custom-tag" href="/tags/{{ tag }}"><code class="highligher-rouge">{{ tag }}</code>&nbsp;</a>
         </ng-container>
     </span>
-    
+
     <!-- loaded from remote url -->
     <markdown [src]="postUrl" lineNumbers (load)="onLoad(currentUrl, $event)" (error)="onError($event)"></markdown>
 </main>

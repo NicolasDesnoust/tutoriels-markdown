@@ -41,7 +41,7 @@
               "node_modules/prismjs/components/prism-css.min.js",
               "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js",
               "node_modules/marked/lib/marked.js",
-              "node_modules/html-table-of-contents/src/html-table-of-contents.js"
+              "node_modules/clipboard/dist/clipboard.js"
             ]
           },
           "configurations": {

@@ -4,6 +4,10 @@ Voici comment rendre un footer responsive uniquement en **CSS**.  le footer sera
 
 ## Code
 
+```css
+body { display: flex; flex-direction: column; min-height: 100vh; display: flex; flex-direction: column; min-height: 100vh; display: flex; flex-direction: column; min-height: 100vh; display: flex; flex-direction: column; min-height: 100vh; display: flex; flex-direction: column; min-height: 100vh; display: flex; flex-direction: column; min-height: 100vh; }
+```
+
 <ul class="nav nav-tabs">
   <li class="active nav-item"><a data-toggle="tab" class="nav-link active show" href="#CSS">CSS</a></li>
   <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#HTML">HTML</a></li>

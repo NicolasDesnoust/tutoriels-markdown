@@ -9,7 +9,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
 // Modules externes
-import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
+import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
+//import { Renderer } from 'marked';
 
 // Variables d'environnement, qui diffèrent si l'application est lancée en mode production ou non
 import { environment } from '../environments/environment';
@@ -22,6 +23,48 @@ import { TagPageComponent } from './pages/tag-page/tag-page.component';
 import { CoreModule } from './core/core.module';
 import { PostModule } from './posts/post.module';
 import { MaterialModule } from './shared/material/material.module';
+import { stringify } from 'querystring';
+
+const renderer: MarkedRenderer = new MarkedRenderer();
+
+function escape(html, encode) {
+  if (encode) {
+    if (escape.escapeTest.test(html)) {
+      return html.replace(escape.escapeReplace, function(ch) { return escape.replacements[ch]; });
+    }
+  } else {
+    if (escape.escapeTestNoEncode.test(html)) {
+      return html.replace(escape.escapeReplaceNoEncode, function(ch) { return escape.replacements[ch]; });
+    }
+  }
+
+  return html;
+}
+
+escape.escapeTest = /[&<>"']/;
+escape.escapeReplace = /[&<>"']/g;
+escape.replacements = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;'
+};
+
+escape.escapeTestNoEncode = /[<>"']|&(?!#?\w+;)/;
+escape.escapeReplaceNoEncode = /[<>"']|&(?!#?\w+;)/g;
+
+let counter: number = 0;
+
+renderer.code = (code: string, language: string, isEscaped: boolean) => {
+  var added = '<div class="code-header"><button class="btn" data-clipboard-target="#code-' 
+  + counter 
+  + '" style="color: black;"><i class="fa fa-copy fa-3x"></i></button></div>';
+
+  const codeHTML = added + "<div id='code-" + counter + "'>" + (new MarkedRenderer()).code(code, language, isEscaped) + "</div>";
+  counter++;
+  return codeHTML;
+};
 
 @NgModule({
   declarations: [
@@ -39,6 +82,7 @@ import { MaterialModule } from './shared/material/material.module';
       markedOptions: { 
         provide: MarkedOptions,
         useValue: {
+          renderer: renderer,
           headerIds: true
         }
       },

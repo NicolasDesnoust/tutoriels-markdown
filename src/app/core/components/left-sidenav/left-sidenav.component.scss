@@ -23,6 +23,11 @@ mat-panel-title {
     text-transform: capitalize;
 }
 
+::ng-deep .mat-content {
+    padding-left: 12px !important;
+    border-left: 4px solid #1bbe6c !important;
+}
+
 a span {
     font-size: smaller !important;
 }
