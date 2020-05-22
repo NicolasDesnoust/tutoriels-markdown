@@ -15,3 +15,7 @@ h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
     visibility: hidden; 
     pointer-events: none;
   }
+
+mat-body, .mat-body-1, .mat-typography, .mat-expansion-panel-header {
+  font: 400 14px/20px "Poppins", sans-serif !important;
+}

@@ -6,6 +6,7 @@ import { RightSidenavComponent } from './components/right-sidenav/right-sidenav.
 import { MaterialModule } from '../shared/material/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [NavbarComponent, LeftSidenavComponent, RightSidenavComponent],
@@ -14,7 +15,8 @@ import { RouterModule } from '@angular/router';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    MarkdownModule.forChild()
   ],
   exports: [
     RightSidenavComponent,

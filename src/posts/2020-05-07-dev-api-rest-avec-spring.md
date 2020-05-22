@@ -3,8 +3,9 @@
 ## Introduction
 Ce mini-tutoriel permet d'explorer les possibilités de **Github Pages** et de la rédaction de tutoriels en **Markdown**. 
 Il s'agit principalement de présenter comment réaliser rapidement les fondements d'une **API REST** à l'aide du framework **Spring**.
-> Attention : Ce tutoriel n'est actuellement pas complet. 
+> **Attention :** Ce tutoriel n'est actuellement pas complet. 
 
+### Technologies
 Voici une liste exhaustive des technologies qui seront employées :
 
  - Spring REST

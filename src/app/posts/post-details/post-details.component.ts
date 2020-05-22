@@ -14,6 +14,7 @@ export class PostDetailsComponent implements OnInit, AfterViewInit {
   postFound = false;
   postUrl = "'posts/2020-05-07-comment-rendre-son-footer-responsive-en-css.md'";
   fragmentHandled: boolean = true;
+  currentUrl: string = "";
 
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +30,7 @@ export class PostDetailsComponent implements OnInit, AfterViewInit {
       this.postFound = true;
       this.postUrl = `posts/${this.title}.md`;
       console.log(this.postUrl);
+      this.currentUrl = this.router.url;
     });
 
     this.route.fragment.subscribe(fragment => { // no need to unsubscribe on destroy
@@ -50,6 +52,33 @@ export class PostDetailsComponent implements OnInit, AfterViewInit {
 
   onError(error) {
     this.router.navigate(['/']);
+  }
+
+  onLoad(currentUrl: string, loadedData) {
+    
+    var documentRef = documentRef || document;
+    var toc = documentRef.getElementById('toc');
+    var headings = [].slice.call(documentRef.body.querySelectorAll('h2, h3'));
+
+    // Supprime les anciens liens
+    while (toc.lastChild.classList.contains("h2") || toc.lastChild.classList.contains("h3")) {    
+      toc.removeChild(toc.lastChild);
+    }
+
+    headings.forEach(function (heading, index) {
+        console.log("found");
+        const anchor = "#" + heading.id;
+        
+        var link = documentRef.createElement('a');
+        link.setAttribute('href', currentUrl + anchor);
+        link.textContent = heading.textContent;
+        
+        var div = documentRef.createElement('div');
+        div.setAttribute('class', heading.tagName.toLowerCase());
+        
+        div.appendChild(link);
+        toc.appendChild(div);
+    });
   }
 }
 

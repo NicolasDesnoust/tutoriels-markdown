@@ -19,14 +19,13 @@ mat-expansion-panel {
 }
 
 mat-panel-title {
-    font-weight: 400;
+    font-weight: bold;
     text-transform: capitalize;
 }
 
 a span {
     font-size: smaller !important;
 }
-
 
 .active-link {
     background-color: rgba(55, 118, 255, 0.308);

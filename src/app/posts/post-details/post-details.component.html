@@ -4,9 +4,7 @@
             <a class="custom-tag" href="/tags/{{ tag }}"><code class="highligher-rouge">{{ tag }}</code>&nbsp;</a>
         </ng-container>
     </span>
-
-    <a [routerLink]="'./'" fragment="création-du-projet-sur-spring-initializr">lien</a>
-
+    
     <!-- loaded from remote url -->
-    <markdown [src]="postUrl" lineNumbers (error)="onError($event)"></markdown>
+    <markdown [src]="postUrl" lineNumbers (load)="onLoad(currentUrl, $event)" (error)="onError($event)"></markdown>
 </main>
