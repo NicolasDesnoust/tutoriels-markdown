@@ -59,7 +59,7 @@ let counter: number = 0;
 renderer.code = (code: string, language: string, isEscaped: boolean) => {
   var added = '<div class="code-header"><button class="btn" data-clipboard-target="#code-' 
   + counter 
-  + '" style="color: black;"><i class="fa fa-copy fa-3x"></i></button></div>';
+  + '" style="color: black;"><i class="far fa-copy"></i></button></div>';
 
   const codeHTML = added + "<div id='code-" + counter + "'>" + (new MarkedRenderer()).code(code, language, isEscaped) + "</div>";
   counter++;

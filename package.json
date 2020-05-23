@@ -25,6 +25,7 @@
     "@firebase/auth": "^0.14.5",
     "@firebase/auth-types": "^0.10.0",
     "@firebase/firestore": "^1.14.3",
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "@types/clipboard": "^2.0.1",
     "clipboard": "^2.0.6",
     "firebase": "^7.14.3",

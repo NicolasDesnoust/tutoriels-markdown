@@ -6,5 +6,5 @@
     </span>
 
     <!-- loaded from remote url -->
-    <markdown [src]="postUrl" lineNumbers (load)="onLoad(currentUrl, $event)" (error)="onError($event)"></markdown>
+    <markdown [src]="postUrl" (load)="onLoad(currentUrl, $event)" (error)="onError($event)"></markdown>
 </main>
