@@ -30,6 +30,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss",
               "src/assets/prism-themes/prism-atom-dark.css",
               "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
@@ -138,7 +139,7 @@
           }
         },
         "deploy": {
-          "builder": "@angular/fire:deploy",
+          "builder": "angular-cli-ghpages:deploy",
           "options": {}
         }
       }

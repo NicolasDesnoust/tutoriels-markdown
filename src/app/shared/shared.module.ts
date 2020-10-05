@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 // Contient les composants partagés
 const COMPONENTS = [
@@ -16,6 +17,7 @@ const PIPES = [
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
     MaterialModule
   ],
@@ -28,6 +30,7 @@ const PIPES = [
     PIPES,
     CommonModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
     MaterialModule
   ]

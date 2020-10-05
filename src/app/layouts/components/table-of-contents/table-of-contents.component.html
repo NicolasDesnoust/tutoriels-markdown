@@ -1,0 +1,29 @@
+<ng-container
+  *ngIf="{
+    filteredHeaders: filteredHeaders$ | async
+  } as observables"
+>
+  <div id="toc">
+    <div class="toc-title">
+      <span>Sommaire</span>
+    </div>
+
+    <div
+      *ngFor="let header of observables.filteredHeaders"
+      class="h{{ header.lvl }}"
+    >
+      <a routerLink="." fragment="{{ header.slug }}">
+        {{ header.content }}
+      </a>
+    </div>
+
+    <button
+      mat-icon-button
+      *ngIf="limit && limit < headers.length"
+      (click)="applyLimit(expanded ? limit : null)"
+      aria-label="Expand button"
+    >
+      <mat-icon>{{ expanded ? "expand_less" : "more_horiz" }}</mat-icon>
+    </button>
+  </div>
+</ng-container>

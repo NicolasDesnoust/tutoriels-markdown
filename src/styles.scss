@@ -1,21 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'assets/_sass/jekyll-theme-cayman';
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+@import "assets/_sass/jekyll-theme-cayman";
+//@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Poppins', sans-serif; background-color: #e8eaed; }
+@import "~@angular/material/theming";
+
+$custom-typography: mat-typography-config(
+  $font-family: '"Poppins", sans-serif;',
+);
+@include mat-core($custom-typography);
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background-color: #e8eaed;
+}
 
 // Repositionne l'ancre pour chaque titre afin d'éviter les collisions avec le header lors d'une
-// navigation par fragment. 
-h1::before, h2::before, h3::before, h4::before, h5::before, h6::before { 
-    display: block; 
-    content: " "; 
-    margin-top: -80px; 
-    height: 80px; 
-    visibility: hidden; 
-    pointer-events: none;
-  }
-
-mat-body, .mat-body-1, .mat-typography, .mat-expansion-panel-header {
-  font: 400 14px/20px "Poppins", sans-serif !important;
+// navigation par fragment.
+h1::before,
+h2::before,
+h3::before,
+h4::before,
+h5::before,
+h6::before {
+  display: block;
+  content: " ";
+  margin-top: -80px;
+  height: 80px;
+  visibility: hidden;
+  pointer-events: none;
 }

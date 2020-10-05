@@ -1,0 +1,45 @@
+<div class="navbar-container mat-elevation-z2">
+  <!-- Left content -->
+  <div class="left-container">
+    <button
+      *ngIf="showToggleSidenav"
+      mat-icon-button
+      (click)="toggleSidenav.emit()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <!-- Branding -->
+  <div class="branding-container">
+    <button mat-flat-button routerLink="/">Tutoriels N&V</button>
+  </div>
+
+  <!-- Right content -->
+  <form class="search-form">
+    <mat-form-field class="search-form-field" appearance="fill">
+      <mat-icon matPrefix>search</mat-icon>
+      <input
+        type="text"
+        placeholder="Rechercher"
+        aria-label="Number"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let option of filteredOptions | async"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" class="npm-like-button">
+      Search
+    </button>
+    <button mat-stroked-button class="ml-2 npm-like-button">Sign In</button>
+  </form>
+</div>

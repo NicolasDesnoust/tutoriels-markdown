@@ -1,0 +1,25 @@
+<ng-container
+  *ngIf="{
+    post: post$ | async
+  } as observables"
+>
+  <div class="main-content">
+    <h1 *ngIf="observables.post">{{ observables.post.title }}</h1>
+    <span>
+      <ng-container *ngFor="let tag of tags">
+        <a class="custom-tag" href="/tags/{{ tag }}"
+          ><code class="highligher-rouge">{{ tag }}</code
+          >&nbsp;</a
+        >
+      </ng-container>
+    </span>
+    <app-table-of-contents *ngIf="showTableOfContents" limit="5">
+    </app-table-of-contents>
+    <!-- loaded from remote url -->
+    <markdown
+      [src]="postUrl"
+      (load)="onLoad($event)"
+      (error)="onError($event)"
+    ></markdown>
+  </div>
+</ng-container>

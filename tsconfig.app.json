@@ -11,6 +11,9 @@
     "src/**/*.d.ts"
   ],
   "types": [
-    "clipboard"
+    "clipboard", "node"
+  ],
+  "typeRoots": [
+    "node_modules/@types"
   ]
 }

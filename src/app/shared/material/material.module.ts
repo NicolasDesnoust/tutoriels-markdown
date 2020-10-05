@@ -69,6 +69,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
+//
+// Ripples
+//
+import {MatRippleModule} from '@angular/material/core'; 
+
 const modules: any[] = [
   
   LayoutModule,
@@ -114,13 +119,13 @@ const modules: any[] = [
   
   MatPaginatorModule,
   MatSortModule,
-  MatTableModule
+  MatTableModule,
 
+  MatRippleModule
 ];
 
 @NgModule({
   imports: [ ...modules ],
   exports: [ ...modules ]
-  
 })
 export class MaterialModule {}

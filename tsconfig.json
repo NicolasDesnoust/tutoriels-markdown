@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowJs": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
@@ -14,7 +15,7 @@
     "typeRoots": [
       "node_modules/@types"
     ],
-    "types": ["clipboard"],
+    "types": ["node", "clipboard"],
     "lib": [
       "es2018",
       "dom"

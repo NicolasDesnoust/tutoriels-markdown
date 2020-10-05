@@ -1,0 +1,33 @@
+<ng-container
+  *ngIf="{
+    posts: posts$ | async
+  } as observables"
+>
+  <section *ngIf="observables.posts">
+    <mat-card
+      matRipple
+      *ngFor="let post of observables.posts"
+      [routerLink]="'/tutoriels/' + post.category + '/' + post.id"
+      class="mat-elevation-z8"
+    >
+      <mat-card-content>
+        <!-- <img src="{{post.image}}" alt="{{post.title}}">-->
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.description }}</p>
+        <p>
+          <small>
+            Par <b>{{ post.author }}</b>
+            <!-- {{post.published.toDate() | date: 'fullDate'}}-->
+            le {{ post.published }}
+          </small>
+        </p>
+      </mat-card-content>
+      <!-- Pas de possibilité de suppression pour l'instant -->
+      <!-- <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">
+            <button mat-icon-button (click)="delete(post.id)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-card-actions> -->
+    </mat-card>
+  </section>
+</ng-container>

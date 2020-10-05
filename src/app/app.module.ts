@@ -18,12 +18,11 @@ import { environment } from '../environments/environment';
 // Modules et composants de l'application
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
-import { TagPageComponent } from './pages/tag-page/tag-page.component';
 import { CoreModule } from './core/core.module';
-import { PostModule } from './posts/post.module';
 import { MaterialModule } from './shared/material/material.module';
-import { stringify } from 'querystring';
+import { PostModule } from './feature-modules/posts/post.module';
+import { LayoutsModule } from './layouts/layouts.module';
+const uslug = require("uslug");
 
 const renderer: MarkedRenderer = new MarkedRenderer();
 
@@ -66,17 +65,23 @@ renderer.code = (code: string, language: string, isEscaped: boolean) => {
   return codeHTML;
 };
 
+// renderer.heading = (text: string, level: number) => {
+//   const id = uslug(text);
+
+//   return '<h' + level + ' id="' + id + '">' +
+//          '</h' + level + '>';
+// };
+
 @NgModule({
   declarations: [
-    AppComponent,
-    HomePageComponent,
-    TagPageComponent
+    AppComponent
   ],
   imports: [
     CoreModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    LayoutsModule,
     MarkdownModule.forRoot({ 
       loader: HttpClient, 
       markedOptions: { 
