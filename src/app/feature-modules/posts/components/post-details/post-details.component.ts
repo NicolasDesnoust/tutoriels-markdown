@@ -2,6 +2,7 @@ import { BreakpointObserver } from "@angular/cdk/layout";
 import { Component, OnInit, OnDestroy, Inject } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable, Subscription } from "rxjs";
+import { map, switchMap } from "rxjs/operators";
 import {
   MEDIAQUERIES,
   MONITOR_MEDIAQUERY,
@@ -18,10 +19,7 @@ declare var ClipboardJS: any;
   styleUrls: ["./post-details.component.scss"],
 })
 export class PostDetailsComponent implements OnInit, OnDestroy {
-  title: string = "";
-  category: string = "";
   tags = [];
-  postUrl = "";
   post$: Observable<Post>;
 
   private layoutChangesSubscription: Subscription;
@@ -55,13 +53,13 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
       console.error("Trigger:", e.trigger);
     });
 
-    this.route.paramMap.subscribe((params) => {
-      // no need to unsubscribe on destroy
-      this.title = params.get("title");
-      this.post$ = this.postService.getPost(this.title);
-      this.category = params.get("category");
-      this.postUrl = `posts/${this.title}.md`;
-    });
+    this.post$ = this.route.paramMap.pipe(
+      switchMap((params) => this.postService.getPost(params.get("id"))),
+      map((post: Post) => {
+        // post.content = JSON.parse(post.content);
+        return post;
+      })
+    );
 
     this.layoutChangesSubscription = this.breakpointObserver
       .observe([...MEDIAQUERIES])
@@ -74,7 +72,7 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
     this.router.navigate(["/"]);
   }
 
-  onLoad(loadedData: string) {
-    this.tocService.updateTocContent(loadedData);
+  onReady(markdownData: string) {
+    this.tocService.updateTocContent(markdownData);
   }
 }

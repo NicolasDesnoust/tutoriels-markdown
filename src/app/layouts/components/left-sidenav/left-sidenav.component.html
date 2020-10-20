@@ -9,6 +9,9 @@
     <ng-container *ngFor="let category of observables.categories">
       <mat-expansion-panel
         *ngIf="category.posts && category.posts.length > 0"
+        routerLinkActive
+        #rla="routerLinkActive"
+        [expanded]="rla.isActive"
         class="mat-elevation-z0"
       >
         <!-- MAIN ITEM HEADERS -->
@@ -22,48 +25,10 @@
         <a
           mat-list-item
           *ngFor="let post of category.posts"
-          matTooltip="{{ post.title }}"
-          matTooltipShowDelay="500"
           [routerLink]="'/tutoriels/' + post.category + '/' + post.id"
           routerLinkActive="active-link"
         >
           <span matLine>{{ post.title }}</span>
-        </a>
-        <a
-          mat-list-item
-          *ngFor="let post of category.posts"
-          matTooltip="{{ post.title }}"
-          matTooltipShowDelay="500"
-          [routerLink]="'/tutoriels/' + post.category + '/' + post.id"
-        >
-          <span matLine>Les classes Mapper</span>
-        </a>
-        <a
-          mat-list-item
-          *ngFor="let post of category.posts"
-          matTooltip="{{ post.title }}"
-          matTooltipShowDelay="500"
-          [routerLink]="'/tutoriels/' + post.category + '/' + post.id"
-        >
-          <span matLine>Introduction à Jakarta EE</span>
-        </a>
-        <a
-          mat-list-item
-          *ngFor="let post of category.posts"
-          matTooltip="{{ post.title }}"
-          matTooltipShowDelay="500"
-          [routerLink]="'/tutoriels/' + post.category + '/' + post.id"
-        >
-          <span matLine>Téléchargement d'Eclipse</span>
-        </a>
-        <a
-          mat-list-item
-          *ngFor="let post of category.posts"
-          matTooltip="{{ post.title }}"
-          matTooltipShowDelay="500"
-          [routerLink]="'/tutoriels/' + post.category + '/' + post.id"
-        >
-          <span matLine>Installation de Kuzzle</span>
         </a>
       </mat-expansion-panel>
     </ng-container>

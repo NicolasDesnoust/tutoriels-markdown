@@ -1,0 +1,38 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// Breakpoints
+$large-breakpoint: 1254px !default;
+$medium-breakpoint: 960px !default;
+$small-breakpoint: 600px !default;
+
+// Headers
+$header-heading-color: #fff !default;
+$header-bg-color: #159957 !default;
+$header-bg-color-secondary: #155799 !default;
+
+// Text
+$body-text-color: #606c71 !default;
+$body-link-color: #1e6bb8 !default;
+$blockquote-text-color: #819198 !default;
+
+// Code
+$code-bg-color: #1d1f21 !default;
+$code-text-color: #567482 !default;
+
+// Borders
+$border-color: #dce6f0 !default;
+$table-border-color: #e9ebec !default;
+$hr-border-color: #eff0f1 !default;
+
+// Links
+$link-color: #23a764 !default;
+$link-hover-color: #208f57 !default;
+
+// Fonts
+$font-family: "Poppins", sans-serif !default;
+// "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+
+// Backgrounds
+$body-background-color: #e8eaed !default;

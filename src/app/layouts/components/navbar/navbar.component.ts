@@ -1,39 +1,59 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
-import { TagService } from 'src/app/core/services/tag.service';
+import { DOCUMENT } from '@angular/common';
+import { Inject } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { FormControl } from "@angular/forms";
+import { Observable } from "rxjs";
+import { startWith, map } from "rxjs/operators";
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: "app-navbar",
+  templateUrl: "./navbar.component.html",
+  styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent implements OnInit {
+  theme = "light";
 
   myControl: FormControl = new FormControl();
   options: string[] = [];
   filteredOptions: Observable<string[]>;
 
   @Input() showToggleSidenav: boolean = false;
+  @Input() showFullSearchBar: boolean = true;
   @Output() toggleSidenav = new EventEmitter<void>();
-  
-  constructor(private tagService: TagService) { }
+
+  constructor(@Inject(DOCUMENT) private document: Document,) {}
 
   ngOnInit() {
+    this.options = ["css", "spring"]; // Rendre asynchrone quand la méthode sera dev.
 
-    this.options = this.tagService.fetchTags(); // Rendre asynchrone quand la méthode sera dev.
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(""),
+      map((value) => this._filter(value))
+    );
 
-    this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
+    this.setTheme(localStorage.getItem("theme") || "light");
+  }
+
+  private setTheme(theme: string): void {
+    this.theme = theme;
+    const bodyClassList = this.document.querySelector('body')!.classList;
+    const removeClassList = /\w*-theme\b/.exec(bodyClassList.value);
+    if (removeClassList) {
+      bodyClassList.remove(...removeClassList);
+    }
+    bodyClassList.add(`${this.theme}-theme`);
+    localStorage.setItem('theme', this.theme);
+  }
+
+  toggleTheme(): void {
+    this.setTheme(this.theme === 'light' ? 'dark' : 'light');
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+    return this.options.filter((option) =>
+      option.toLowerCase().includes(filterValue)
+    );
   }
 }

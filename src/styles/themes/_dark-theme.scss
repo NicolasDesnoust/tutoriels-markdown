@@ -1,0 +1,78 @@
+// Color palettes.
+$dark-primary: mat-palette($mat-grey, 600, A200, 700);
+$dark-accent: mat-palette($mat-light-blue, 600, A200, 700);
+$dark-warn: mat-palette($mat-red);
+
+// Background palette.
+$custom-dark-theme-background: (
+  status-bar: black,
+  app-bar:    #24262d,//map_get($mat-grey, 900),
+  background: #393b45,
+  hover:      rgba(white, 0.04),
+  card:       #2a2d35,//map_get($mat-grey, 800),
+  dialog:     #24262d,//map_get($mat-grey, 800),
+  disabled-button: rgba(white, 0.12),
+  raised-button: map-get($mat-grey, 800),
+  focused-button: $light-focused,
+  selected-button: map_get($mat-grey, 900),
+  selected-disabled-button: map_get($mat-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map_get($mat-grey, 700),
+  disabled-list-option: black,
+  tooltip: map_get($mat-grey, 700),
+);
+
+$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+// Remplacement de la couleur de fond par défaut
+$background: map-get($dark-theme, background);
+$background: map_merge($background, $custom-dark-theme-background);
+$dark-theme: map_merge($dark-theme, (background: $background));
+
+
+// // Background palette.
+// $custom-dark-theme-background: (
+//   status-bar: black,
+//   app-bar:    map_get($mat-grey, 900),
+//   background: #393b45,
+//   hover:      rgba(white, 0.04),
+//   card:       map_get($mat-grey, 800),
+//   dialog:     map_get($mat-grey, 800),
+//   disabled-button: rgba(white, 0.12),
+//   raised-button: map-get($mat-grey, 800),
+//   focused-button: $light-focused,
+//   selected-button: map_get($mat-grey, 900),
+//   selected-disabled-button: map_get($mat-grey, 800),
+//   disabled-button-toggle: black,
+//   unselected-chip: map_get($mat-grey, 700),
+//   disabled-list-option: black,
+//   tooltip: map_get($mat-grey, 700),
+// );
+
+// // Foreground palette.
+// $custom-dark-theme-foreground: (
+//   base:              white,
+//   divider:           $light-dividers,
+//   dividers:          $light-dividers,
+//   disabled:          $light-disabled-text,
+//   disabled-button:   rgba(white, 0.3),
+//   disabled-text:     $light-disabled-text,
+//   elevation:         black,
+//   hint-text:         $light-disabled-text,
+//   secondary-text:    $light-secondary-text,
+//   icon:              white,
+//   icons:             white,
+//   text:              white,
+//   slider-min:        white,
+//   slider-off:        rgba(white, 0.3),
+//   slider-off-active: rgba(white, 0.3),
+// );
+
+// // Remplacement des palettes par défaut
+// $background: map-get($dark-theme, background);
+// $foreground: map-get($dark-theme, foreground);
+// $background: map_merge($background, $custom-dark-theme-background);
+// $dark-theme: map_merge($dark-theme, $custom-dark-theme-foreground);
+
+// $custom-background-color: #393b45;
+// $background: map_merge($background, (background: $custom-background-color));

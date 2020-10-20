@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
+import { delay } from "rxjs/operators";
 import { Category } from "../../model/category";
 import { CategoryService } from "../../services/category.service";
 
@@ -14,6 +15,6 @@ export class LeftSidenavComponent implements OnInit {
   constructor(private categoryService: CategoryService) {}
 
   ngOnInit(): void {
-    this.categories$ = this.categoryService.fetchCategories();
+    this.categories$ = this.categoryService.fetchCategories().pipe(delay(100));
   }
 }

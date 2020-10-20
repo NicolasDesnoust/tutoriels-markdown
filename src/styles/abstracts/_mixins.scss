@@ -1,0 +1,30 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+@import "variables";
+
+/* Breakpoint mixins */
+
+@mixin MONITOR_MEDIAQUERY {
+  @media screen and (min-width: #{$large-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin SMALLER_MONITOR_MEDIAQUERY {
+  @media screen and (min-width: #{$medium-breakpoint}) and (max-width: #{$large-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin TABLET_MEDIAQUERY {
+  @media screen and (min-width: #{$small-breakpoint}) and (max-width: #{$medium-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin MOBILE_MEDIAQUERY {
+  @media screen and (max-width: #{$small-breakpoint}) {
+    @content;
+  }
+}

@@ -13,6 +13,11 @@ export const CATEGORIES: Category[] = [
     posts: [POSTS[0]],
   },
   {
+    id: "vscode",
+    label: "Visual Studio Code",
+    posts: [POSTS[2]],
+  },
+  {
     id: "javascript",
     label: "Javascript",
     posts: [],

@@ -1,34 +1,39 @@
-::ng-deep #toc div {
-    font-size: 14px;
-}
+.toc {
+  margin: 2em 2em 2em 0;
+  padding-left: 12px;
+  border-left-width: 4px;
+  border-left-style: solid;
 
-::ng-deep #toc div a {
-    color: rgb(37, 37, 37);
-}
-
-::ng-deep #toc div a:hover {
-    color: rgb(24, 185, 104);
-    text-decoration: none;
-}
-
-#toc {
-    margin: 2em;
-    padding-left: 12px;
-    border-left: 4px solid #1bbe6c;
-}
-
-.toc-title span {
-    font-weight: bold;
-}
-
-.toc-title {
+  &__title {
     margin-bottom: 0.5em;
-}
+    span {
+      font-weight: 600;
+      font-size: 15px;
+    }
+  }
 
-::ng-deep #toc .h3 {
-    text-indent: .25in;
-}
+  &__expand-button {
+    mat-icon {
+      margin-right: 0.1em;
+    }
+  }
 
-::ng-deep mat-icon {
-    margin-right: 0.1em !important;
+  &__nav {
+    ul {
+      padding: 0;
+      margin-bottom: 0.5rem;
+      list-style-type: none;
+      li {
+        font-size: 14px;
+        &.li--for-h3 {
+          text-indent: 0.25in;
+        }
+        a {
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
 }

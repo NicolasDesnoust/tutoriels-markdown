@@ -1,35 +1,47 @@
-.app container {
+@import "abstracts/variables";
+// Local variables //? move to variables.scss ?
+$navbar-height: 50px;
+
+// Styles
+.main-layout-container {
   min-height: 100vh;
+  
+  .navbar {
+    height: $navbar-height;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    padding: 0;
+  }
 }
 
-app-navbar {
-  height: 70px;
-  position: sticky;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 2;
-  display: inline-block;
-  width: 100%;
+.mat-sidenav-container {
+  .mat-sidenav {
+    width: 268px;
+    top: $navbar-height;
+    position: fixed;
+    display: block;
+
+    &.right-sidenav {
+      background-color: inherit;
+      border: none;
+    }
+  }
+
+  .mat-sidenav-content {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
 }
 
-mat-sidenav {
-  width: 268px;
-  top: 70px !important;
-  position: fixed !important;
-}
-
-mat-sidenav-content {
-  background-color: #e8eaed;
-  width: 100%;
-  // margin-left: 268px;
-  display: flex;
-  justify-content: center;
-}
-
-.content-wrapper {
-  background-color: #fff;
+.main-content-wrapper {
   padding: 0;
   border-radius: 2px;
   width: 100%;
+  max-width: $medium-breakpoint;
 }

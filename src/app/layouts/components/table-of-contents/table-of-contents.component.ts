@@ -1,29 +1,41 @@
 import {
   Component,
+  ElementRef,
   Input,
+  NgZone,
   OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
 } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
-import { map, tap } from "rxjs/operators";
+import { BehaviorSubject, Observable } from "rxjs";
+import { first, map, tap } from "rxjs/operators";
 import {
   TableOfContentsService,
   TocHeader,
 } from "../../services/table-of-contents.service";
+
+import * as Gumshoe from "gumshoejs";
 
 @Component({
   selector: "app-table-of-contents",
   templateUrl: "./table-of-contents.component.html",
   styleUrls: ["./table-of-contents.component.scss"],
 })
-export class TableOfContentsComponent implements OnInit, OnChanges {
+export class TableOfContentsComponent implements OnInit, OnChanges, OnDestroy {
   @Input() limit: number;
   headers: TocHeader[];
   filteredHeaders$ = new BehaviorSubject<TocHeader[]>([]);
   expanded: boolean = false;
+  currentSection$: Observable<string>;
 
-  constructor(private tocService: TableOfContentsService) {}
+  private scrollSpy: Gumshoe;
+
+  constructor(
+    private tocService: TableOfContentsService,
+    private elementRef: ElementRef<HTMLElement>,
+    private zone: NgZone
+  ) {}
 
   ngOnInit() {
     const headers$ = this.tocService.tocContent$.pipe(
@@ -35,6 +47,12 @@ export class TableOfContentsComponent implements OnInit, OnChanges {
     );
 
     headers$.subscribe(this.filteredHeaders$);
+
+    // TODO: unsub / refactor
+    this.filteredHeaders$.subscribe((a) => {
+      console.log("new headers");
+      setTimeout((_) => this.setScrollSpy(), 2000);
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -51,5 +69,33 @@ export class TableOfContentsComponent implements OnInit, OnChanges {
       this.expanded = limit == null;
       this.filteredHeaders$.next(filteredHeaders);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.destroyScrollSpy();
+  }
+
+  destroyScrollSpy(): void {
+    if (this.scrollSpy) {
+      this.scrollSpy.destroy();
+    }
+  }
+
+  setScrollSpy(): void {
+    if (this.scrollSpy) {
+      this.scrollSpy.setup();
+      this.scrollSpy.detect();
+      return;
+    }
+
+    this.zone.onStable.pipe(first()).subscribe(() => {
+      const hostElement = this.elementRef.nativeElement;
+      const linkSelector = `${hostElement.tagName}.${hostElement.className} a`;
+      this.scrollSpy = new Gumshoe(linkSelector, {
+        offset: 64,
+        reflow: true,
+        navClass: "li--active",
+      });
+    });
   }
 }

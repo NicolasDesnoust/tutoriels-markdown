@@ -1,0 +1,40 @@
+.project-name {
+  margin-top: 0;
+  margin-bottom: 0.1rem;
+
+  @include MONITOR_MEDIAQUERY {
+    font-size: 3.25rem;
+  }
+
+  @include SMALLER_MONITOR_MEDIAQUERY {
+    font-size: 2.25rem;
+  }
+  @include TABLET_MEDIAQUERY {
+    font-size: 2.25rem;
+  }
+
+  @include MOBILE_MEDIAQUERY {
+    font-size: 1.75rem;
+  }
+}
+
+.project-tagline {
+  margin-bottom: 2rem;
+  font-weight: normal;
+  opacity: 0.7;
+
+  @include MONITOR_MEDIAQUERY {
+    font-size: 1.25rem;
+  }
+
+  @include SMALLER_MONITOR_MEDIAQUERY {
+    font-size: 1.15rem;
+  }
+  @include TABLET_MEDIAQUERY {
+    font-size: 1.15rem;
+  }
+
+  @include MOBILE_MEDIAQUERY {
+    font-size: 1rem;
+  }
+}

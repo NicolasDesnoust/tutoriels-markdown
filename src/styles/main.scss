@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+/*  1. Abstracts (Configuration and helpers)  */
+@import "abstracts/variables", "abstracts/functions", "abstracts/mixins";
+
+//* Vendors scripts are imported in angular.json file
+
+/*  2. Base  */
+@import "base/fonts", "base/typography", "base/base";
+
+/*  3. Layout-related sections  */
+@import "layouts/footer", "layouts/header";
+
+/*  4. Components  */
+@import "components/table", "components/button", "components/main-content",
+  "components/project", "components/skip-to-content", "components/custom-tag";
+
+/*  5. Themes  */
+@import "themes/material-theme";

@@ -8,23 +8,22 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
-// Modules externes
+// Autres modules externes
 import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
 //import { Renderer } from 'marked';
+const uslug = require("uslug");
+const renderer: MarkedRenderer = new MarkedRenderer();
 
 // Variables d'environnement, qui diffèrent si l'application est lancée en mode production ou non
 import { environment } from '../environments/environment';
 
 // Modules et composants de l'application
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app/app.component';
+import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { MaterialModule } from './shared/material/material.module';
 import { PostModule } from './feature-modules/posts/post.module';
 import { LayoutsModule } from './layouts/layouts.module';
-const uslug = require("uslug");
-
-const renderer: MarkedRenderer = new MarkedRenderer();
 
 function escape(html, encode) {
   if (encode) {
@@ -56,9 +55,9 @@ escape.escapeReplaceNoEncode = /[<>"']|&(?!#?\w+;)/g;
 let counter: number = 0;
 
 renderer.code = (code: string, language: string, isEscaped: boolean) => {
-  var added = '<div class="code-header"><button class="btn" data-clipboard-target="#code-' 
+  var added = '<div matTooltip="Info about the action" class="code-header"><button class="btn" data-clipboard-target="#code-' 
   + counter 
-  + '" style="color: black;"><i class="far fa-copy"></i></button></div>';
+  + '" style="color: black;"><i class="fas fa-copy"></i></button></div>';
 
   const codeHTML = added + "<div id='code-" + counter + "'>" + (new MarkedRenderer()).code(code, language, isEscaped) + "</div>";
   counter++;

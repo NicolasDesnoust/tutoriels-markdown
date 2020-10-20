@@ -1,22 +1,25 @@
-.app-container {
+// Local variables
+$navbar-height: 50px;
+$main-background-color: #e8eaed;
+
+.navbar-only-layout-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+
+  .navbar {
+    height: $navbar-height;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    padding: 0;
+  }
 }
 
-app-navbar {
-  height: 70px;
-  position: sticky;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 2;
-  display: inline-block;
-  width: 100%;
-}
-
-.content-wrapper {
-  background-color: #fff;
+.main-content-wrapper {
   padding: 0;
   border-radius: 2px;
   width: 100%;

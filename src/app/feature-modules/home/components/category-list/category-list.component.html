@@ -28,17 +28,8 @@
                 [routerLink]="'/tutoriels/' + post.category + '/' + post.id"
                 class="mr-4"
               >
-                {{ post.title }}
+                {{ post.title }} <mat-icon inline="true">east</mat-icon>
               </a>
-              <button
-                mat-flat-button
-                class="ml-auto"
-                color="primary"
-                style="background-color: #1bbe6c !important"
-                [routerLink]="'/tutoriels/' + post.category + '/' + post.id"
-              >
-                lire plus
-              </button>
             </div>
           </mat-card-content>
         </mat-card>

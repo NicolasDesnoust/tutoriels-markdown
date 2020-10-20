@@ -5,55 +5,88 @@ import {
   AngularFirestore,
 } from "@angular/fire/firestore";
 import { AngularFireStorage } from "@angular/fire/storage";
-import { Observable } from "rxjs";
+import { from, Observable } from "rxjs";
+import { map, tap } from "rxjs/operators";
 
 import { Post } from "src/app/feature-modules/posts/model/post";
+import { POSTS } from "../data/posts";
 import { PostService } from "./post.service";
 
-export class FirebasePostService {//implements PostService {
-  // postsCollection: AngularFirestoreCollection<Post>;
-  // postDoc: AngularFirestoreDocument<Post>;
+@Injectable()
+export class FirebasePostService implements PostService {
+  readonly postCollectionId: string = "posts";
+  postCollection: AngularFirestoreCollection<Post>;
+  postDoc: AngularFirestoreDocument<Post>;
 
-  // constructor(
-  //   private afs: AngularFirestore,
-  //   private afStorage: AngularFireStorage
-  // ) {
-  //   this.postsCollection = this.afs.collection("tutoriels", (ref) =>
-  //     ref.orderBy("published", "desc")
-  //   );
+  constructor(
+    private afs: AngularFirestore,
+    private afStorage: AngularFireStorage
+  ) {
+    this.postCollection = this.afs.collection(this.postCollectionId, (ref) =>
+      ref.orderBy("published", "desc")
+    );
+
+    // const spr = {
+    //   content: POSTS[1].content,
+    // };
+    // this.update("2020-05-07-dev-api-rest-avec-spring", spr);
+    // const vscode = {
+    //   content: POSTS[2].content,
+    // };
+    // this.update(POSTS[2].id, vscode);
+    // this.create(POSTS[2]);
+  }
+
+  getPosts(): Observable<Post[]> {
+    return this.postCollection
+      .valueChanges({ id: "id" })
+      .pipe(tap((posts) => console.log("get posts :" + JSON.stringify(posts))));
+    /*.pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Post
+          const title = a.payload.doc.id
+          return { title, ...data }
+        })
+      })
+    )*/
+  }
+
+  // getPostData(title: string) {
+  //   this.postDoc = this.afs.doc<Post>(`posts/${title}`);
+  //   return this.postDoc.valueChanges();
   // }
 
-  // getPosts(): Observable<Post[]> {
-  //   return this.postsCollection.valueChanges({ id: "id" });
-  //   /*.pipe(
-  //     map(actions => {
-  //       return actions.map(a => {
-  //         const data = a.payload.doc.data() as Post
-  //         const title = a.payload.doc.id
-  //         return { title, ...data }
-  //       })
-  //     })
-  //   )*/
+  getPost(title: string): Observable<Post> {
+    console.log(`${this.postCollectionId}/${title}`);
+    return this.afs
+      .doc<Post>(`${this.postCollectionId}/${title}`)
+      .valueChanges()
+      .pipe(tap((post) => console.log("get post: " + JSON.stringify(post))));
+  }
+
+  create(post: Post): Observable<void> {
+    const postData: Omit<Post, "id"> = Object.assign({}, post);
+    delete postData["id"];
+
+    const response = this.afs
+      .collection(this.postCollectionId)
+      .doc<Omit<Post, "id">>(post.id)
+      .set(postData);
+
+    return from(response);
+  }
+
+  // delete(title: string) {
+  //   return this.getPost(title).delete();
   // }
 
-  // // getPostData(title: string) {
-  // //   this.postDoc = this.afs.doc<Post>(`posts/${title}`);
-  // //   return this.postDoc.valueChanges();
-  // // }
+  update(id: string, partialPost: Partial<Post>): Observable<void> {
+    const response = this.afs
+      .collection(this.postCollectionId)
+      .doc<Post>(id)
+      .update(partialPost);
 
-  // getPost(title: string): Observable<Post> {
-  //   return this.afs.doc<Post>(`posts/${title}`).valueChanges();
-  // }
-
-  // // create(data: Post) {
-  // //   this.postsCollection.add(data);
-  // // }
-
-  // // delete(title: string) {
-  // //   return this.getPost(title).delete();
-  // // }
-
-  // // update(title: string, formData) {
-  // //   return this.getPost(title).update(formData);
-  // // }
+    return from(response);
+  }
 }

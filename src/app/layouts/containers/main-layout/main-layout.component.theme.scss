@@ -1,0 +1,34 @@
+@import "~@angular/material/theming";
+@import "abstracts/mixins";
+
+@mixin main-layout-component-theme($theme) {
+  $background: map-get($theme, background);
+
+  .main-layout-container {
+    .mat-sidenav-container {
+      .mat-sidenav {
+        .mat-expansion-panel {
+          border-bottom-color: #dadce01c;
+        }
+      }
+    }
+
+    .main-content-wrapper {
+      background: mat-color($background, card);
+
+      @include MONITOR_MEDIAQUERY {
+        border: 1px solid #dadce01c;
+      }
+
+      @include SMALLER_MONITOR_MEDIAQUERY {
+        border: 1px solid #dadce01c;
+      }
+      @include TABLET_MEDIAQUERY {
+        border: 0;
+      }
+      @include MOBILE_MEDIAQUERY {
+        border: 0;
+      }
+    }
+  }
+}

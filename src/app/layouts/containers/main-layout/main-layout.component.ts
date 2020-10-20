@@ -4,21 +4,21 @@ import {
   OnDestroy,
   OnInit,
   ViewChild,
-  ViewEncapsulation,
 } from "@angular/core";
 import { MatSidenav } from "@angular/material/sidenav";
 import { Subscription } from "rxjs";
 import {
   SMALLER_MONITOR_MEDIAQUERY,
   MONITOR_MEDIAQUERY,
-  MEDIAQUERIES, MOBILE_MEDIAQUERY, TABLET_MEDIAQUERY
+  MEDIAQUERIES,
+  MOBILE_MEDIAQUERY,
+  TABLET_MEDIAQUERY,
 } from "../../data/mediaqueries";
 
 @Component({
   selector: "app-main-layout",
   templateUrl: "./main-layout.component.html",
   styleUrls: ["./main-layout.component.scss"],
-  encapsulation: ViewEncapsulation.None,
 })
 export class MainLayoutComponent implements OnInit, OnDestroy {
   @ViewChild("sidenav", { static: true }) sidenav: MatSidenav;
@@ -26,6 +26,7 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
   showTableOfContents: boolean = true;
 
   showSideMenu: boolean = true;
+  showFullSearchBar: boolean = true;
   isOver: boolean = false;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
@@ -37,6 +38,7 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
         this.showSideMenu =
           state.breakpoints[SMALLER_MONITOR_MEDIAQUERY] ||
           state.breakpoints[MONITOR_MEDIAQUERY];
+        this.showFullSearchBar = !state.breakpoints[MOBILE_MEDIAQUERY];
         this.isOver =
           state.breakpoints[MOBILE_MEDIAQUERY] ||
           state.breakpoints[TABLET_MEDIAQUERY];

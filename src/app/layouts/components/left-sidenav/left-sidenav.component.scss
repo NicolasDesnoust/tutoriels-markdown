@@ -1,56 +1,39 @@
-mat-sidenav {
-  position: fixed;
-  display: inline-block;
-  height: 100%;
-  margin-top: 40px;
-}
-
-mat-nav-list {
-  background-color: #e8eaed !important;
-}
-
-mat-expansion-panel {
-  border-radius: 0;
-  border-bottom: 1px solid #dadce0;
-}
-
-.mat-list-base {
+.mat-nav-list {
   padding-top: 0;
 }
 
+.mat-expansion-panel {
+  border-radius: 0;
+  border-bottom: 1px solid #dadce0;
+
+  &-header-title {
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  &-body {
+    padding-top: 0.5rem;
+  }
+}
+
 .mat-list-item {
-  padding: 0;
-  padding-left: 0.5rem;
-}
+  padding: 0.3rem 0 0.3rem 0.3rem;
+  border-radius: 0.3rem;
+  height: auto;
 
-mat-panel-title {
-  font-weight: bold;
-  text-transform: capitalize;
-}
+  span {
+    font-size: smaller;
+    white-space: normal;
+    text-overflow: initial;
+  }
 
-::ng-deep .mat-expansion-panel-body {
-  padding-top: 0.5rem !important;
-}
+  &:hover {
+    text-decoration: none;
+  }
 
-a span {
-  font-size: smaller !important;
-  white-space: normal !important;
-  text-overflow: initial !important;
-  font-family: "Poppins", sans-serif !important;
-}
-
-.active-link span {
-  color: #106c3d;
-  font-weight: 500 !important;
-}
-
-a {
-  border-radius: 0.3rem !important;
-  height: auto !important;
-  padding-top: 0.3rem !important;
-  padding-bottom: 0.3rem !important;
-}
-
-.active-link {
-  background-color: #1bbe6c21;
+  &.active-link {
+    span {
+      font-weight: 500;
+    }
+  }
 }

@@ -1,0 +1,35 @@
+@import "~@angular/material/theming";
+
+@mixin left-sidenav-component-theme($theme) {
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $accent: map-get($theme, accent);
+
+  .mat-list-item {
+    span {
+      color: mat-color($foreground, text);
+    }
+
+    &.active-link {
+      background-color: mat-color($accent, A400, 10%);
+
+      span {
+        color: mat-color($accent);
+        transition: 0.2s ease-in;
+      }
+    }
+
+    &.active-link:hover,
+    &.active-link:focus {
+      background-color: mat-color($accent, A400, 10%);
+      span {
+        color: mat-color($accent, lighter);
+      }
+    }
+  }
+
+  .main-content-wrapper {
+    background: mat-color($background, card);
+    // border: 1px solid #dadce01c;
+  }
+}

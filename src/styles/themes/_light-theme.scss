@@ -1,0 +1,69 @@
+// $primary: (
+//   50 : #d6ebff,
+//   100 : #8ac4ff,
+//   200 : #52a8ff,
+//   300 : #0a85ff,
+//   400 : #0075eb,
+//   500 : #0066cc,
+//   600 : #0057ad,
+//   700 : #00478f,
+//   800 : #003870,
+//   900 : #002952,
+//   A100 : #cce5ff,
+//   A200 : #66b2ff,
+//   A400 : #007fff,
+//   A700 : #0073e6,
+//   contrast: (
+//     50 : $dark-primary-text,
+//     100 : $dark-primary-text,
+//     200 : $dark-primary-text,
+//     300 : $light-primary-text,
+//     400 : $light-primary-text,
+//     500 : $light-primary-text,
+//     600 : $light-primary-text,
+//     700 : $light-primary-text,
+//     800 : $light-primary-text,
+//     900 : $light-primary-text,
+//     A100 : $dark-primary-text,
+//     A200 : $dark-primary-text,
+//     A400 : $light-primary-text,
+//     A700 : $light-primary-text,
+//   )
+// );
+
+$primary: mat-palette($mat-green);
+
+// Background palette.
+$custom-light-theme-background: (
+  //   status-bar: black,
+  app-bar: white,
+  //map_get($mat-grey, 900),
+  background: #e8eaed,
+  //   hover:      rgba(white, 0.04),
+  //   card:       #2a2d35,//map_get($mat-grey, 800),
+  //   dialog:     #24262d,//map_get($mat-grey, 800),
+  //   disabled-button: rgba(white, 0.12),
+  //   raised-button: map-get($mat-grey, 800),
+  //   focused-button: $light-focused,
+  //   selected-button: map_get($mat-grey, 900),
+  //   selected-disabled-button: map_get($mat-grey, 800),
+  //   disabled-button-toggle: black,
+  //   unselected-chip: map_get($mat-grey, 700),
+  //   disabled-list-option: black,
+  //   tooltip: map_get($mat-grey, 700),
+);
+
+$light-primary: mat-palette($mat-green, 600, 400, 700);
+$light-accent: mat-palette($mat-green, 600, 400, 700);
+$light-warn: mat-palette($mat-red);
+$light-theme: mat-light-theme($light-primary, $light-accent, $light-warn);
+
+// Remplacement de la couleur de fond par défaut
+$background: map-get($light-theme, background);
+$background: map_merge($background, $custom-light-theme-background);
+$light-theme: map_merge(
+  $light-theme,
+  (
+    background: $background,
+  )
+);

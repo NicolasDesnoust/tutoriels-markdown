@@ -1,0 +1,37 @@
+@import "~@angular/material/theming";
+
+@mixin post-details-component-theme($theme) {
+  // $background: map-get($theme, background);
+  $accent: map-get($theme, accent);
+
+  .main-content {
+    blockquote {
+      padding: 0.7rem 1rem 0.7rem 1rem;
+      margin-left: 0;
+      border-color: mat-color($accent);
+      background-color: mat-color($accent, A400, 10%);
+      border-left-width: 4px;
+      border-left-style: solid;
+
+      > :first-child {
+        margin-top: 0;
+      }
+
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    table {
+      th,
+      td {
+        border: 1px solid #636f8566;
+        background-color: #1d1f21;
+      }
+    }
+    // code {
+    //   color: $code-text-color;
+    //   background-color: $code-bg-color;
+    // }
+  }
+}

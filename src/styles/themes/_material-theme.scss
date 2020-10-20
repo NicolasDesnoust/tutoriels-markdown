@@ -1,0 +1,99 @@
+@import "~@angular/material/theming";
+
+@import "light-theme";
+@import "dark-theme";
+
+@import "../../app/layouts/components/table-of-contents/table-of-contents.component.theme";
+@import "../app/layouts/containers/main-layout/main-layout.component.theme";
+@import "../app/feature-modules/posts/components/post-details/post-details.component.theme";
+@import "../app/layouts/components/navbar/navbar.component.theme";
+@import "../app/layouts/components/left-sidenav/left-sidenav.component.theme";
+@import "../app/feature-modules/home/components/category-list/category-list.component.theme";
+// @import "../app/shared/scrollspy-nav/scrollspy-nav.component.theme";
+
+/* Application d'un thème aux éléments HTML natifs */
+@mixin native-element-theme($theme, $name) {
+  $accent: map-get($theme, accent);
+  $primary: map-get($theme, primary);
+  $foreground: map-get($theme, foreground);
+
+  a {
+    color: mat-color($accent);
+    transition: 0.2s ease-in;
+    
+    &:hover, &:hover:visited {
+      color: mat-color($accent, lighter);
+      text-decoration: none;
+    }
+  }
+
+    a:active,
+    a:focus,
+    a:visited {
+      color: mat-color($accent);
+      text-decoration: none;
+    }
+
+  //   blockquote {
+  //     background: mat-color($primary, 300, 0.14);
+  //     border-left: 4px solid mat-color($accent);
+  //     border-radius: 4px;
+  //     color: soften-color(mat-color($foreground, base), 40%);
+  //     margin: 20px 0;
+  //     padding: 1px 20px;
+  //   }
+
+  //   code:not([class*="language-"]) {
+  //     background: mat-color($foreground, secondary-text, 0.07);
+  //     border-radius: 3px;
+  //     font-size: 0.94em;
+  //     padding: 0px 6px 2px;
+  //   }
+
+  //   hr {
+  //     border-color: mat-color($foreground, divider);
+  //     border-style: solid;
+  //     border-width: 1px 0 0 0;
+  //   }
+
+  //   table {
+  //     th {
+  //       color: mat-color($foreground, secondary-text);
+  //     }
+
+  //     td,
+  //     th {
+  //       border-bottom-color: mat-color($foreground, divider);
+  //     }
+  //   }
+}
+
+/**
+ * Applique un thème :
+ * - aux composants de la librairie angular material design
+ * - aux éléments natifs du HTML (a, ul, li, ...)
+ * - aux composants de ce projet
+ */
+@mixin theme($theme, $name) {
+  .#{$name}-theme {
+    @include angular-material-theme($theme);
+    @include native-element-theme($theme, $name);
+
+    //* Inclure ici les mixins de chaque composant ayant un thème
+    @include table-of-contents-component-theme($theme);
+    @include main-layout-component-theme($theme);
+    @include post-details-component-theme($theme);
+    @include navbar-component-theme($theme);
+    @include left-sidenav-component-theme($theme);
+    @include category-list-component-theme($theme);
+  }
+}
+
+@mixin material-core($font-family) {
+  $mat-typography: mat-typography-config($font-family);
+  @include mat-core($mat-typography); //! A inclure une seule fois
+}
+
+@include material-core($font-family);
+@include theme($light-theme, "light");
+@include theme($dark-theme, "dark");

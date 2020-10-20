@@ -1,8 +1,11 @@
-<div class="app-container">
-  <app-navbar [showToggleSidenav]="false"></app-navbar>
+<div class="navbar-only-layout-container">
+  <app-navbar class="navbar"
+    [showToggleSidenav]="false"
+    [showFullSearchBar]="false"
+  ></app-navbar>
 
   <!-- Main content -->
-  <main id="content" class="mat-elevation-z2 content-wrapper" role="main">
+  <div class="mat-elevation-z2 main-content-wrapper" role="main">
     <router-outlet></router-outlet>
-  </main>
+  </div>
 </div>

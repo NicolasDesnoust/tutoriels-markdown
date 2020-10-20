@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  useHash: true,
+  useHash: false, // cannot use hash strategy because of GumshoeJS 
+  dataSource: "local",
   firebase: {
     apiKey: "AIzaSyBcozj52O-KP9vMpvLirYEaHNkUw893Ouo",
     authDomain: "tutoriels-a6a99.firebaseapp.com",

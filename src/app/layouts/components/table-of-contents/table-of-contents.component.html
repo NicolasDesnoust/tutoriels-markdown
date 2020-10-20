@@ -3,21 +3,26 @@
     filteredHeaders: filteredHeaders$ | async
   } as observables"
 >
-  <div id="toc">
-    <div class="toc-title">
+  <div class="toc">
+    <div class="toc__title">
       <span>Sommaire</span>
     </div>
 
-    <div
-      *ngFor="let header of observables.filteredHeaders"
-      class="h{{ header.lvl }}"
-    >
-      <a routerLink="." fragment="{{ header.slug }}">
-        {{ header.content }}
-      </a>
-    </div>
+    <nav class="toc__nav">
+      <ul>
+        <li
+          *ngFor="let header of observables.filteredHeaders"
+          class="li--for-h{{ header.lvl }}"
+        >
+          <a routerLink="." routerLinkActive fragment="{{ header.slug }}">
+            {{ header.content }}
+          </a>
+        </li>
+      </ul>
+    </nav>
 
     <button
+      class="toc__expand-button"
       mat-icon-button
       *ngIf="limit && limit < headers.length"
       (click)="applyLimit(expanded ? limit : null)"

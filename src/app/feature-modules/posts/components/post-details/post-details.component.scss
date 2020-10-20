@@ -1,48 +1,146 @@
-::ng-deep .code-header {
-    background-color: #1d1f21;
-    display: flex;
-    justify-content: flex-end;
-    border-radius: 4px 4px 0 0;
-}
+@import "abstracts/variables";
+
+$code-background-color: #1d1f21;
+$copy-button-color: #94969b;
+$copy-button-hover-color: white;
 
 ::ng-deep .main-content {
-    padding: 2.5rem;
-}
+  padding: 2.5rem;
 
-::ng-deep .code-header .btn {
-    border: 0px !important;
-    background-color: rgba(255, 255, 255, 0);
-    margin: 0.3em;
-    margin-right: 0.5em;
+  div.toc {
     margin-bottom: 0;
-    font-size: 1.2em;
-    padding: 0;
-}
+    margin-left: 0;
+  }
 
-::ng-deep .btn i {
-    color: #94969b;
-}
+  markdown {
+    font-size: 15px;
 
-::ng-deep .btn i:hover {
-    color: white;
-}
+    h1 {
+      display: none;
+    }
+    h2 {
+      padding-top: 1rem;
+    }
 
-::ng-deep pre {
-    border: 0px !important;
-    border-radius: 0px 0px 4px 4px!important;
-    padding: 1.5em !important;
-    padding-bottom: 2em !important;
-    padding-top: 0 !important;
-}
+    > pre {
+      border: 0px;
+      border-radius: 0px 0px 4px 4px;
+      padding: 1.5em;
+      padding-bottom: 2em;
+      padding-top: 0;
 
-::ng-deep code {
-    padding-right: 1em !important;
-}
+      > code {
+        padding-right: 1em;
+      }
+    }
 
-::ng-deep markdown h1 {
-    display: none;
-}
+    .code-header {
+      background-color: $code-background-color;
+      display: flex;
+      justify-content: flex-end;
+      border-radius: 4px 4px 0 0;
 
-::ng-deep .main-content #toc {
-    margin-left: 0 !important;
+      .btn {
+        border: 0;
+        background-color: $code-background-color;
+        margin: 0.3em 0.5em 0 0.3em;
+        padding: 0;
+        font-size: 1.2em;
+        width: auto;
+
+        i {
+          color: $copy-button-color;
+
+          &:hover {
+            color: $copy-button-hover-color;
+          }
+        }
+      }
+    }
+
+    code {
+      padding: 2px 4px;
+      font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 0.9rem;
+      color: $code-text-color;
+      background-color: $code-bg-color;
+      border-radius: 0.3rem;
+    }
+
+    pre {
+      padding: 0.8rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      color: $code-text-color;
+      word-wrap: normal;
+      background-color: $code-bg-color;
+      border: solid 1px $border-color;
+      border-radius: 0.3rem;
+
+      > code {
+        padding: 0;
+        margin: 0;
+        font-size: 0.9rem;
+        color: $code-text-color;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+    }
+
+    .highlight {
+      margin-bottom: 1rem;
+
+      pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+    }
+
+    .highlight pre,
+    pre {
+      padding: 0.8rem;
+      overflow: auto;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      border-radius: 0.3rem;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    pre code,
+    pre tt {
+      display: inline;
+      max-width: initial;
+      padding: 0;
+      margin: 0;
+      overflow: initial;
+      line-height: inherit;
+      word-wrap: normal;
+      background-color: transparent;
+      border: 0;
+
+      &:before,
+      &:after {
+        content: normal;
+      }
+    }
+
+    > .code-header,
+    > div[id^="code-"] {
+      margin-left: -2.5rem;
+      margin-right: -2.5rem;
+      border-radius: 0;
+    }
+
+    > div[id^="code-"] {
+      > pre {
+        border-radius: 0;
+        border: 0;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+      }
+    }
+  }
 }

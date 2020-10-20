@@ -1,17 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MaterialModule } from './material/material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { MaterialModule } from "./material/material.module";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
 
 // Contient les composants partagés
-const COMPONENTS = [
-];
+const COMPONENTS = [];
 
 // Contient les pipes partagés
-const PIPES = [
-];
-
+const PIPES = [];
 
 @NgModule({
   imports: [
@@ -19,12 +16,9 @@ const PIPES = [
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
   ],
-  declarations: [
-    COMPONENTS,
-    PIPES
-  ],
+  declarations: [COMPONENTS, PIPES],
   exports: [
     COMPONENTS,
     PIPES,
@@ -32,7 +26,7 @@ const PIPES = [
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
-    MaterialModule
-  ]
+    MaterialModule,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}
