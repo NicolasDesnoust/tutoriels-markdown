@@ -24,6 +24,8 @@
         <!-- SUB ITEMS -->
         <a
           mat-list-item
+          [disableRipple]="true"
+          matRipple
           *ngFor="let post of category.posts"
           [routerLink]="'/tutoriels/' + post.category + '/' + post.id"
           routerLinkActive="active-link"

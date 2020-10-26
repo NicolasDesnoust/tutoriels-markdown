@@ -1,0 +1,39 @@
+<ng-container
+  *ngIf="{
+    categories: categories$ | async
+  } as observables"
+>
+  <section *ngIf="observables.categories">
+    <div class="row">
+      <ng-container *ngFor="let category of observables.categories">
+        <mat-card
+          *ngIf="category.posts.length > 0"
+          class="mat-elevation-z0 col-12 offset-sm-1 col-sm-10 offset-md-0 col-md-6"
+        >
+          <mat-card-header>
+            <mat-card-title>{{ category.label }}</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content>
+            <img
+              src="assets/images/{{ category.id }}.jpg"
+              alt="{{ category.id }} logo"
+              class="rounded mb-2"
+            />
+            <div
+              *ngFor="let post of category.posts"
+              class="d-flex align-items-center"
+            >
+              <a
+                [routerLink]="'/tutoriels/' + post.category + '/' + post.id"
+                class="mr-4 mb-1"
+              >
+                {{ post.title }} <mat-icon inline="true">east</mat-icon>
+              </a>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+    </div>
+  </section>
+</ng-container>

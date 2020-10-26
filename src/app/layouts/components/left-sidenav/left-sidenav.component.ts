@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { delay } from "rxjs/operators";
-import { Category } from "../../model/category";
-import { CategoryService } from "../../services/category.service";
+import { Category } from 'src/app/core/model/category';
+import { CategoryService } from 'src/app/core/services/category.service';
 
 @Component({
   selector: "app-left-sidenav",

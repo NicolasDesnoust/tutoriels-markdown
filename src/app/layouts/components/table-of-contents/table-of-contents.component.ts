@@ -10,12 +10,9 @@ import {
 } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { first, map, tap } from "rxjs/operators";
-import {
-  TableOfContentsService,
-  TocHeader,
-} from "../../services/table-of-contents.service";
 
 import * as Gumshoe from "gumshoejs";
+import { TocHeader, TableOfContentsService } from 'src/app/core/services/table-of-contents.service';
 
 @Component({
   selector: "app-table-of-contents",

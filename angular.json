@@ -32,7 +32,7 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles/main.scss",
               "src/styles/vendors/rouge-github.scss",
-              "src/styles/vendors/prism-themes/prism-atom-dark.css",
+              "src/styles/vendors/prism-themes/prism-vsc-dark-plus.css",
               "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
@@ -48,6 +48,7 @@
               "node_modules/prismjs/components/prism-css.min.js",
               "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js",
               "node_modules/marked/lib/marked.js",
+              "node_modules/emoji-toolkit/lib/js/joypixels.min.js",
               "node_modules/clipboard/dist/clipboard.js"
             ]
           },

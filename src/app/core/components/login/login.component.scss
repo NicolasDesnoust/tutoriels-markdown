@@ -1,0 +1,19 @@
+.login-container {
+  margin-bottom: 7rem;
+  min-width: 20rem;
+
+  .mat-card {
+    .mat-card-title {
+      margin-bottom: 2.5rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .login-button {
+        margin-top: 1rem;
+      }
+    }
+  }
+}

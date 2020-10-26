@@ -1,5 +1,5 @@
-<div class="navbar-container mat-elevation-z1">
-  <!-- Left content -->
+<mat-toolbar class="navbar-container">
+  <!-- Hamburger menu -->
   <div class="side-menu-container" *ngIf="showToggleSidenav">
     <button mat-icon-button (click)="toggleSidenav.emit()">
       <mat-icon>menu</mat-icon>
@@ -8,21 +8,22 @@
 
   <!-- Branding -->
   <div class="branding-container">
-    <a mat-button routerLink="/">Tutoriels N&V</a>
+    <a mat-flat-button routerLink="/">Tutoriels N&V</a>
   </div>
 
-  <!-- Right content -->
-  <div class="right-container">
-    <!-- Search Icon -->
-    <button mat-icon-button>
-      <mat-icon>search</mat-icon>
-    </button>
+  <span class="spacer"></span>
 
-    <!-- Theme switcher -->
-    <button mat-icon-button (click)="toggleTheme()">
-      <mat-icon> brightness_6 </mat-icon>
-    </button>
-
-    <a mat-button target="_blank">Connexion</a>
-  </div>
-</div>
+  <!-- Search Button -->
+  <button mat-icon-button>
+    <mat-icon>search</mat-icon>
+  </button>
+  <!-- Theme switcher -->
+  <button mat-icon-button (click)="toggleTheme()">
+    <mat-icon> brightness_6 </mat-icon>
+  </button>
+  <!-- Login button -->
+  <button *ngIf="!showFullLogin" mat-icon-button>
+    <mat-icon>login</mat-icon>
+  </button>
+  <a mat-button *ngIf="showFullLogin">Connexion</a>
+</mat-toolbar>

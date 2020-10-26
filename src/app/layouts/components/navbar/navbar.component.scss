@@ -6,22 +6,22 @@
   .side-menu-container {
     display: flex;
     align-items: center;
-    margin-left: 1rem;
   }
 
   .branding-container {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    
     a {
-
-      font-size: larger;
+      background: none;
+      font-size: smaller;
       text-decoration: none;
-      &:visited {
-        color: inherit;
-      }
     }
+  }
+
+  .spacer {
+    flex: 1 0 auto;
   }
 
   .right-container {

@@ -1,0 +1,19 @@
+<ng-container
+  *ngIf="{
+    post: post$ | async
+  } as observables"
+>
+  <div class="main-content" *ngIf="observables.post">
+    <h1>{{ observables.post.title }}</h1>
+
+    <app-table-of-contents *ngIf="showTableOfContents" limit="5">
+    </app-table-of-contents>
+
+    <markdown emoji
+      (error)="onError($event)"
+      [data]="observables.post.content"
+      (ready)="onReady(observables.post.content)"
+    >
+    </markdown>
+  </div>
+</ng-container>

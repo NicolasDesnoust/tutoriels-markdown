@@ -1,20 +1,48 @@
 @import "abstracts/variables";
 // Local variables //? move to variables.scss ?
 $navbar-height: 50px;
+$sub-navbar-height: 60px;
 
 // Styles
 .main-layout-container {
   min-height: 100vh;
-  
+
   .navbar {
     height: $navbar-height;
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 3;
     display: flex;
     width: 100%;
     padding: 0;
+  }
+
+  .sub-navbar {
+    top: $navbar-height;
+    position: fixed;
+    height: $sub-navbar-height;
+    z-index: 2;
+
+    markdown {
+      color: white;
+      font-weight: 400;
+      font-size: 14px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow-x: hidden;
+      margin-bottom: -12px;
+    }
+  }
+
+  .cd-auto-hide-header {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    transition: transform 0.4s ease;
+  }
+  .cd-auto-hide-header.is-hidden {
+    transform: translate3d(0, -101%, 0);
   }
 }
 
@@ -24,6 +52,25 @@ $navbar-height: 50px;
     top: $navbar-height;
     position: fixed;
     display: block;
+    height: 100%;
+
+    &.with-sub-navbar-visible {
+      ::ng-deep .mat-drawer-inner-container {
+        display: flex;
+        app-left-sidenav, app-table-of-contents {
+          padding-top: $sub-navbar-height;
+          transition: 0.4s ease;
+        }
+      }
+    }
+
+    &.without-sub-navbar {
+      ::ng-deep .mat-drawer-inner-container {
+        app-left-sidenav,app-table-of-contents {
+          transform: translate3d(0, -$sub-navbar-height, 0) !important;
+        }
+      }
+    }
 
     &.right-sidenav {
       background-color: inherit;
@@ -32,10 +79,15 @@ $navbar-height: 50px;
   }
 
   .mat-sidenav-content {
+    top: 0;
     width: 100%;
     display: flex;
     align-content: center;
     justify-content: center;
+
+    &.with-sub-navbar-visible {
+      margin-top: $sub-navbar-height;
+    }
   }
 }
 

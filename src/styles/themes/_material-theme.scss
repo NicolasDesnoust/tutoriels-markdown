@@ -5,11 +5,10 @@
 
 @import "../../app/layouts/components/table-of-contents/table-of-contents.component.theme";
 @import "../app/layouts/containers/main-layout/main-layout.component.theme";
-@import "../app/feature-modules/posts/components/post-details/post-details.component.theme";
+@import "../app/features/posts/components/post-details/post-details.component.theme";
 @import "../app/layouts/components/navbar/navbar.component.theme";
 @import "../app/layouts/components/left-sidenav/left-sidenav.component.theme";
-@import "../app/feature-modules/home/components/category-list/category-list.component.theme";
-// @import "../app/shared/scrollspy-nav/scrollspy-nav.component.theme";
+@import "../app/features/home/components/category-list/category-list.component.theme";
 
 /* Application d'un thème aux éléments HTML natifs */
 @mixin native-element-theme($theme, $name) {
@@ -20,19 +19,20 @@
   a {
     color: mat-color($accent);
     transition: 0.2s ease-in;
-    
-    &:hover, &:hover:visited {
+
+    &:hover,
+    &:hover:visited {
       color: mat-color($accent, lighter);
       text-decoration: none;
     }
   }
 
-    a:active,
-    a:focus,
-    a:visited {
-      color: mat-color($accent);
-      text-decoration: none;
-    }
+  a:active,
+  a:focus,
+  a:visited {
+    color: mat-color($accent);
+    text-decoration: none;
+  }
 
   //   blockquote {
   //     background: mat-color($primary, 300, 0.14);

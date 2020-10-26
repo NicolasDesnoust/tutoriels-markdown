@@ -8,7 +8,8 @@
 
   &-header-title {
     font-weight: 600;
-    text-transform: capitalize;
+    text-transform: uppercase;
+    font-size: smaller;
   }
 
   &-body {
@@ -18,8 +19,21 @@
 
 .mat-list-item {
   padding: 0.3rem 0 0.3rem 0.3rem;
-  border-radius: 0.3rem;
-  height: auto;
+  border-radius: 0;
+  // margin-bottom: 0.5rem;
+  height: auto !important;
+  padding: 0.5rem 0 0.5rem 0 !important;
+
+  &:first-of-type {
+    margin-top: 0.5rem;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+  }
+
+  &:last-of-type {
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+  }
 
   span {
     font-size: smaller;

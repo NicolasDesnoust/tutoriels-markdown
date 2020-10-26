@@ -22,8 +22,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { MaterialModule } from './shared/material/material.module';
-import { PostModule } from './feature-modules/posts/post.module';
-import { LayoutsModule } from './layouts/layouts.module';
+import { PostModule } from './features/posts/post.module';
+
 
 function escape(html, encode) {
   if (encode) {
@@ -80,7 +80,6 @@ renderer.code = (code: string, language: string, isEscaped: boolean) => {
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    LayoutsModule,
     MarkdownModule.forRoot({ 
       loader: HttpClient, 
       markedOptions: { 

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { LoginComponent } from './core/components/login/login.component';
 import { AuthLayoutComponent } from './layouts/containers/auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './layouts/containers/main-layout/main-layout.component';
 import { NavbarOnlyLayoutComponent } from './layouts/containers/navbar-only-layout/navbar-only-layout.component';
@@ -8,11 +9,26 @@ import { NavbarOnlyLayoutComponent } from './layouts/containers/navbar-only-layo
 const routes: Routes = [
   {
     path: '',
+    pathMatch: "full",
+    redirectTo: "home"
+  },
+  {
+    path: 'auth',
+    component: AuthLayoutComponent,
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
+      }
+    ],
+  },
+  {
+    path: '',
     component: NavbarOnlyLayoutComponent,
     children: [
       {
-        path: '',
-        loadChildren: () => import('./feature-modules/home/home.module').then(m => m.HomeModule)
+        path: 'home',
+        loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule)
       }
     ]
   },
@@ -22,20 +38,10 @@ const routes: Routes = [
     children: [
       {
         path: 'tutoriels',
-        loadChildren: () => import('./feature-modules/posts/post.module').then(m => m.PostModule)
+        loadChildren: () => import('./features/posts/post.module').then(m => m.PostModule)
       }
     ]
   },
-  // {
-  //   path: 'auth',
-  //   component: AuthLayoutComponent,
-  //   children: [
-  //     {
-  //       path: 'login',
-  //       loadChildren: () => import('./features-modules/login/login.module').then(m => m.LoginModule)
-  //     }
-  //   ],
-  // },
   { path: '**', redirectTo: '' }
 ];
 

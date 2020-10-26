@@ -2,9 +2,14 @@
 
 @mixin navbar-component-theme($theme) {
   $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
 
   .navbar-container {
     background: mat-color($background, app-bar);
     border-bottom: 1px solid #dadce01c;
+
+    a, button, a:hover, a:visited, a:hover:visited {
+      color: mat-color($foreground, text);
+    }
   }
 }
