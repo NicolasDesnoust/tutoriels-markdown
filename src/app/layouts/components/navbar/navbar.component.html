@@ -25,5 +25,5 @@
   <button *ngIf="!showFullLogin" mat-icon-button>
     <mat-icon>login</mat-icon>
   </button>
-  <a mat-button *ngIf="showFullLogin">Connexion</a>
+  <a mat-button *ngIf="showFullLogin" [routerLink]="['/auth/login']">Connexion</a>
 </mat-toolbar>

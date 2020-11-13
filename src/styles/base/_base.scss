@@ -22,3 +22,40 @@ h6::before {
   visibility: hidden;
   pointer-events: none;
 }
+
+.header-link {
+  vertical-align: middle;
+  width: 1.2rem;
+  pointer-events: none;
+  transition: visibility 0s linear 100ms;
+  visibility: hidden;
+
+  @include TABLET_MEDIAQUERY {
+    visibility: visible;
+  }
+
+  @include MOBILE_MEDIAQUERY {
+    visibility: visible;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  span {
+    margin-left: -1.4rem;
+    a {
+      margin-right: 0.2rem;
+    }
+  }
+
+  &:hover,
+  a:hover {
+    img {
+      visibility: visible;
+    }
+  }
+}

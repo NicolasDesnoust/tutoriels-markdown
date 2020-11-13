@@ -1,16 +1,18 @@
 // Color palettes.
 $dark-primary: mat-palette($mat-grey, 600, A200, 700);
-$dark-accent: mat-palette($mat-light-blue, 600, A200, 700);
+$dark-accent: mat-palette($mat-light-blue, 400, A200, 700);
 $dark-warn: mat-palette($mat-red);
 
 // Background palette.
 $custom-dark-theme-background: (
-  status-bar: black,
-  app-bar:    #24262d,//map_get($mat-grey, 900),
-  background: #393b45,
-  hover:      rgba(white, 0.04),
-  card:       #2a2d35,//map_get($mat-grey, 800),
-  dialog:     #24262d,//map_get($mat-grey, 800),
+  code-block:       #1d1f21,
+  status-bar:       black,
+  app-bar:          #24262d,//map_get($mat-grey, 900),
+  background:       #393b45,
+  login-background: #2a2d35,
+  hover:              rgba(white, 0.04),
+  card:             #2a2d35,//map_get($mat-grey, 800),
+  dialog:           #24262d,//map_get($mat-grey, 800),
   // status-bar: black,
   // app-bar:    white,//map_get($mat-grey, 900),
   // background: #2f3a52,

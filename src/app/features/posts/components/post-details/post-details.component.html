@@ -9,7 +9,7 @@
     <app-table-of-contents *ngIf="showTableOfContents" limit="5">
     </app-table-of-contents>
 
-    <markdown emoji
+    <markdown emoji testDir addCodeHeaders
       (error)="onError($event)"
       [data]="observables.post.content"
       (ready)="onReady(observables.post.content)"

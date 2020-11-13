@@ -1,0 +1,48 @@
+@import "~@angular/material/theming";
+
+@mixin easy-divider-component-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  $base-color: rgba(mat-color($foreground, base),  0.056);
+
+  .divider {
+    span {
+      &:first-child, &:last-child {
+        /* color changes in here */
+        background-image: -webkit-gradient(
+          linear,
+          0 0,
+          0 100%,
+          from($base-color),
+          to($base-color)
+        );
+        background-image: -webkit-linear-gradient(
+          180deg,
+          $base-color,
+          $base-color
+        );
+        background-image: -moz-linear-gradient(
+          180deg,
+          $base-color,
+          $base-color
+        );
+        background-image: -o-linear-gradient(
+          180deg,
+          $base-color,
+          $base-color
+        );
+        background-image: linear-gradient(
+          90deg,
+          $base-color,
+          $base-color
+        );
+      }
+
+      &:nth-child(2) {
+        color: rgba($base-color,  0.556);
+        padding: 0px 5px;
+        width: auto;
+        white-space: nowrap;
+      }
+    }
+  }
+}

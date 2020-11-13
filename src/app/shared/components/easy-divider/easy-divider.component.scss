@@ -1,0 +1,30 @@
+.divider {
+  /* minor cosmetics */
+  display: table;
+  font-weight: bold;
+  font-size: smaller;
+  text-align: center;
+  width: 75%; /* divider width */
+  margin: 1.5rem auto; /* spacing above/below */
+
+  span {
+    display: table-cell;
+    position: relative;
+
+    &:first-child,
+    &:last-child {
+      width: 50%;
+      top: 10px; /* adjust vertical align */
+      -moz-background-size: 100% 1.5px; /* line width */
+      background-size: 100% 1.5px; /* line width */
+      background-position: 0 0, 0 100%;
+      background-repeat: no-repeat;
+    }
+
+    &:nth-child(2) {
+      padding: 0px 5px;
+      width: auto;
+      white-space: nowrap;
+    }
+  }
+}

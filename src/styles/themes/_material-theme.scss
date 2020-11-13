@@ -9,12 +9,21 @@
 @import "../app/layouts/components/navbar/navbar.component.theme";
 @import "../app/layouts/components/left-sidenav/left-sidenav.component.theme";
 @import "../app/features/home/components/category-list/category-list.component.theme";
+@import "../app/core/components/login/login.component.theme";
+@import "../app/shared/components/easy-divider/easy-divider.component.theme";
 
 /* Application d'un thème aux éléments HTML natifs */
 @mixin native-element-theme($theme, $name) {
   $accent: map-get($theme, accent);
   $primary: map-get($theme, primary);
   $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  .header-link {
+    @if $is-dark {
+      filter: invert(1);
+    }
+  }
 
   a {
     color: mat-color($accent);
@@ -86,6 +95,8 @@
     @include navbar-component-theme($theme);
     @include left-sidenav-component-theme($theme);
     @include category-list-component-theme($theme);
+    @include login-component-theme($theme);
+    @include easy-divider-component-theme($theme);
   }
 }
 

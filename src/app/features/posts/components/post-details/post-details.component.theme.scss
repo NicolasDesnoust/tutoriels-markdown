@@ -1,8 +1,11 @@
 @import "~@angular/material/theming";
 
 @mixin post-details-component-theme($theme) {
-  // $background: map-get($theme, background);
+  $background: map-get($theme, background);
   $accent: map-get($theme, accent);
+
+  $code-background-color: mat-color($background, code-block);
+  $code-block-background-color: mat-color($background, code-block);
 
   .main-content {
     blockquote {
@@ -23,15 +26,39 @@
     }
 
     table {
+      background-color: #1d1f21;
+
       th,
       td {
         border: 1px solid #636f8566;
-        background-color: #1d1f21;
+      }
+
+      tbody {
+        tr:nth-child(odd) {
+          background-color: #5fb1e009;
+        }
       }
     }
-    // code {
-    //   color: $code-text-color;
-    //   background-color: $code-bg-color;
-    // }
+
+    .code-header {
+      background-color: $code-block-background-color;
+
+      .btn {
+        background-color: $code-block-background-color;
+      }
+    }
+
+    code {
+      background-color: $code-background-color;
+      color: mat-color($accent);
+    }
+
+    pre {
+      background-color: $code-block-background-color;
+
+      > code {
+        background-color: $code-block-background-color;
+      }
+    }
   }
 }
