@@ -27,7 +27,7 @@
   }
 
   h1 {
-    font-family: "Poppins";
+    font-family: 'Poppins';
     font-weight: 700;
     color: #012b45;
     font-size: 37px;
@@ -45,10 +45,10 @@
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 0px 0px;
     grid-template-areas:
-      "kuzzle main main main tile2 tile3 github"
-      "tile main main main ascenseur tile4 tile5"
-      "marble-wars main main main tile6 linked-in tile7"
-      "tile8 tile9 tutoriels tile10 np-c tile11 e-com";
+      'kuzzle main main main tile2 tile3 github'
+      'tile main main main ascenseur tile4 tile5'
+      'marble-wars main main main tile6 linked-in tile7'
+      'tile8 tile9 tutoriels tile10 np-c tile11 e-com';
 
     > div {
       overflow: hidden;
@@ -85,19 +85,13 @@
     height: 100%;
   }
 
-  div {
-    //   display: flex;
-    //   align-items: center;
-    //   justify-content: center;
-  }
-
-  [class^="tile"] {
+  [class^='tile'] {
     background-color: rgb(41, 41, 97);
   }
 
   .kuzzle {
     grid-area: kuzzle;
-    background: url("/assets/images/kuzzle-background.jpg") repeat center center;
+    background: url('/assets/images/kuzzle-background.jpg') repeat center center;
     background-size: cover;
     cursor: pointer;
   }
@@ -204,8 +198,8 @@
   .tile {
     grid-area: tile;
 
-    background-image: url("/assets/images/tile-03-part-01.png"),
-      url("/assets/images/tile-03-part-02.png");
+    background-image: url('/assets/images/tile-03-part-01.png'),
+      url('/assets/images/tile-03-part-02.png');
     background-position: left, right;
     background-repeat: no-repeat, no-repeat;
     background-size: contain, contain;
@@ -215,10 +209,10 @@
   .tile2 {
     grid-area: tile2;
 
-    background-image: url("/assets/images/tile-08-part-01.png"),
-      url("/assets/images/tile-08-part-02.png"),
-      url("/assets/images/tile-08-part-03.png"),
-      url("/assets/images/tile-08-part-04.png");
+    background-image: url('/assets/images/tile-08-part-01.png'),
+      url('/assets/images/tile-08-part-02.png'),
+      url('/assets/images/tile-08-part-03.png'),
+      url('/assets/images/tile-08-part-04.png');
     background-position: bottom, bottom, top, top;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-size: contain, contain, contain, contain;
@@ -228,9 +222,9 @@
   .tile3 {
     grid-area: tile3;
 
-    background-image: url("/assets/images/tile-04-part-01.png"),
-      url("/assets/images/tile-04-part-02.png"),
-      url("/assets/images/tile-04-part-03.png");
+    background-image: url('/assets/images/tile-04-part-01.png'),
+      url('/assets/images/tile-04-part-02.png'),
+      url('/assets/images/tile-04-part-03.png');
     background-position: left, top right, bottom left;
     background-repeat: repeat-y, no-repeat, no-repeat;
     background-size: contain, contain, contain;
@@ -252,9 +246,9 @@
   .tile5 {
     grid-area: tile5;
 
-    background-image: url("/assets/images/tile-07-part-01.png"),
-      url("/assets/images/tile-07-part-02.png"),
-      url("/assets/images/tile-07-part-03.png");
+    background-image: url('/assets/images/tile-07-part-01.png'),
+      url('/assets/images/tile-07-part-02.png'),
+      url('/assets/images/tile-07-part-03.png');
     background-position: bottom, top, top;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-size: contain, contain, contain;
@@ -264,8 +258,8 @@
   .tile6 {
     grid-area: tile6;
 
-    background-image: url("/assets/images/tile-09-part-01.png"),
-      url("/assets/images/tile-09-part-02.png");
+    background-image: url('/assets/images/tile-09-part-01.png'),
+      url('/assets/images/tile-09-part-02.png');
     background-position: center, top right;
     background-repeat: no-repeat, no-repeat;
     background-size: contain, contain;
@@ -275,9 +269,9 @@
   .tile7 {
     grid-area: tile7;
 
-    background-image: url("/assets/images/tile-06-part-01.png"),
-      url("/assets/images/tile-06-part-02.png"),
-      url("/assets/images/tile-06-part-03.png");
+    background-image: url('/assets/images/tile-06-part-01.png'),
+      url('/assets/images/tile-06-part-02.png'),
+      url('/assets/images/tile-06-part-03.png');
     background-position: top, bottom, bottom;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-size: contain, contain, contain;
@@ -287,9 +281,9 @@
   .tile8 {
     grid-area: tile8;
 
-    background-image: url("/assets/images/tile-04-part-01.png"),
-      url("/assets/images/tile-04-part-02.png"),
-      url("/assets/images/tile-04-part-03.png");
+    background-image: url('/assets/images/tile-04-part-01.png'),
+      url('/assets/images/tile-04-part-02.png'),
+      url('/assets/images/tile-04-part-03.png');
     background-position: left, top right, bottom left;
     background-repeat: repeat-y, no-repeat, no-repeat;
     background-size: contain, contain, contain;
@@ -298,7 +292,7 @@
 
   .tile9 {
     grid-area: tile9;
-    background: url("/assets/images/tile-02.jpg") center center;
+    background: url('/assets/images/tile-02.jpg') center center;
     background-repeat: no-repeat;
     background-size: contain;
     background-color: #fff;
@@ -307,8 +301,8 @@
   .tile10 {
     grid-area: tile10;
 
-    background-image: url("/assets/images/tile-05-part-01.png"),
-      url("/assets/images/tile-05-part-02.png");
+    background-image: url('/assets/images/tile-05-part-01.png'),
+      url('/assets/images/tile-05-part-02.png');
     background-position: left, right;
     background-repeat: no-repeat, no-repeat;
     background-size: contain, contain;
@@ -318,8 +312,8 @@
   .tile11 {
     grid-area: tile11;
 
-    background-image: url("/assets/images/tile-03-part-01.png"),
-      url("/assets/images/tile-03-part-02.png");
+    background-image: url('/assets/images/tile-03-part-01.png'),
+      url('/assets/images/tile-03-part-02.png');
     background-position: left, right;
     background-repeat: no-repeat, no-repeat;
     background-size: contain, contain;

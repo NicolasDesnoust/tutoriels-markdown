@@ -1,16 +1,16 @@
-@import "~@angular/material/theming";
+@import '~@angular/material/theming';
 
-@import "light-theme";
-@import "dark-theme";
+@import 'light-theme';
+@import 'dark-theme';
 
-@import "../../app/layouts/components/table-of-contents/table-of-contents.component.theme";
-@import "../app/layouts/containers/main-layout/main-layout.component.theme";
-@import "../app/features/posts/components/post-details/post-details.component.theme";
-@import "../app/layouts/components/navbar/navbar.component.theme";
-@import "../app/layouts/components/left-sidenav/left-sidenav.component.theme";
-@import "../app/features/home/components/category-list/category-list.component.theme";
-@import "../app/core/components/login/login.component.theme";
-@import "../app/shared/components/easy-divider/easy-divider.component.theme";
+@import '../../app/layouts/components/table-of-contents/table-of-contents.component.theme';
+@import '../app/layouts/containers/main-layout/main-layout.component.theme';
+@import '../app/features/posts/components/post-details/post-details.component.theme';
+@import '../app/layouts/components/navbar/navbar.component.theme';
+@import '../app/layouts/components/left-sidenav/left-sidenav.component.theme';
+@import '../app/features/home/components/category-list/category-list.component.theme';
+@import '../app/core/components/login/login.component.theme';
+@import '../app/shared/components/easy-divider/easy-divider.component.theme';
 
 /* Application d'un thème aux éléments HTML natifs */
 @mixin native-element-theme($theme, $name) {
@@ -106,5 +106,5 @@
 }
 
 @include material-core($font-family);
-@include theme($light-theme, "light");
-@include theme($dark-theme, "dark");
+@include theme($light-theme, 'light');
+@include theme($dark-theme, 'dark');

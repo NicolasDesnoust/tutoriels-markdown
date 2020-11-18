@@ -1,20 +1,19 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
   AngularFirestoreCollection,
   AngularFirestoreDocument,
   AngularFirestore,
-} from "@angular/fire/firestore";
-import { AngularFireStorage } from "@angular/fire/storage";
-import { from, Observable } from "rxjs";
-import { map, tap } from "rxjs/operators";
+} from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { from, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
-import { POSTS } from "../../../../data/posts";
 import { Post } from '../model/post';
-import { PostService } from "./post.service";
+import { PostService } from './post.service';
 
 @Injectable()
 export class FirebasePostService implements PostService {
-  readonly postCollectionId: string = "posts";
+  readonly postCollectionId: string = 'posts';
   postCollection: AngularFirestoreCollection<Post>;
   postDoc: AngularFirestoreDocument<Post>;
 
@@ -23,7 +22,7 @@ export class FirebasePostService implements PostService {
     private afStorage: AngularFireStorage
   ) {
     this.postCollection = this.afs.collection(this.postCollectionId, (ref) =>
-      ref.orderBy("published", "desc")
+      ref.orderBy('published', 'desc')
     );
 
     // const spr = {
@@ -39,8 +38,8 @@ export class FirebasePostService implements PostService {
 
   getPosts(): Observable<Post[]> {
     return this.postCollection
-      .valueChanges({ id: "id" })
-      .pipe(tap((posts) => console.log("get posts :" + JSON.stringify(posts))));
+      .valueChanges({ id: 'id' })
+      .pipe(tap((posts) => console.log('get posts :' + JSON.stringify(posts))));
     /*.pipe(
       map(actions => {
         return actions.map(a => {
@@ -62,16 +61,16 @@ export class FirebasePostService implements PostService {
     return this.afs
       .doc<Post>(`${this.postCollectionId}/${title}`)
       .valueChanges()
-      .pipe(tap((post) => console.log("get post: " + JSON.stringify(post))));
+      .pipe(tap((post) => console.log('get post: ' + JSON.stringify(post))));
   }
 
   create(post: Post): Observable<void> {
-    const postData: Omit<Post, "id"> = Object.assign({}, post);
-    delete postData["id"];
+    const postData: Omit<Post, 'id'> = Object.assign({}, post);
+    delete postData['id'];
 
     const response = this.afs
       .collection(this.postCollectionId)
-      .doc<Omit<Post, "id">>(post.id)
+      .doc<Omit<Post, 'id'>>(post.id)
       .set(postData);
 
     return from(response);

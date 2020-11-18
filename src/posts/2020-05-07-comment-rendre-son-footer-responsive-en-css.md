@@ -1,11 +1,30 @@
 # Comment rendre son footer responsive en CSS ?
 
-Voici comment rendre un footer responsive uniquement en **CSS**.  le footer sera toujours placé en dessous du contenu de la page. Si cette dernière déborde il ne sera pas fixé en bas et si le contenu est trop petit il se fixera en bas de la fenêtre du navigateur.
+Voici comment rendre un footer responsive uniquement en **CSS**. le footer sera toujours placé en dessous du contenu de la page. Si cette dernière déborde il ne sera pas fixé en bas et si le contenu est trop petit il se fixera en bas de la fenêtre du navigateur.
 
 ## Code
 
 ```css
-body { display: flex; flex-direction: column; min-height: 100vh; display: flex; flex-direction: column; min-height: 100vh; display: flex; flex-direction: column; min-height: 100vh; display: flex; flex-direction: column; min-height: 100vh; display: flex; flex-direction: column; min-height: 100vh; display: flex; flex-direction: column; min-height: 100vh; }
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 ```
 
 <ul class="nav nav-tabs">
@@ -18,13 +37,13 @@ body { display: flex; flex-direction: column; min-height: 100vh; display: flex; 
 
 ```css
 body {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .contenu {
-	flex-grow: 1;
+  flex-grow: 1;
 }
 ```
 
@@ -38,11 +57,12 @@ body {
 <head>
 	<meta charset="utf-8">
 
-	<title>Mon site</title>
-	<meta name="description" content="Description de mon site">
-	<meta name="author" content="Moi-même">
+    <title>Mon site</title>
+    <meta name="description" content="Description de mon site">
+    <meta name="author" content="Moi-même">
 
-	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -52,15 +72,16 @@ body {
 	<section class="contenu">
 		<h1>Bienvenue sur mon site !</h1>
 
-		<p>
-			Pour tester l'aspect responsive du footer, essayer 
-			de rajouter ou d'enlever du contenu ici et de 
-			redimensionner la fênetre du navigateur.
-		</p>
-	</section>
-	<footer>
-		
-	</footer>
+    	<p>
+    		Pour tester l'aspect responsive du footer, essayer
+    		de rajouter ou d'enlever du contenu ici et de
+    		redimensionner la fênetre du navigateur.
+    	</p>
+    </section>
+    <footer>
+
+    </footer>
+
 </body>
 </html>
 ```

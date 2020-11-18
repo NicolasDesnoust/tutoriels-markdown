@@ -1,4 +1,4 @@
-import { Observable, of } from "rxjs";
+import { Observable, of } from 'rxjs';
 
 import { PostService } from './post.service';
 import { Injectable } from '@angular/core';
@@ -15,7 +15,7 @@ export class LocalPostService implements PostService {
 
   getPost(id: string): Observable<Post> {
     const posts = POSTS.filter((post) => post.id === id);
-    
+
     if (posts.length > 0) {
       return of(posts[0]);
     } else {

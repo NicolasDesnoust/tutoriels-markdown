@@ -5,18 +5,18 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
-    // private token: TokenService,
-    // private startup: StartupService,
-    // private settings: SettingsService
-  ) {
+    private router: Router
+  ) // private token: TokenService,
+  // private startup: StartupService,
+  // private settings: SettingsService
+  {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.pattern('ng-matero')]],
       password: ['', [Validators.required, Validators.pattern('ng-matero')]],

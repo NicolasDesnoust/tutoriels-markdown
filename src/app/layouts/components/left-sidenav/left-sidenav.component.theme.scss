@@ -1,4 +1,4 @@
-@import "~@angular/material/theming";
+@import '~@angular/material/theming';
 
 @mixin left-sidenav-component-theme($theme) {
   $background: map-get($theme, background);

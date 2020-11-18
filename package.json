@@ -8,7 +8,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "format:test": "prettier \"src/**/*.{ts,html,md,scss,json}\" --list-different",
+    "format:write": "prettier \"src/**/*.{ts,html,md,scss,json}\" --write"
   },
   "private": true,
   "dependencies": {
@@ -31,12 +33,14 @@
     "@types/remarkable": "^1.7.1",
     "bootstrap": "^4.5.2",
     "clipboard": "^2.0.6",
+    "deepmerge": "^4.2.2",
     "emoji-toolkit": "^6.0.1",
     "firebase": "^7.14.3",
     "gumshoejs": "^5.1.2",
     "html-table-of-contents": "^0.1.1",
     "markdown-toc-unlazy": "^1.0.1",
     "ngx-clipboard": "^14.0.1",
+    "ngx-logger": "^4.1.9",
     "ngx-markdown": "^10.1.1",
     "process": "^0.11.10",
     "rxjs": "~6.5.4",
@@ -66,9 +70,11 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "prettier": "^2.1.2",
     "protractor": "~5.4.3",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "~3.7.5"
   }
 }

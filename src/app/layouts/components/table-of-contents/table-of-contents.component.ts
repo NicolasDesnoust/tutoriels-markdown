@@ -7,23 +7,26 @@ import {
   OnDestroy,
   OnInit,
   SimpleChanges,
-} from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
-import { first, map, tap } from "rxjs/operators";
+} from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { first, map, tap } from 'rxjs/operators';
 
-import * as Gumshoe from "gumshoejs";
-import { TocHeader, TableOfContentsService } from 'src/app/core/services/table-of-contents.service';
+import * as Gumshoe from 'gumshoejs';
+import {
+  TocHeader,
+  TableOfContentsService,
+} from 'src/app/core/services/table-of-contents.service';
 
 @Component({
-  selector: "app-table-of-contents",
-  templateUrl: "./table-of-contents.component.html",
-  styleUrls: ["./table-of-contents.component.scss"],
+  selector: 'app-table-of-contents',
+  templateUrl: './table-of-contents.component.html',
+  styleUrls: ['./table-of-contents.component.scss'],
 })
 export class TableOfContentsComponent implements OnInit, OnChanges, OnDestroy {
   @Input() limit: number;
   headers: TocHeader[];
   filteredHeaders$ = new BehaviorSubject<TocHeader[]>([]);
-  expanded: boolean = false;
+  expanded = false;
   currentSection$: Observable<string>;
 
   private scrollSpy: Gumshoe;
@@ -37,7 +40,7 @@ export class TableOfContentsComponent implements OnInit, OnChanges, OnDestroy {
   ngOnInit() {
     const headers$ = this.tocService.tocContent$.pipe(
       map((headers) =>
-        headers.filter((header) => header.lvl == 2 || header.lvl == 3)
+        headers.filter((header) => header.lvl === 2 || header.lvl === 3)
       ),
       tap((headers) => (this.headers = headers)),
       map((headers) => (this.limit ? headers.slice(0, this.limit) : headers))
@@ -47,13 +50,13 @@ export class TableOfContentsComponent implements OnInit, OnChanges, OnDestroy {
 
     // TODO: unsub / refactor
     this.filteredHeaders$.subscribe((a) => {
-      console.log("new headers");
+      console.log('new headers');
       setTimeout((_) => this.setScrollSpy(), 2000);
     });
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes["limit"]) {
+    if (changes.limit) {
       this.applyLimit(this.limit);
     }
   }
@@ -91,7 +94,7 @@ export class TableOfContentsComponent implements OnInit, OnChanges, OnDestroy {
       this.scrollSpy = new Gumshoe(linkSelector, {
         offset: 64,
         reflow: true,
-        navClass: "li--active",
+        navClass: 'li--active',
       });
     });
   }

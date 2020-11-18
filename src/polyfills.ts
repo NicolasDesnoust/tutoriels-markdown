@@ -55,7 +55,7 @@
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-import "zone.js/dist/zone"; // Included with Angular CLI.
+import 'zone.js/dist/zone'; // Included with Angular CLI.
 
 /***************************************************************************************************
  * APPLICATION IMPORTS
@@ -65,7 +65,7 @@ import "zone.js/dist/zone"; // Included with Angular CLI.
  * Polyfill required by markdown-toc
  */
 import * as process from 'process';
-window['process'] = process;
+window.process = process;
 
 (window as any).global = window;
 

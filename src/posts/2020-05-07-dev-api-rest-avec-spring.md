@@ -1,20 +1,23 @@
 # Développement d'une API REST avec Spring
 
 ## Introduction
-Ce mini-tutoriel permet d'explorer les possibilités de **Github Pages** et de la rédaction de tutoriels en **Markdown**. 
+
+Ce mini-tutoriel permet d'explorer les possibilités de **Github Pages** et de la rédaction de tutoriels en **Markdown**.
 Il s'agit principalement de présenter comment réaliser rapidement les fondements d'une **API REST** à l'aide du framework **Spring**.
-> **Attention :** Ce tutoriel n'est actuellement pas complet. 
+
+> **Attention :** Ce tutoriel n'est actuellement pas complet.
 
 ### Technologies
+
 Voici une liste exhaustive des technologies qui seront employées :
 
- - Spring REST
- - Spring Boot / Spring Initializr
- - Spring Data
- - Maven
- - Lombok
- - MySQL
- - JPA / Hibernate
+- Spring REST
+- Spring Boot / Spring Initializr
+- Spring Data
+- Maven
+- Lombok
+- MySQL
+- JPA / Hibernate
 
 ## Création du projet sur Spring Initializr
 
@@ -29,6 +32,7 @@ Ce dernier devrait se présenter sous la forme suivante :
 ## Configuration de la base de données
 
 La configuration de la base de données se réalise dans le fichier `src/main/resources/app.properties` :
+
 ```properties
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.hibernate.show_sql=true
@@ -49,6 +53,7 @@ spring.datasource.password=<mot-de-passe>
 ```
 
 ## Coloration syntaxique en Java
+
 ```java
 package adm.entities.education;
 
@@ -94,36 +99,36 @@ public class Education extends AbstractEntity {
 
 	@ManyToMany
 	@JoinTable(
-	  name = "ASSOC_FOR_DOM", 
-	  joinColumns = @JoinColumn(name = "CODE_FORMATION"), 
+	  name = "ASSOC_FOR_DOM",
+	  joinColumns = @JoinColumn(name = "CODE_FORMATION"),
 	  inverseJoinColumns = @JoinColumn(name = "CODE_DOMAINE"))
 	private Set<Domain> domains;
-	
+
 	@ManyToMany
 	@JoinTable(
-	  name = "ASSOC_FOR_ORG", 
-	  joinColumns = @JoinColumn(name = "CODE_FORMATION"), 
+	  name = "ASSOC_FOR_ORG",
+	  joinColumns = @JoinColumn(name = "CODE_FORMATION"),
 	  inverseJoinColumns = @JoinColumn(name = "CODE_ORGANISME"))
 	private Set<Organism> organisms;
-	
+
 	@ManyToMany
 	@JoinTable(
-	  name = "ASSOC_FOR_MOD", 
-	  joinColumns = @JoinColumn(name = "CODE_FORMATION"), 
+	  name = "ASSOC_FOR_MOD",
+	  joinColumns = @JoinColumn(name = "CODE_FORMATION"),
 	  inverseJoinColumns = @JoinColumn(name = "CODE_MODALITE"))
 	private Set<TeachingModality> modalities;
-	
+
 	@ManyToMany
 	@JoinTable(
-	  name = "ASSOC_FOR_SIT", 
-	  joinColumns = @JoinColumn(name = "CODE_FORMATION"), 
+	  name = "ASSOC_FOR_SIT",
+	  joinColumns = @JoinColumn(name = "CODE_FORMATION"),
 	  inverseJoinColumns = @JoinColumn(name = "CODE_SITE"))
 	private Set<TeachingSite> sites;
-	
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "id.education")
 	private Collection<Association> associations;
-	
+
 	public Education() {
 		domains = new HashSet<Domain>();
 		organisms = new HashSet<Organism>();
@@ -131,24 +136,26 @@ public class Education extends AbstractEntity {
 	}
 }
 ```
+
 ## Coloration syntaxique en HTML
+
 ```html
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-	
+  <head>
+    <meta charset="utf-8" />
+
     <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
+    <meta name="description" content="The HTML5 Herald" />
+    <meta name="author" content="SitePoint" />
 
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-</head>
+    <link rel="stylesheet" href="css/styles.css?v=1.0" />
+  </head>
 
-<body>
+  <body>
     <script src="js/scripts.js"></script>
-</body>
+  </body>
 </html>
 ```
 
@@ -174,7 +181,6 @@ You can delete the current file by clicking the **Remove** button in the file ex
 
 You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
 
-
 # Synchronization
 
 Synchronization is one of the biggest features of StackEdit. It enables you to synchronize any file in your workspace with other files stored in your **Google Drive**, your **Dropbox** and your **GitHub** accounts. This allows you to keep writing on other devices, collaborate with people you share the file with, integrate easily into your workflow... The synchronization mechanism takes place every minute in the background, downloading, merging, and uploading file modifications.
@@ -182,10 +188,11 @@ Synchronization is one of the biggest features of StackEdit. It enables you to s
 There are two types of synchronization and they can complement each other:
 
 - The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
-	> To start syncing your workspace, just sign in with Google in the menu.
+
+  > To start syncing your workspace, just sign in with Google in the menu.
 
 - The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
-	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
+  > Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
 
 ## Open a file
 
@@ -206,7 +213,6 @@ If you just have modified your file and you want to force syncing, click the **S
 ## Manage file synchronization
 
 Since one file can be synced with multiple locations, you can list and manage synchronized locations by clicking **File synchronization** in the **Synchronize** sub-menu. This allows you to list and remove synchronized locations that are linked to your file.
-
 
 # Publication
 
@@ -231,37 +237,33 @@ After publishing, StackEdit keeps your file linked to that publication which mak
 
 Since one file can be published to multiple locations, you can list and manage publish locations by clicking **File publication** in the **Publish** sub-menu. This allows you to list and remove publication locations that are linked to your file.
 
-
 # Markdown extensions
 
 StackEdit extends the standard Markdown syntax by adding extra **Markdown extensions**, providing you with some nice features.
 
 > **ProTip:** You can disable any **Markdown extension** in the **File properties** dialog.
 
-
 ## SmartyPants
 
 SmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:
 
-|                |ASCII                          |HTML                         |
-|----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
-|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
-|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
-
+|                  | ASCII                           | HTML                          |
+| ---------------- | ------------------------------- | ----------------------------- |
+| Single backticks | `'Isn't this fun?'`             | 'Isn't this fun?'             |
+| Quotes           | `"Isn't this fun?"`             | "Isn't this fun?"             |
+| Dashes           | `-- is en-dash, --- is em-dash` | -- is en-dash, --- is em-dash |
 
 ## KaTeX
 
 You can render LaTeX mathematical expressions using [KaTeX](https://khan.github.io/KaTeX/):
 
-The *Gamma function* satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
+The _Gamma function_ satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
 
 $$
 \Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
 $$
 
 > You can find more information about **LaTeX** mathematical expressions [here](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
-
 
 ## UML diagrams
 
@@ -288,4 +290,3 @@ A --> C(Round Rect)
 B --> D{Rhombus}
 C --> D
 ```
-

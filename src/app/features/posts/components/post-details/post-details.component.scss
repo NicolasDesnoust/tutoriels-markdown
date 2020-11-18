@@ -1,4 +1,4 @@
-@import "abstracts/variables";
+@import 'abstracts/variables';
 
 $code-background-color: #1f5994;
 $code-block-background-color: #1d1f21;
@@ -82,7 +82,7 @@ $code-blocks-padding: 2rem;
 
     code {
       padding: 2px 4px;
-      font-family: "Fira Code", Consolas, "Liberation Mono", Menlo, Courier,
+      font-family: 'Fira Code', Consolas, 'Liberation Mono', Menlo, Courier,
         monospace;
       border-radius: 0.3rem;
     }
@@ -91,7 +91,7 @@ $code-blocks-padding: 2rem;
       padding: 0.8rem;
       margin-top: 0;
       margin-bottom: 1rem;
-      font: 1rem "Fira Code", Consolas, "Liberation Mono", Menlo, Courier,
+      font: 1rem 'Fira Code', Consolas, 'Liberation Mono', Menlo, Courier,
         monospace;
       word-wrap: normal;
       background-color: $code-block-background-color;
@@ -149,13 +149,13 @@ $code-blocks-padding: 2rem;
     }
 
     > .code-header,
-    > div[id^="code-"] {
+    > div[id^='code-'] {
       margin-left: -$code-blocks-padding;
       margin-right: -$code-blocks-padding;
       border-radius: 0;
     }
 
-    > div[id^="code-"] {
+    > div[id^='code-'] {
       > pre {
         border-radius: 0;
         border: 0;

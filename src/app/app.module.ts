@@ -25,33 +25,31 @@ import { MarkdownRenderer } from './core/services/markdown-renderer.service';
 import { appInitializerProviders } from './core/initializers';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     AppRoutingModule,
     CoreModule,
     BrowserModule,
     HttpClientModule,
-    MarkdownModule.forRoot({ 
-      loader: HttpClient, 
-      markedOptions: { 
+    MarkdownModule.forRoot({
+      loader: HttpClient,
+      markedOptions: {
         provide: MarkedOptions,
         useValue: {
           renderer: new MarkdownRenderer(),
-          headerIds: true
-        }
+          headerIds: true,
+        },
       },
-      sanitize: SecurityContext.NONE
+      sanitize: SecurityContext.NONE,
     }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,
     BrowserAnimationsModule,
     PostModule,
-    MaterialModule
+    MaterialModule,
   ],
-  providers: [appInitializerProviders],
-  bootstrap: [AppComponent]
+  providers: [...appInitializerProviders],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

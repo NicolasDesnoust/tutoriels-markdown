@@ -1,5 +1,5 @@
-@import "~@angular/material/theming";
-@import "abstracts/mixins";
+@import '~@angular/material/theming';
+@import 'abstracts/mixins';
 
 @mixin main-layout-component-theme($theme) {
   $background: map-get($theme, background);
@@ -7,7 +7,6 @@
   $accent: map-get($theme, accent);
 
   .main-layout-container {
-
     .sub-navbar {
       background-color: mat-color($accent, 700);
     }

@@ -1,4 +1,4 @@
-@import "abstracts/mixins";
+@import 'abstracts/mixins';
 
 :host {
   display: flex;
@@ -21,7 +21,7 @@
 }
 
 .wrapper::before {
-  content: "";
+  content: '';
   position: fixed;
   top: 60%;
   right: 0;
@@ -38,8 +38,8 @@
 
   .mat-card {
     margin: 0 !important;
-      border: none;
-      background-color: transparent;
+    border: none;
+    background-color: transparent;
     padding: 2rem;
     max-width: 580px;
 

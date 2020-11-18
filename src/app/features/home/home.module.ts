@@ -12,7 +12,7 @@ import { LandingPageComponent } from './containers/landing-page/landing-page.com
 const COMPONENTS = [
   HomePageComponent,
   CategoryListComponent,
-  LandingPageComponent
+  LandingPageComponent,
 ];
 
 @NgModule({
@@ -21,7 +21,7 @@ const COMPONENTS = [
     SharedModule,
     HomeRoutingModule,
     PostModule,
-    MarkdownModule.forChild()
-  ]
+    MarkdownModule.forChild(),
+  ],
 })
-export class HomeModule { }
+export class HomeModule {}

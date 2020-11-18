@@ -13,10 +13,6 @@ export function hasKey<E>(enumeration: E, key: string): boolean {
  *
  * Si la chaîne de caractères n'existe pas, retourne la clé de l'énumération
  * passée en paramètres.
- *
- * @param enumeration
- * @param key
- * @param defaultEnum
  */
 export function toEnum<E>(
   enumeration: E,

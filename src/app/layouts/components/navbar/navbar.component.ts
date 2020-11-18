@@ -1,16 +1,16 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { FormControl } from "@angular/forms";
-import { Observable } from "rxjs";
-import { startWith, map } from "rxjs/operators";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { startWith, map } from 'rxjs/operators';
 import {
   Theme,
   ThemeHandler,
-} from "src/app/core/services/theme-handler.service";
+} from 'src/app/core/services/startup/theme-handler.service';
 
 @Component({
-  selector: "app-navbar",
-  templateUrl: "./navbar.component.html",
-  styleUrls: ["./navbar.component.scss"],
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
   myControl: FormControl = new FormControl();
@@ -25,10 +25,10 @@ export class NavbarComponent implements OnInit {
   constructor(private themeHandler: ThemeHandler) {}
 
   ngOnInit() {
-    this.options = ["css", "spring"]; // Rendre asynchrone quand la méthode sera dev.
+    this.options = ['css', 'spring']; // Rendre asynchrone quand la méthode sera dev.
 
     this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(""),
+      startWith(''),
       map((value) => this._filter(value))
     );
   }

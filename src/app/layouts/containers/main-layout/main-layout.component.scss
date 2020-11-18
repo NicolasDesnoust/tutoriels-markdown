@@ -1,4 +1,4 @@
-@import "abstracts/variables";
+@import 'abstracts/variables';
 // Local variables //? move to variables.scss ?
 $navbar-height: 50px;
 $sub-navbar-height: 60px;
@@ -57,7 +57,8 @@ $sub-navbar-height: 60px;
     &.with-sub-navbar-visible {
       ::ng-deep .mat-drawer-inner-container {
         display: flex;
-        app-left-sidenav, app-table-of-contents {
+        app-left-sidenav,
+        app-table-of-contents {
           padding-top: $sub-navbar-height;
           transition: 0.4s ease;
         }
@@ -66,7 +67,8 @@ $sub-navbar-height: 60px;
 
     &.without-sub-navbar {
       ::ng-deep .mat-drawer-inner-container {
-        app-left-sidenav,app-table-of-contents {
+        app-left-sidenav,
+        app-table-of-contents {
           transform: translate3d(0, -$sub-navbar-height, 0) !important;
         }
       }

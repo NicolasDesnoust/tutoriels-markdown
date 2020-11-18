@@ -1,52 +1,51 @@
-import { BreakpointObserver } from "@angular/cdk/layout";
-import { DOCUMENT } from "@angular/common";
-import { HostListener } from "@angular/core";
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { DOCUMENT } from '@angular/common';
+import { HostListener } from '@angular/core';
 import {
   Component,
   Inject,
   OnDestroy,
   OnInit,
-  Renderer2,
   ViewChild,
-} from "@angular/core";
-import { MatSidenav } from "@angular/material/sidenav";
-import { Subscription } from "rxjs";
+} from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { Subscription } from 'rxjs';
 import {
   SMALLER_MONITOR_MEDIAQUERY,
   MONITOR_MEDIAQUERY,
   MEDIAQUERIES,
   MOBILE_MEDIAQUERY,
   TABLET_MEDIAQUERY,
-} from "../../../../data/mediaqueries";
+} from '../../../../data/mediaqueries';
 
 @Component({
-  selector: "app-main-layout",
-  templateUrl: "./main-layout.component.html",
-  styleUrls: ["./main-layout.component.scss"],
+  selector: 'app-main-layout',
+  templateUrl: './main-layout.component.html',
+  styleUrls: ['./main-layout.component.scss'],
 })
 export class MainLayoutComponent implements OnInit, OnDestroy {
-  @ViewChild("sidenav", { static: true }) sidenav: MatSidenav;
+  @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
   private layoutChangesSubscription: Subscription;
-  showTableOfContents: boolean = true;
+  showTableOfContents = true;
 
-  showSideMenu: boolean = true;
-  showSubNavbar: boolean = true;
-  showFullSearchBar: boolean = true;
-  showFullLogin: boolean = true;
-  isOver: boolean = false;
+  showSideMenu = true;
+  showSubNavbar = true;
+  showFullSearchBar = true;
+  showFullLogin = true;
+  isOver = false;
 
-  private scrolling: boolean = false;
-  private lastScrollTopValue: number = 0;
-  hideNavbar: boolean = false;
+  private scrolling = false;
+  private lastScrollTopValue = 0;
+  hideNavbar = false;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     @Inject(DOCUMENT) private document: Document
   ) {}
 
-  @HostListener("document:scroll")
+  @HostListener('document:scroll')
   public onScroll() {
-    let scrollPosition: number =
+    const scrollPosition: number =
       this.document.documentElement.scrollTop || this.document.body.scrollTop;
 
     this.autoHideHeader(scrollPosition);

@@ -1,4 +1,4 @@
-@import "~@angular/material/theming";
+@import '~@angular/material/theming';
 
 @mixin table-of-contents-component-theme($theme) {
   $accent: map-get($theme, accent);
@@ -10,15 +10,8 @@
     &__nav {
       ul {
         li {
-          &.li--active {
-            a {
-              // transition: 0.1s ease-in;
-              // color: mat-color($accent, 700);
-            }
-          }
           &:not(.li--active) {
             a:not(:hover) {
-              // transition: 0.1s ease-in;
               color: mat-color($foreground, text);
             }
           }

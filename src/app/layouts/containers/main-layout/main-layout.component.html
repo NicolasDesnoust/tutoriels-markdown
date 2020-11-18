@@ -9,17 +9,24 @@
     (toggleSidenav)="sidenav.toggle()"
   ></app-navbar>
 
-  <mat-toolbar *ngIf="showSubNavbar"
+  <mat-toolbar
+    *ngIf="showSubNavbar"
     class="sub-navbar cd-auto-hide-header mat-elevation-z1"
-    [ngClass]="{ 'is-hidden': hideNavbar }"> 
-      <markdown emoji>:rocket: Si ça c'est pas un super sous-menu ! :tada:</markdown>
+    [ngClass]="{ 'is-hidden': hideNavbar }"
+  >
+    <markdown emoji
+      >:rocket: Si ça c'est pas un super sous-menu ! :tada:</markdown
+    >
   </mat-toolbar>
 
   <mat-sidenav-container class="d-flex">
     <!-- Left Sidenav -->
     <mat-sidenav
       #sidenav
-      [ngClass]="{ 'without-sub-navbar': hideNavbar, 'with-sub-navbar-visible': showSubNavbar }"
+      [ngClass]="{
+        'without-sub-navbar': hideNavbar,
+        'with-sub-navbar-visible': showSubNavbar
+      }"
       [mode]="isOver ? 'over' : 'side'"
       [opened]="showSideMenu"
       class="mat-elevation-z2"
@@ -28,7 +35,12 @@
     </mat-sidenav>
 
     <!-- Main content -->
-    <mat-sidenav-content [ngClass]="{ 'p-4': showSideMenu, 'with-sub-navbar-visible': showSubNavbar }">
+    <mat-sidenav-content
+      [ngClass]="{
+        'p-4': showSideMenu,
+        'with-sub-navbar-visible': showSubNavbar
+      }"
+    >
       <div class="mat-elevation-z2 main-content-wrapper" role="main">
         <router-outlet></router-outlet>
       </div>
@@ -37,7 +49,10 @@
     <!-- Right Sidenav -->
     <mat-sidenav
       mode="side"
-      [ngClass]="{ 'without-sub-navbar': hideNavbar, 'with-sub-navbar-visible': showSubNavbar  }"
+      [ngClass]="{
+        'without-sub-navbar': hideNavbar,
+        'with-sub-navbar-visible': showSubNavbar
+      }"
       position="end"
       opened
       class="mat-elevation-z0 right-sidenav"

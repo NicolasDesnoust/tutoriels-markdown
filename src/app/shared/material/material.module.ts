@@ -72,12 +72,11 @@ import { MatTableModule } from '@angular/material/table';
 //
 // Ripples
 //
-import {MatRippleModule} from '@angular/material/core'; 
+import { MatRippleModule } from '@angular/material/core';
 
 const modules: any[] = [
-  
   LayoutModule,
-  
+
   MatAutocompleteModule,
   MatCheckboxModule,
   MatDatepickerModule,
@@ -87,14 +86,14 @@ const modules: any[] = [
   MatSelectModule,
   MatSliderModule,
   MatSlideToggleModule,
-  
+
   //MatNativeDateModule,
   // MatMomentDateModule,
-  
+
   MatMenuModule,
   MatSidenavModule,
   MatToolbarModule,
-  
+
   MatCardModule,
   MatDividerModule,
   MatExpansionModule,
@@ -103,7 +102,7 @@ const modules: any[] = [
   MatStepperModule,
   MatTabsModule,
   MatTreeModule,
-  
+
   MatButtonModule,
   MatButtonToggleModule,
   MatBadgeModule,
@@ -111,21 +110,21 @@ const modules: any[] = [
   MatIconModule,
   MatProgressSpinnerModule,
   MatProgressBarModule,
-  
+
   MatBottomSheetModule,
   MatDialogModule,
   MatSnackBarModule,
   MatTooltipModule,
-  
+
   MatPaginatorModule,
   MatSortModule,
   MatTableModule,
 
-  MatRippleModule
+  MatRippleModule,
 ];
 
 @NgModule({
-  imports: [ ...modules ],
-  exports: [ ...modules ]
+  imports: [...modules],
+  exports: [...modules],
 })
 export class MaterialModule {}
