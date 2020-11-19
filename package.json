@@ -2,7 +2,7 @@
   "name": "tutoriels",
   "version": "0.0.0",
   "scripts": {
-    "deploy": "ng deploy --base-href=/github-pages-test/ --no-silent",
+    "deploy": "ng deploy --base-href=/github-pages-test/ --name=\"NicolasDesnoust\" --email=\"desnoust.nicolas451@gmail.com\" --no-silent",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
