@@ -42,3 +42,9 @@ jobs:
       - run: npm run deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Apply production configuration
+      run: | 
+        rm assets/config.json
+        cp assets/config-prod.json assets/config.json
+        rm assets/config-*.json
