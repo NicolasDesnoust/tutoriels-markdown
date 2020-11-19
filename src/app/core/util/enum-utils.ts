@@ -20,9 +20,7 @@ export function toEnum<E>(
   defaultEnum: E[keyof E]
 ): E[keyof E] {
   key = key.toUpperCase();
-  console.log(hasKey<E>(enumeration, key));
   if (hasKey<E>(enumeration, key)) {
-    console.log(key as keyof E);
     return enumeration[key as keyof E];
   } else {
     return defaultEnum;

@@ -30,40 +30,40 @@ export class Logger extends BaseStartupService {
     return obs$;
   }
 
-  trace(message, source, error) {
-    this.logger.trace(message, source, error);
+  trace(message: any, ...additional: any[]) {
+    this.logger.trace(message, ...additional);
   }
 
-  debug(message, source, error) {
-    this.logger.debug(message, source, error);
+  debug(message: any, ...additional: any[]) {
+    this.logger.debug(message, ...additional);
   }
 
-  info(message) {
-    this.logger.info(message);
+  info(message: any, ...additional: any[]) {
+    this.logger.info(message, ...additional);
   }
 
-  log(message, source, error) {
-    this.logger.log(message, source, error);
+  log(message: any, ...additional: any[]) {
+    this.logger.log(message, ...additional);
   }
 
-  warn(message, error) {
-    this.logger.warn(message, error);
+  warn(message: any, ...additional: any[]) {
+    this.logger.warn(message, ...additional);
   }
 
-  error(message, source, error) {
-    this.logger.error(message, source, error);
+  error(message: any, ...additional: any[]) {
+    this.logger.error(message, ...additional);
   }
 
-  fatal(message, source, error) {
-    this.logger.fatal(message, source, error);
+  fatal(message: any, ...additional: any[]) {
+    this.logger.fatal(message, ...additional);
   }
 }
 
 export class MyLoggerMonitor implements NGXLoggerMonitor {
   onLog(logObject: NGXLogInterface): void {
-    console.log(
-      'logging stuff to an API if we need a custom transport ',
-      logObject
-    );
+    // console.log(
+    //   'logging stuff to an API if we need a custom transport ',
+    //   logObject
+    // );
   }
 }

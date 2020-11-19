@@ -2,10 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
-import {
-  Theme,
-  ThemeHandler,
-} from 'src/app/core/services/startup/theme-handler.service';
+
+import { Theme } from 'src/app/core/model/theme';
+import { ThemeHandler } from 'src/app/core/services/startup/theme-handler.service';
 
 @Component({
   selector: 'app-navbar',
@@ -17,9 +16,9 @@ export class NavbarComponent implements OnInit {
   options: string[] = [];
   filteredOptions: Observable<string[]>;
 
-  @Input() showToggleSidenav: boolean = false;
-  @Input() showFullSearchBar: boolean = true;
-  @Input() showFullLogin: boolean = true;
+  @Input() showToggleSidenav = false;
+  @Input() showFullSearchBar = true;
+  @Input() showFullLogin = true;
   @Output() toggleSidenav = new EventEmitter<void>();
 
   constructor(private themeHandler: ThemeHandler) {}

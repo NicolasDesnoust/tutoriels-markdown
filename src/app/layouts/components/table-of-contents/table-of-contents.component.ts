@@ -50,8 +50,7 @@ export class TableOfContentsComponent implements OnInit, OnChanges, OnDestroy {
 
     // TODO: unsub / refactor
     this.filteredHeaders$.subscribe((a) => {
-      console.log('new headers');
-      setTimeout((_) => this.setScrollSpy(), 2000);
+      this.setScrollSpy();
     });
   }
 

@@ -2,7 +2,7 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
-import { LoggerModule, NgxLoggerLevel, LoggerConfig } from 'ngx-logger';
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { RouterModule } from '@angular/router';
 
 import { LoginComponent } from './components/login/login.component';

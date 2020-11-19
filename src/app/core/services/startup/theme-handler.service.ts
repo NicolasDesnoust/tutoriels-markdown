@@ -6,11 +6,7 @@ import { Observable, of } from 'rxjs';
 import { toEnum } from '../../util/enum-utils';
 import { BaseStartupService } from './base-startup.service';
 import { Logger } from './logger.service';
-
-export enum Theme {
-  LIGHT = 'light',
-  DARK = 'dark',
-}
+import { Theme } from '../../model/theme';
 
 /**
  * Service responsable des thèmes de l'application.
@@ -30,19 +26,25 @@ export class ThemeHandler extends BaseStartupService {
     return this._theme;
   }
 
+  /**
+   * Applique le thème sauvegardé dans le LocalStorage ou applique
+   * celui par défaut au démarrage de l'application.
+   */
   load(): Observable<void> {
     const savedTheme = localStorage.getItem('theme');
-    this.logger.info(`saved theme : ${savedTheme}`);
     const themeToApply = toEnum(Theme, savedTheme, Theme.LIGHT);
-    // this.logger.info(themeToApply);
-    // this.logger.trace(`trace log`, this, null);
-    // this.logger.info("working !");
+    this.logger.info(`Using ${themeToApply} theme`);
     this.updateTheme(themeToApply);
+
     return of(null); // TODO: change return type
   }
 
+  /**
+   * Met à jour le thème de l'application. 
+   */
   updateTheme(theme: Theme) {
     if (theme !== this.theme) {
+      const oldTheme = this._theme;
       this._theme = theme;
 
       const bodyClassList = this.document.querySelector('body').classList;
@@ -50,7 +52,7 @@ export class ThemeHandler extends BaseStartupService {
       if (removeClassList) {
         bodyClassList.remove(...removeClassList);
       }
-      console.log(`adding ${this._theme}-theme`);
+      this.logger.info(`Updating theme: ${oldTheme} -> ${theme}`);
       bodyClassList.add(`${this._theme}-theme`);
       localStorage.setItem('theme', this._theme);
     }
