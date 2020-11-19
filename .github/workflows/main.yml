@@ -45,6 +45,6 @@ jobs:
 
       - name: Apply production configuration
         run: | 
-          rm assets/config.json
-          cp assets/config-prod.json assets/config.json
-          rm assets/config-*.json
+          rm assets/config.json ||:
+          cp assets/config-prod.json assets/config.json ||:
+          rm assets/config-*.json ||:
