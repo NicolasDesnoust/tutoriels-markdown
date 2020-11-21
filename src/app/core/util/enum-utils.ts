@@ -19,6 +19,10 @@ export function toEnum<E>(
   key: string,
   defaultEnum: E[keyof E]
 ): E[keyof E] {
+  if (!key) {
+    return defaultEnum;
+  }
+
   key = key.toUpperCase();
   if (hasKey<E>(enumeration, key)) {
     return enumeration[key as keyof E];

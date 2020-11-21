@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 
 import { Theme } from 'src/app/core/model/theme';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { ThemeHandler } from 'src/app/core/services/startup/theme-handler.service';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,12 +18,20 @@ export class NavbarComponent implements OnInit {
   options: string[] = [];
   filteredOptions: Observable<string[]>;
 
+  isUserLoggedIn$: Observable<boolean>;
+
   @Input() showToggleSidenav = false;
   @Input() showFullSearchBar = true;
   @Input() showFullLogin = true;
   @Output() toggleSidenav = new EventEmitter<void>();
 
-  constructor(private themeHandler: ThemeHandler) {}
+  constructor(
+    private themeHandler: ThemeHandler,
+    private userService: UserService,
+    private authService: AuthService
+  ) {
+    this.isUserLoggedIn$ = this.userService.isLoggedIn$();
+  }
 
   ngOnInit() {
     this.options = ['css', 'spring']; // Rendre asynchrone quand la méthode sera dev.
@@ -45,5 +55,9 @@ export class NavbarComponent implements OnInit {
     return this.options.filter((option) =>
       option.toLowerCase().includes(filterValue)
     );
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

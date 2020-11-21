@@ -1,31 +1,51 @@
-<mat-toolbar class="navbar-container">
-  <!-- Hamburger menu -->
-  <div class="side-menu-container" *ngIf="showToggleSidenav">
-    <button mat-icon-button (click)="toggleSidenav.emit()">
-      <mat-icon>menu</mat-icon>
+<ng-container
+  *ngIf="{
+    isUserLoggedIn: isUserLoggedIn$ | async
+  } as observables"
+>
+  <mat-toolbar class="navbar-container">
+    <!-- Hamburger menu -->
+    <div class="side-menu-container" *ngIf="showToggleSidenav">
+      <button mat-icon-button (click)="toggleSidenav.emit()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+
+    <!-- Branding -->
+    <div class="branding-container">
+      <a mat-flat-button routerLink="/">Tutoriels N&V</a>
+    </div>
+
+    <span class="spacer"></span>
+
+    <!-- Search Button -->
+    <button mat-icon-button>
+      <mat-icon>search</mat-icon>
     </button>
-  </div>
+    <!-- Theme switcher -->
+    <button mat-icon-button (click)="toggleTheme()">
+      <mat-icon> brightness_6 </mat-icon>
+    </button>
+    <!-- Login button -->
+    <button
+      *ngIf="!observables.isUserLoggedIn && !showFullLogin"
+      mat-icon-button
+    >
+      <mat-icon>login</mat-icon>
+    </button>
+    <a
+      mat-button
+      *ngIf="!observables.isUserLoggedIn && showFullLogin"
+      [routerLink]="['/auth/login']"
+      >{{ observables.isUserLoggedIn ? 'Déconnexion' : 'Connexion' }}</a
+    >
 
-  <!-- Branding -->
-  <div class="branding-container">
-    <a mat-flat-button routerLink="/">Tutoriels N&V</a>
-  </div>
-
-  <span class="spacer"></span>
-
-  <!-- Search Button -->
-  <button mat-icon-button>
-    <mat-icon>search</mat-icon>
-  </button>
-  <!-- Theme switcher -->
-  <button mat-icon-button (click)="toggleTheme()">
-    <mat-icon> brightness_6 </mat-icon>
-  </button>
-  <!-- Login button -->
-  <button *ngIf="!showFullLogin" mat-icon-button>
-    <mat-icon>login</mat-icon>
-  </button>
-  <a mat-button *ngIf="showFullLogin" [routerLink]="['/auth/login']"
-    >Connexion</a
-  >
-</mat-toolbar>
+    <button
+      *ngIf="observables.isUserLoggedIn"
+      mat-icon-button
+      (click)="logout()"
+    >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </mat-toolbar>
+</ng-container>
