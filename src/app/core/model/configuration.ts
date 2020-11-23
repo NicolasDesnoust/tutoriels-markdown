@@ -14,4 +14,5 @@ export class Configuration {
   logging: {
     level: LoggerLevel;
   };
+  serverUrl: string;
 }

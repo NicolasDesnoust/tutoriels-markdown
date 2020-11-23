@@ -1,18 +1,22 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
-import { CATEGORIES } from '../../../data/categories';
 import { Category } from '../model/category';
+import { ConfigService } from './startup/config.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryService {
-  private categories: Category[] = CATEGORIES;
 
-  constructor() {}
+  private rootUrl = 'http://localhost:3000/';
+  
+  constructor(private http: HttpClient, private configService: ConfigService) {
+    this.rootUrl = `${this.configService.configuration.serverUrl}/categories`;
+  }
 
   public fetchCategories(): Observable<Category[]> {
-    return of(this.categories);
+    return this.http.get<Category[]>(this.rootUrl);
   }
 }

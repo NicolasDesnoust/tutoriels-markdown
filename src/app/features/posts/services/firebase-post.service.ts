@@ -36,6 +36,10 @@ export class FirebasePostService implements PostService {
     // this.create(POSTS[2]);
   }
 
+  savePost(post: Post): Observable<Post> {
+    throw new Error('Method not implemented.');
+  }
+
   getPosts(): Observable<Post[]> {
     return this.postCollection
       .valueChanges({ id: 'id' })

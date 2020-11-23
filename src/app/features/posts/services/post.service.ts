@@ -4,4 +4,5 @@ import { Post } from '../model/post';
 export interface PostService {
   getPosts(): Observable<Post[]>;
   getPost(id: string): Observable<Post>;
+  savePost(post: Post): Observable<any>;
 }

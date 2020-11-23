@@ -2,24 +2,31 @@ import { Observable, of } from 'rxjs';
 
 import { PostService } from './post.service';
 import { Injectable } from '@angular/core';
-import { POSTS } from 'src/data/posts';
 import { Post } from '../model/post';
+import { HttpClient } from '@angular/common/http';
+import { ConfigService } from 'src/app/core/services/startup/config.service';
 
 @Injectable()
 export class LocalPostService implements PostService {
-  constructor() {}
+  private rootUrl;
+
+  constructor(private http: HttpClient, private configService: ConfigService) {
+    this.rootUrl = `${this.configService.configuration.serverUrl}/posts`;
+  }
+
+  savePost(post: Post): Observable<any> {
+    if (post.id) {
+      return this.http.put<Post>(`${this.rootUrl}/${post.id}`, post);
+    } else {
+      return this.http.post<Post>(this.rootUrl, post);
+    }
+  }
 
   getPosts(): Observable<Post[]> {
-    return of(POSTS);
+    return this.http.get<Post[]>(this.rootUrl);
   }
 
   getPost(id: string): Observable<Post> {
-    const posts = POSTS.filter((post) => post.id === id);
-
-    if (posts.length > 0) {
-      return of(posts[0]);
-    } else {
-      return of(null);
-    }
+    return this.http.get<Post>(`${this.rootUrl}/${id}`);
   }
 }
