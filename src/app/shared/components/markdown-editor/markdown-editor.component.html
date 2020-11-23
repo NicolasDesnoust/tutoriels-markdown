@@ -1,0 +1,16 @@
+<div class="markdown-editor-container">
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Contenu</mat-label>
+      <textarea
+        id="textarea_id"
+        matInput
+        cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize"
+        cdkAutosizeMinRows="30"
+        [formControl]="control"
+      >
+      </textarea>
+    </mat-form-field>
+  </form>
+</div>

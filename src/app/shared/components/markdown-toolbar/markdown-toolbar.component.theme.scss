@@ -1,0 +1,11 @@
+@import '~@angular/material/theming';
+
+@mixin markdown-toolbar-component-theme($theme) {
+  $accent: map-get($theme, accent);
+
+  markdown-toolbar {
+    .btn:hover {
+      color: mat-color($accent);
+    }
+  }
+}

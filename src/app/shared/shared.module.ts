@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,12 +11,17 @@ import { CopyButtonComponent } from './components/copy-button/copy-button.compon
 import { ClipboardModule } from 'ngx-clipboard';
 import { AddCodeHeadersDirective } from './directives/add-code-headers.directive';
 import { EasyDividerComponent } from './components/easy-divider/easy-divider.component';
+import { MarkdownEditorComponent } from './components/markdown-editor/markdown-editor.component';
+import { MarkdownToolbarComponent } from './components/markdown-toolbar/markdown-toolbar.component';
+import { AutosizeModule } from 'ngx-autosize';
 
 // Contient les composants partagés
 const COMPONENTS = [
   RouterLinkComponent,
   CopyButtonComponent,
   EasyDividerComponent,
+  MarkdownEditorComponent,
+  MarkdownToolbarComponent,
 ];
 
 // Contient les pipes partagés
@@ -34,6 +39,7 @@ const DIRECTIVES = [ConvertLinksDirective, AddCodeHeadersDirective];
     ReactiveFormsModule,
     MaterialModule,
     ClipboardModule,
+    AutosizeModule,
   ],
   exports: [
     DIRECTIVES,
@@ -45,5 +51,6 @@ const DIRECTIVES = [ConvertLinksDirective, AddCodeHeadersDirective];
     ReactiveFormsModule,
     MaterialModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedModule {}

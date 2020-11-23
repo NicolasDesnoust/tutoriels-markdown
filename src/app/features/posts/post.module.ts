@@ -9,16 +9,17 @@ import { LocalPostService } from './services/local-post.service';
 import { environment } from 'src/environments/environment';
 import { FirebasePostService } from './services/firebase-post.service';
 import { LayoutsModule } from 'src/app/layouts/layouts.module';
+import { PostToolbarComponent } from './components/post-toolbar/post-toolbar.component';
 
 const COMPONENTS = [PostDetailsComponent, PostListComponent];
 
 @NgModule({
-  declarations: [...COMPONENTS],
+  declarations: [...COMPONENTS, PostToolbarComponent],
   imports: [
     SharedModule,
     LayoutsModule,
     PostRoutingModule,
-    MarkdownModule.forChild(),
+    MarkdownModule.forChild()
   ],
   exports: [PostListComponent],
   providers: [

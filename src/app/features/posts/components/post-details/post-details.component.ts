@@ -1,9 +1,16 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { TableOfContentsService } from 'src/app/core/services/table-of-contents.service';
+import { UserService } from 'src/app/core/services/user.service';
 import { MEDIAQUERIES, MONITOR_MEDIAQUERY } from 'src/data/mediaqueries';
 import { Post } from '../../model/post';
 import { PostService } from '../../services/post.service';
@@ -18,17 +25,29 @@ declare var ClipboardJS: any;
 export class PostDetailsComponent implements OnInit, OnDestroy {
   tags = [];
   post$: Observable<Post>;
+  userLoggedIn$: Observable<boolean>;
+  editMode = false;
 
   private layoutChangesSubscription: Subscription;
   showTableOfContents = true;
+
+  form: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private breakpointObserver: BreakpointObserver,
     private tocService: TableOfContentsService,
+    private _fb: FormBuilder,
+    private userService: UserService,
     @Inject('PostService') private postService: PostService
-  ) {}
+  ) {
+    this.userLoggedIn$ = this.userService.isLoggedIn$();
+  }
+
+  get descriptionControl() {
+    return this.form.controls.description as FormControl;
+  }
 
   ngOnDestroy() {
     this.layoutChangesSubscription.unsubscribe();
@@ -63,6 +82,31 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
       .subscribe((state) => {
         this.showTableOfContents = !state.breakpoints[MONITOR_MEDIAQUERY];
       });
+
+    this.form = this._fb.group({
+      title: new FormControl(''),
+      description: new FormControl(),
+    });
+
+    this.post$.subscribe((post: Post) => {
+      this.form.patchValue({ title: post.title, description: post.content });
+    });
+  }
+
+  /**
+   * Permet de basculer entre les modes edition et affichage
+   */
+  toggleEditMode() {
+    this.editMode = !this.editMode;
+  }
+
+  savePost(post: Post) {
+    const formValue = this.form.value;
+    post.content = formValue.description;
+    post.title = formValue.title;
+    this.postService.savePost(post).subscribe(result => {
+      this.editMode = false;
+    });
   }
 
   onError(error) {

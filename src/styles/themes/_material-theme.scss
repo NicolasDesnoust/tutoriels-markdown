@@ -11,6 +11,7 @@
 @import '../app/features/home/components/category-list/category-list.component.theme';
 @import '../app/core/components/login/login.component.theme';
 @import '../app/shared/components/easy-divider/easy-divider.component.theme';
+@import '../app/shared/components/markdown-toolbar/markdown-toolbar.component.theme';
 
 /* Application d'un thème aux éléments HTML natifs */
 @mixin native-element-theme($theme, $name) {
@@ -97,6 +98,7 @@
     @include category-list-component-theme($theme);
     @include login-component-theme($theme);
     @include easy-divider-component-theme($theme);
+    @include markdown-toolbar-component-theme($theme);
   }
 }
 
