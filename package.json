@@ -5,6 +5,8 @@
     "deploy": "ng deploy --base-href=/tutoriels-markdown/ --name=\"NicolasDesnoust\" --email=\"desnoust.nicolas451@gmail.com\" --no-silent",
     "ng": "ng",
     "start": "ng serve",
+    "start:frontend": "ng serve frontend",
+    "start:fake-backend": "json-server --watch fake-server/db.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -14,7 +16,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~9.0.3",
+    "@angular/animations": "^9.0.7",
     "@angular/cdk": "^9.2.3",
     "@angular/common": "~9.0.3",
     "@angular/compiler": "~9.0.3",

@@ -4,11 +4,11 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
-  Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { ROUTE_ANIMATIONS_ELEMENTS } from 'src/app/core/animations/route.animations';
 import { TableOfContentsService } from 'src/app/core/services/table-of-contents.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { MEDIAQUERIES, MONITOR_MEDIAQUERY } from 'src/data/mediaqueries';
@@ -32,6 +32,8 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
   showTableOfContents = true;
 
   form: FormGroup;
+  
+  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 
   constructor(
     private route: ActivatedRoute,
@@ -69,13 +71,14 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
       console.error('Trigger:', e.trigger);
     });
 
-    this.post$ = this.route.paramMap.pipe(
-      switchMap((params) => this.postService.getPost(params.get('id'))),
-      map((post: Post) => {
-        // post.content = JSON.parse(post.content);
-        return post;
-      })
-    );
+    // this.post$ = this.route.paramMap.pipe(
+    //   switchMap((params) => this.postService.getPost(params.get('id'))),
+    //   map((post: Post) => {
+    //     // post.content = JSON.parse(post.content);
+    //     return post;
+    //   })
+    // );
+    this.post$ = this.route.data.pipe(map((data: { post: Post }) => data.post));
 
     this.layoutChangesSubscription = this.breakpointObserver
       .observe([...MEDIAQUERIES])
@@ -104,7 +107,7 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
     const formValue = this.form.value;
     post.content = formValue.description;
     post.title = formValue.title;
-    this.postService.savePost(post).subscribe(result => {
+    this.postService.savePost(post).subscribe((result) => {
       this.editMode = false;
     });
   }

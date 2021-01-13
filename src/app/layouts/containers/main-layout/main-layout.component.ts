@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
+import { routeAnimations, ROUTE_ANIMATIONS_ELEMENTS } from 'src/app/core/animations/route.animations';
 import {
   SMALLER_MONITOR_MEDIAQUERY,
   MONITOR_MEDIAQUERY,
@@ -22,6 +23,7 @@ import {
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss'],
+  animations: [routeAnimations],
 })
 export class MainLayoutComponent implements OnInit, OnDestroy {
   @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
@@ -37,6 +39,8 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
   private scrolling = false;
   private lastScrollTopValue = 0;
   hideNavbar = false;
+  
+  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 
   constructor(
     private breakpointObserver: BreakpointObserver,

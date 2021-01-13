@@ -31,7 +31,7 @@
       [opened]="showSideMenu"
       class="mat-elevation-z2"
     >
-      <app-left-sidenav></app-left-sidenav>
+      <app-left-sidenav [ngClass]="routeAnimationsElements"></app-left-sidenav>
     </mat-sidenav>
 
     <!-- Main content -->
@@ -41,8 +41,12 @@
         'with-sub-navbar-visible': showSubNavbar
       }"
     >
-      <div class="mat-elevation-z2 main-content-wrapper" role="main">
-        <router-outlet></router-outlet>
+      <div
+        class="mat-elevation-z2 main-content-wrapper"
+        role="main"
+        [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.path"
+      >
+        <router-outlet #o="outlet"></router-outlet>
       </div>
     </mat-sidenav-content>
 

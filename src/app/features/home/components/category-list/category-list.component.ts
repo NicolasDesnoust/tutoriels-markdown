@@ -1,6 +1,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { ROUTE_ANIMATIONS_ELEMENTS } from 'src/app/core/animations/route.animations';
 
 import { Category } from 'src/app/core/model/category';
 import { CategoryService } from 'src/app/core/services/category.service';
@@ -13,6 +14,7 @@ import { MEDIAQUERIES, MOBILE_MEDIAQUERY } from 'src/data/mediaqueries';
 })
 export class CategoryListComponent implements OnInit, OnDestroy {
   categories$: Observable<Category[]>;
+  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 
   private layoutChangesSubscription: Subscription;
   showFullButtons = true;
