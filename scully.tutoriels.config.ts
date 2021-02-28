@@ -64,7 +64,7 @@ export const config: ScullyConfig = {
     },
   },
   puppeteerLaunchOptions: {
-    executablePath:
-      'C:\\Users\\desno\\AppData\\Local\\Chromium\\Application\\chrome.exe',
+    // executablePath:
+    //   'C:\\Users\\desno\\AppData\\Local\\Chromium\\Application\\chrome.exe',
   },
 };
