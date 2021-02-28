@@ -48,7 +48,7 @@
     "html-table-of-contents": "^0.1.1",
     "keen-slider": "^5.4.0",
     "markdown-toc-unlazy": "^1.0.1",
-    "marked": "^1.2.7",
+    "marked": "^2.0.0",
     "ngx-autosize": "^1.8.0",
     "ngx-clipboard": "^14.0.1",
     "ngx-logger": "^4.1.9",
