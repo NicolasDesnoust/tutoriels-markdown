@@ -4,7 +4,7 @@ import { RouteTypes, ScullyConfig, setPluginConfig } from '@scullyio/scully';
 // import { criticalCSS } from '@scullyio/scully-plugin-critical-css';
 import { docLink } from '@scullyio/scully-plugin-docs-link-update';
 import {MinifyHtml} from './scully/plugins/minifyHtmlPlugin';
-// import { baseHrefRewrite } from '@scullyio/scully-plugin-base-href-rewrite';
+import { baseHrefRewrite } from '@scullyio/scully-plugin-base-href-rewrite';
 
 // Community Plugins
 // import { CopyToClipboard } from '@scullyio/scully-plugin-copy-to-clipboard';
@@ -27,7 +27,7 @@ import 'prismjs/components/prism-properties.js';
 /* -------------------------------------------------------------------------- */
 
 setPluginConfig('md', { enableSyntaxHighlighting: true });
-// setPluginConfig(baseHrefRewrite, { href: '/tutoriels-markdown/' });
+setPluginConfig(baseHrefRewrite, { href: '/tutoriels-markdown/' });
 
 /* -------------------------------------------------------------------------- */
 /*                   Configuration de Scully pour le projet                   */
@@ -35,7 +35,7 @@ setPluginConfig('md', { enableSyntaxHighlighting: true });
 
 const defaultPostRenderers = [
   'seoHrefOptimise',
-  // baseHrefRewrite,
+  baseHrefRewrite,
   // criticalCSS,
   // CopyToClipboard,
   getFlashPreventionPlugin({ appRootSelector: 'app-root' }),
