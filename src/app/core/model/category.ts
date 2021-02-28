@@ -1,7 +1,8 @@
-import { Post } from 'src/app/features/posts/model/post';
+import { Post } from "./post";
 
 export class Category {
   id: string;
   label: string;
+  description: string;
   posts: Post[];
 }

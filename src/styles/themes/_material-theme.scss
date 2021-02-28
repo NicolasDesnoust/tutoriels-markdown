@@ -5,29 +5,58 @@
 
 @import '../../app/layouts/components/table-of-contents/table-of-contents.component.theme';
 @import '../app/layouts/containers/main-layout/main-layout.component.theme';
-@import '../app/features/posts/components/post-details/post-details.component.theme';
+@import '../app/features/blog/components/blog/blog.component.theme';
 @import '../app/layouts/components/navbar/navbar.component.theme';
 @import '../app/layouts/components/left-sidenav/left-sidenav.component.theme';
 @import '../app/features/home/components/category-list/category-list.component.theme';
-@import '../app/core/components/login/login.component.theme';
-@import '../app/shared/components/easy-divider/easy-divider.component.theme';
+@import '../app/features/category/containers/category-page/category-page.component.theme';
+@import '../app/features/home/containers/home-page.component.theme';
+@import '../app/shared/components/card-list/card-list.component.theme';
+@import '../app/layouts/components/sub-header/sub-header.component.theme';
 
 /* Application d'un thème aux éléments HTML natifs */
 @mixin native-element-theme($theme, $name) {
   $accent: map-get($theme, accent);
   $primary: map-get($theme, primary);
+  $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
   $is-dark: map-get($theme, is-dark);
 
-  .header-link {
-    @if $is-dark {
-      filter: invert(1);
+  .mat-elevation-z1 {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+
+  .mat-tooltip {
+    background-color: #313943;
+    letter-spacing: 0.03rem;
+  }
+
+  h2 .header-link svg {
+    padding-bottom: 0.4rem;
+  }
+  h3 .header-link svg {
+    padding-bottom: 0.2rem;
+  }
+
+  button {
+    &:hover .header-link svg {
+      color: mat-color($accent);
+    }
+
+    .header-link {
+      width: 1.2rem;
+      vertical-align: unset;
+
+      svg {
+        color: #47596b;
+        vertical-align: text-bottom;
+      }
     }
   }
 
   a {
     color: mat-color($accent);
-    transition: 0.2s ease-in;
+    // transition: 0.2s ease-in;
 
     &:hover,
     &:hover:visited {
@@ -41,6 +70,44 @@
   a:visited {
     color: mat-color($accent);
     text-decoration: none;
+  }
+
+  code {
+    font-weight: 500;
+    @if not($is-dark) {
+      border: 1px solid #edeeef;
+    }
+  }
+
+  table {
+    // background-color: mat-color($background, dialog);
+
+    th,
+    td {
+      @if $is-dark {
+        border: 1px solid #272829;
+      } @else {
+        border: 1px solid #e3e5e6;
+      }
+    }
+
+    thead tr th {
+      font-weight: 700;
+      background-color: mat-color($background, dialog);
+      text-transform: uppercase;
+      letter-spacing: 0.05rem;
+      font-size: 11px;
+    }
+
+    tbody {
+      tr:nth-child(even) {
+        background-color: mat-color($background, dialog);
+
+        code {
+          background-color: mat-color($background, background);
+        }
+      }
+    }
   }
 
   //   blockquote {
@@ -91,12 +158,14 @@
     //* Inclure ici les mixins de chaque composant ayant un thème
     @include table-of-contents-component-theme($theme);
     @include main-layout-component-theme($theme);
-    @include post-details-component-theme($theme);
+    @include blog-component-theme($theme);
     @include navbar-component-theme($theme);
     @include left-sidenav-component-theme($theme);
     @include category-list-component-theme($theme);
-    @include login-component-theme($theme);
-    @include easy-divider-component-theme($theme);
+    @include category-page-component-theme($theme);
+    @include home-page-component-theme($theme);
+    @include card-list-component-theme($theme);
+    @include sub-header-component-theme($theme);
   }
 }
 

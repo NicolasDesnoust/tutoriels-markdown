@@ -5,12 +5,9 @@
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
   $accent: map-get($theme, accent);
+  $is-dark: map-get($theme, is-dark);
 
   .main-layout-container {
-    .sub-navbar {
-      background-color: mat-color($accent, 700);
-    }
-
     .mat-sidenav-container {
       .mat-sidenav {
         .mat-expansion-panel {
@@ -19,22 +16,17 @@
       }
     }
 
-    .main-content-wrapper {
-      background: mat-color($background, card);
+    // .main-content-wrapper {
+    //   background: mat-color($background, card);
 
-      @include MONITOR_MEDIAQUERY {
-        border: 1px solid #dadce01c;
-      }
-
-      @include SMALLER_MONITOR_MEDIAQUERY {
-        border: 1px solid #dadce01c;
-      }
-      @include TABLET_MEDIAQUERY {
-        border: 0;
-      }
-      @include MOBILE_MEDIAQUERY {
-        border: 0;
-      }
-    }
+    //   @include SMALLER_MONITOR_AND_ABOVE_MEDIAQUERY {
+    //     @if $is-dark {
+    //       border: 1px solid #dadce01c;
+    //     }
+    //   }
+    //   @include TABLET_AND_BELOW_MEDIAQUERY {
+    //     border: 0;
+    //   }
+    // }
   }
 }

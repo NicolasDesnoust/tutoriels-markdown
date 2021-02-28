@@ -8,7 +8,7 @@ import {
   Inject,
   Injector,
 } from '@angular/core';
-import { CopyButtonComponent } from '../components/copy-button/copy-button.component';
+import { CopyButtonComponent } from '../components/copy-button.component';
 
 @Directive({
   selector: '[addCodeHeaders]',

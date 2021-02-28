@@ -15,5 +15,8 @@
 @import 'components/table', 'components/button', 'components/main-content',
   'components/project', 'components/skip-to-content', 'components/custom-tag';
 
-/*  5. Themes  */
+/* 5. Ugly fixes */
+@import 'shame';
+
+/*  6. Themes  */
 @import 'themes/material-theme';

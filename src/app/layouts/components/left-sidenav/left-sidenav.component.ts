@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { Component, Input } from '@angular/core';
+
 import { Category } from 'src/app/core/model/category';
-import { CategoryService } from 'src/app/core/services/category.service';
 
 @Component({
   selector: 'app-left-sidenav',
   templateUrl: './left-sidenav.component.html',
   styleUrls: ['./left-sidenav.component.scss'],
 })
-export class LeftSidenavComponent implements OnInit {
-  categories$: Observable<Category[]>;
+export class LeftSidenavComponent {
+  _categories: Category[] = [];
 
-  constructor(private categoryService: CategoryService) {}
+  @Input() set categories(categories: Category[]) {
+    // * Fix race condition with Routerlink Active
+    setTimeout(() => (this._categories = categories));
+  }
 
-  ngOnInit(): void {
-    this.categories$ = this.categoryService.fetchCategories().pipe(delay(100));
+  get categories() {
+    return this._categories;
   }
 }

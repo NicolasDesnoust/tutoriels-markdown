@@ -46,3 +46,9 @@ testem.log
 Thumbs.db
 
 .editorconfig
+
+# Scully
+.scully/
+scully.log
+scully/plugins/*.js
+scully/plugins/*.js.map

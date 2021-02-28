@@ -1,28 +1,26 @@
 // Modules d'Angular
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, SecurityContext } from '@angular/core';
+import { LOCALE_ID, NgModule, SecurityContext } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Modules permettant d'utiliser les fonctionnalités de Firebase
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-
 // Autres modules externes
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
-
-// Variables d'environnement, qui diffèrent si l'application est lancée en mode production ou non
-import { environment } from '../environments/environment';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 // Modules et composants de l'application
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { MaterialModule } from './shared/material/material.module';
-import { PostModule } from './features/posts/post.module';
+import { MaterialModule } from './shared/modules/material.module';
 import { MarkdownRenderer } from './core/services/markdown-renderer.service';
 import { appInitializerProviders } from './core/initializers';
+import { LayoutsModule } from './layouts/layouts.module';
+
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+
+registerLocaleData(localeFr, 'fr-FR');
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +29,7 @@ import { appInitializerProviders } from './core/initializers';
     CoreModule,
     BrowserModule,
     HttpClientModule,
+    LayoutsModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       markedOptions: {
@@ -42,14 +41,17 @@ import { appInitializerProviders } from './core/initializers';
       },
       sanitize: SecurityContext.NONE,
     }),
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    AngularFireStorageModule,
     BrowserAnimationsModule,
-    PostModule,
     MaterialModule,
+    ScullyLibModule.forRoot({
+      alwaysMonitor: true,
+      useTransferState: true,
+    }),
   ],
-  providers: [...appInitializerProviders],
+  providers: [
+    ...appInitializerProviders,
+    { provide: LOCALE_ID, useValue: 'fr-FR' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

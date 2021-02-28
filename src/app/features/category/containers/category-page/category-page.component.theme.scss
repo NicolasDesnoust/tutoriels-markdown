@@ -1,0 +1,44 @@
+@import '~@angular/material/theming';
+
+@mixin category-page-component-theme($theme) {
+  $is-dark: map-get($theme, is-dark);
+  $primary: map-get($theme, primary);
+  $background: map-get($theme, background);
+
+  .band {
+    background-color: map-get($background, background);
+
+    @if $is-dark {
+      background-image: linear-gradient(102.1deg, #0288d1 61%, #0c7cce 61.1%);
+    } @else {
+      background-image: linear-gradient(102.1deg, #1e8d90 61%, #178487 61.1%);
+    }
+
+    .container {
+      .home_hero h1 {
+        // color: mat-color($primary);
+      }
+    }
+  }
+
+  .category-page {
+    @if $is-dark {
+      background-color: #0a0d12;
+    } @else {
+      background-color: #f1f3f8;
+    }
+  }
+
+  .category-title,
+  .category-description {
+    // @if not $is-dark {
+      color: white;
+    // }
+  }
+
+  .category-header {
+    @if not $is-dark {
+      background-color: #f6f7fc;
+    }
+  }
+}

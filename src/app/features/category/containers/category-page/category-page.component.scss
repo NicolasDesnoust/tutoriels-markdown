@@ -1,0 +1,67 @@
+@import 'abstracts/mixins';
+
+.category-icon {
+  width: auto;
+  height: 42px;
+  margin-right: 1rem;
+}
+
+:host {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.category-title {
+  font-family: 'Brandon Grotesque';
+  font-size: 30px;
+  display: inline-block;
+  margin-bottom: 0 !important;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.category-header {
+  background-image: url('/assets/sw_ov_intro_hero.svg');
+  background-size: cover;
+}
+
+.band {
+  padding: 30px 0;
+  background-size: cover;
+
+  .container {
+    max-width: 1440px;
+
+    .home_hero h1 {
+      margin-bottom: 20px;
+    }
+
+    .home_hero .intro-hero-img {
+      height: 1000px;
+      width: 650px;
+      top: -290px;
+      position: absolute;
+      right: -75px;
+      z-index: 0;
+    }
+  }
+}
+
+main {
+  overflow-x: -moz-hidden-unscrollable;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+
+  @include TABLET_MEDIAQUERY {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+
+  @include MOBILE_MEDIAQUERY {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

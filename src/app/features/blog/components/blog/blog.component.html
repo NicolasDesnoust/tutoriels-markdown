@@ -1,0 +1,31 @@
+<ng-container
+  *ngIf="{
+    post: post$ | async
+  } as observables"
+>
+  <div class="main-blog">
+    <h1 *ngIf="currentPost$ | async as currentPost">
+      {{ currentPost.title }}
+    </h1>
+
+    <div class="inner-toc">
+      <app-table-of-contents limit="5"></app-table-of-contents>
+    </div>
+
+    <!-- This is where Scully will inject the static HTML -->
+    <div class="blog-content">
+      <markdown
+        emoji
+        testDir
+        addCodeHeaders
+        (error)="onError($event)"
+        [data]="observables.post"
+        (ready)="onReady(observables.post)"
+      >
+      </markdown>
+      <div style="display: none">
+        <scully-content *ngIf="isScullyRunning"></scully-content>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -16,9 +16,29 @@
     @content;
   }
 }
+@mixin SMALLER_MONITOR_AND_ABOVE_MEDIAQUERY {
+  @media screen and (min-width: #{$medium-breakpoint}) {
+    @content;
+  }
+}
+@mixin SMALLER_MONITOR_AND_BELOW_MEDIAQUERY {
+  @media screen and (max-width: #{$large-breakpoint}) {
+    @content;
+  }
+}
 
 @mixin TABLET_MEDIAQUERY {
   @media screen and (min-width: #{$small-breakpoint}) and (max-width: #{$medium-breakpoint}) {
+    @content;
+  }
+}
+@mixin TABLET_AND_ABOVE_MEDIAQUERY {
+  @media screen and (min-width: #{$small-breakpoint}) {
+    @content;
+  }
+}
+@mixin TABLET_AND_BELOW_MEDIAQUERY {
+  @media screen and (max-width: #{$medium-breakpoint}) {
     @content;
   }
 }

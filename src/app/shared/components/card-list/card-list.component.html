@@ -1,0 +1,66 @@
+<mat-list>
+  <div mat-subheader>{{ title }}</div>
+
+  <mat-card
+    class="mat-elevation-z0"
+    mat-list-item
+    *ngFor="let item of paginatedItems"
+    style="margin-bottom: 1rem; border-radius: 0.3rem"
+    [routerLink]="item.route"
+    matRipple
+    [matRippleDisabled]="cardRippleDisabled"
+  >
+    <div
+      *ngIf="item.header"
+      style="font-size: 12px; letter-spacing: 0.05rem"
+      mat-line
+    >
+      {{ item.header }}
+    </div>
+    <h2
+      style="font-size: 18px; margin: 0 !important; font-weight: 500"
+      mat-line
+    >
+      {{ item.title }}
+    </h2>
+    <div
+      class="post-description"
+      style="white-space: normal; padding-bottom: 1rem"
+      mat-line
+    >
+      {{ item.body }}
+    </div>
+    <mat-chip-list
+      *ngIf="item.footer"
+      aria-label="Post selection"
+      class="post-date"
+      mat-line
+    >
+      <mat-chip
+        class="mat-elevation-z0"
+        click-stop-propagation
+        (click)="$event.stopPropagation()"
+        (mousedown)="cardRippleDisabled = true"
+        (mouseup)="cardRippleDisabled = false"
+        style="
+          min-width: 5rem;
+          justify-content: center;
+          background-color: rgba(56, 139, 253, 0.1);
+        "
+      >
+        {{ item.footer }}
+      </mat-chip>
+    </mat-chip-list>
+  </mat-card>
+</mat-list>
+
+<div class="d-flex justify-content-center mt-4">
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="loadMoreItems()"
+    [disabled]="paginatedItems?.length === items?.length"
+  >
+    voir plus
+  </button>
+</div>

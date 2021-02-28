@@ -87,14 +87,14 @@ export class TableOfContentsComponent implements OnInit, OnChanges, OnDestroy {
       return;
     }
 
-    this.zone.onStable.pipe(first()).subscribe(() => {
-      const hostElement = this.elementRef.nativeElement;
-      const linkSelector = `${hostElement.tagName}.${hostElement.className} a`;
-      this.scrollSpy = new Gumshoe(linkSelector, {
-        offset: 64,
-        reflow: true,
-        navClass: 'li--active',
-      });
-    });
+    // this.zone.onStable.pipe(first()).subscribe(() => {
+    //   const hostElement = this.elementRef.nativeElement;
+    //   const linkSelector = `${hostElement.tagName}.${hostElement.className} a`;
+    //   this.scrollSpy = new Gumshoe(linkSelector, {
+    //     offset: 64,
+    //     reflow: true,
+    //     navClass: 'li--active',
+    //   });
+    // });
   }
 }

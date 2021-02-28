@@ -5,4 +5,5 @@ export const defaultConfiguration: Configuration = {
   logging: {
     level: LoggerLevel.INFO,
   },
+  serverUrl: 'http://localhost:3000',
 };

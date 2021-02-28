@@ -1,18 +1,14 @@
 import { NgModule } from '@angular/core';
-
-import { HomeRoutingModule } from './home-routing.module';
 import { MarkdownModule } from 'ngx-markdown';
 
+import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { HomePageComponent } from './containers/home-page/home-page.component';
-import { PostModule } from '../posts/post.module';
+import { HomePageComponent } from './containers/home-page.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
-import { LandingPageComponent } from './containers/landing-page/landing-page.component';
 
 const COMPONENTS = [
   HomePageComponent,
-  CategoryListComponent,
-  LandingPageComponent,
+  CategoryListComponent
 ];
 
 @NgModule({
@@ -20,7 +16,6 @@ const COMPONENTS = [
   imports: [
     SharedModule,
     HomeRoutingModule,
-    PostModule,
     MarkdownModule.forChild(),
   ],
 })

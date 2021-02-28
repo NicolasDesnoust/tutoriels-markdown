@@ -35,15 +35,16 @@ $primary: mat-palette($mat-green);
 
 // Background palette.
 $custom-light-theme-background: (
+  code: #f8f9fb,
   code-block: #1d1f21,
   //   status-bar: black,
   app-bar: white,
   //map_get($mat-grey, 900),
-  background: #e8eaed,
+  background: white,
   login-background: white,
   //   hover:      rgba(white, 0.04),
   //   card:       #2a2d35,//map_get($mat-grey, 800),
-  //   dialog:     #24262d,//map_get($mat-grey, 800),
+  dialog: #f8f9fb,
   //   disabled-button: rgba(white, 0.12),
   //   raised-button: map-get($mat-grey, 800),
   //   focused-button: $light-focused,
@@ -52,10 +53,10 @@ $custom-light-theme-background: (
   //   disabled-button-toggle: black,
   //   unselected-chip: map_get($mat-grey, 700),
   //   disabled-list-option: black,
-  //   tooltip: map_get($mat-grey, 700),,
+  //   tooltip: map_get($mat-grey, 700),,,
 );
 
-$light-primary: mat-palette($mat-green, 600, 400, 700);
+$light-primary: mat-palette($mat-teal, 600, 400, 700);
 $light-accent: mat-palette($mat-teal, 600, 400, 700);
 $light-warn: mat-palette($mat-red);
 $light-theme: mat-light-theme($light-primary, $light-accent, $light-warn);
