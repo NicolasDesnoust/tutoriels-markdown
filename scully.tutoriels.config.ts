@@ -1,13 +1,9 @@
-import {
-  RouteTypes,
-  ScullyConfig,
-  setPluginConfig,
-} from '@scullyio/scully';
+import { RouteTypes, ScullyConfig, setPluginConfig } from '@scullyio/scully';
 
 // Core Plugins
 // import { criticalCSS } from '@scullyio/scully-plugin-critical-css';
 import { docLink } from '@scullyio/scully-plugin-docs-link-update';
-const { MinifyHtml } = require('scully-plugin-minify-html');
+import {MinifyHtml} from './scully/plugins/minifyHtmlPlugin';
 import { baseHrefRewrite } from '@scullyio/scully-plugin-base-href-rewrite';
 
 // Community Plugins
@@ -39,7 +35,7 @@ setPluginConfig(baseHrefRewrite, { href: 'tutoriels-markdown/' });
 
 const defaultPostRenderers = [
   'seoHrefOptimise',
-  'baseHrefRewrite',
+  baseHrefRewrite,
   // criticalCSS,
   // CopyToClipboard,
   getFlashPreventionPlugin({ appRootSelector: 'app-root' }),

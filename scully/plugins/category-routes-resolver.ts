@@ -1,5 +1,4 @@
 import { registerPlugin } from '@scullyio/scully';
-import { RoutePlugin } from '@scullyio/scully/src/lib/pluginManagement/Plugin.interfaces';
 
 /**
  * Nom du plugin
@@ -12,7 +11,7 @@ export const CATEGORY_ROUTES_RESOLVER_NAME = 'category-routes-resolver';
  * Ce plugin indique à Scully quelles sont les routes à créer pour les categories de posts.
  * 
  */
-const categoryRoutesResolverPlugin: RoutePlugin = async (
+const categoryRoutesResolverPlugin: any = async (
   route: string,
   config = {}
 ) => {

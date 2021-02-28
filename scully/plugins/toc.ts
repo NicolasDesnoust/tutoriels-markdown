@@ -1,5 +1,4 @@
 import { HandledRoute, registerPlugin } from '@scullyio/scully';
-import { RenderPlugin } from '@scullyio/scully/src/lib/pluginManagement/Plugin.interfaces';
 import { readFileSync } from 'fs';
 const marked = require('marked');
 
@@ -15,7 +14,7 @@ export const TOC_NAME = 'toc';
 /**
  * Plugin TOC (Table Of Content)
  */
-const tocPlugin: RenderPlugin = async (html: string, route: HandledRoute) => {
+const tocPlugin: any = async (html: string, route: HandledRoute) => {
   const headingIds = getHeadings(
     readFileSync(route.templateFile, 'utf-8').toString()
   );

@@ -1,5 +1,4 @@
 import { HandledRoute, registerPlugin } from '@scullyio/scully';
-import { RenderPlugin } from '@scullyio/scully/src/lib/pluginManagement/Plugin.interfaces';
 
 /**
  * Nom du plugin
@@ -15,7 +14,7 @@ export const THEME_APPLIER_NAME = 'theme-applier';
  * NB: L'application d'un thème consiste à placer la classe 
  * "<nom-du-theme>-theme" sur le tag <body>.
  */
-const themeApplierPlugin: RenderPlugin = async (
+const themeApplierPlugin: any = async (
   html: string,
   route: HandledRoute
 ) => {
