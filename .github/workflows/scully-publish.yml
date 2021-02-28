@@ -14,10 +14,11 @@ jobs:
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages
-      - uses: "finnp/create-file-action@master"
-        env:
-          FILE_NAME: ".nojekyll"
-          FILE_DATA: ""
+      
+      - name: Disable Jekyll
+        run: touch .nojekyll
+
+      - name: Commit the disabling of jekyll
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version
         with:
           # The arguments for the `git add` command (see the paragraph below for more info)
