@@ -47,4 +47,8 @@ Thumbs.db
 
 .editorconfig
 
-fake-server/db.json
+# Scully
+.scully/
+scully.log
+scully/plugins/*.js
+scully/plugins/*.js.map
