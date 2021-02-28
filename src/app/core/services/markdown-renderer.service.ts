@@ -13,35 +13,32 @@ export class MarkdownRenderer extends MarkedRenderer {
   }
 
   code(code: string, language: string, isEscaped: boolean) {
-    const codeHTML = `<div id='code-${
-      this.counter
-    }'>${new MarkedRenderer().code(code, language, isEscaped)}</div>`;
+    const codeHTML = `
+    <div id="code-${this.counter}">
+      ${new MarkedRenderer().code(code, language, isEscaped)}
+    </div>
+    `;
     this.counter++;
 
     return codeHTML;
   }
 
   heading(text: string, level: number) {
-    const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
-    const id = uslug(text);
+    const escapedText = text
+      .toLowerCase()
+      .replace(/&#[0-9]*;/g, '')
+      .replace(/[^\wàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ]+/g, '-');
+    const id = uslug(escapedText);
+    console.log('text : ' + text);
+    console.log('escaped : ' + escapedText);
+    console.log('uslug : ' + id);
 
-    return (
-      '<h' +
-      level +
-      ' id="' +
-      id +
-      '">' +
-      '<a name="' +
-      escapedText +
-      '" class="anchor" routerLink="' +
-      id +
-      '">' +
-      '<img src="assets/images/link-24px.svg" class="header-link"></img>' +
-      '</a>' +
-      text +
-      '</h' +
-      level +
-      '>'
-    );
+    return `
+    <h${level} id="${id}">${text}
+      <a name="${escapedText}" class="anchor" routerLink="${id}">
+        <i-feather name="link-2" class="header-link"></i-feather>
+      </a>
+    </h${level}>
+    `;
   }
 }

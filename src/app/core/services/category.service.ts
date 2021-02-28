@@ -1,22 +1,51 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
+import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
+import { categories } from '../data/categories';
 import { Category } from '../model/category';
-import { ConfigService } from './startup/config.service';
+import { CategoryAdapterService } from './category-adapter.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryService {
+  private categoriesSubject = new BehaviorSubject<Category[]>(categories);
 
-  private rootUrl = 'http://localhost:3000/';
-  
-  constructor(private http: HttpClient, private configService: ConfigService) {
-    this.rootUrl = `${this.configService.configuration.serverUrl}/categories`;
+  constructor(
+    private scully: ScullyRoutesService,
+    private categoryAdapter: CategoryAdapterService
+  ) {
+    this.scully.available$
+      .pipe(map((scullyRoutes) => this.filterNonBlogRoutes(scullyRoutes)))
+      .subscribe((postRoutes) => {
+        const categories = this.categoryAdapter.toCategories(
+          this.categories,
+          postRoutes
+        );
+        this.categoriesSubject.next(categories);
+      });
   }
 
-  public fetchCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.rootUrl);
+  get categories$() {
+    return this.categoriesSubject.asObservable();
+  }
+  get categories() {
+    return this.categoriesSubject.value;
+  }
+
+  findCategory(id: string) {
+    return this.categories$.pipe(
+      map((categories) => categories.find((category) => category.id === id))
+    );
+  }
+
+  private filterNonBlogRoutes(scullyRoutes: ScullyRoute[]) {
+    return scullyRoutes.filter((scullyRoute) => this.isABlogRoute(scullyRoute));
+  }
+
+  private isABlogRoute(scullyRoute: ScullyRoute): boolean {
+    return scullyRoute.route.startsWith('/blog/');
   }
 }

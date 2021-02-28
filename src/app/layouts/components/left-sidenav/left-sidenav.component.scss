@@ -10,6 +10,8 @@
     font-weight: 600;
     text-transform: uppercase;
     font-size: smaller;
+    letter-spacing: 0.05rem;
+    font-size: 11px;
   }
 
   &-body {
@@ -45,9 +47,9 @@
     text-decoration: none;
   }
 
-  &.active-link {
-    span {
-      font-weight: 500;
-    }
-  }
+  // &.active-link {
+  //   span {
+  //     font-weight: 500;
+  //   }
+  // }
 }

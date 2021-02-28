@@ -5,16 +5,17 @@ $dark-warn: mat-palette($mat-red);
 
 // Background palette.
 $custom-dark-theme-background: (
-  code-block: #1d1f21,
+  code: #161b22,
+  code-block: #161b22,
   status-bar: black,
-  app-bar: #24262d,
+  app-bar: #161b22,
   //map_get($mat-grey, 900),
-  background: #393b45,
+  background: #0d1117,
   login-background: #2a2d35,
   hover: rgba(white, 0.04),
-  card: #2a2d35,
+  card: #161b22,
   //map_get($mat-grey, 800),
-  dialog: #24262d,
+  dialog: #161b22,
   //map_get($mat-grey, 800),
   // status-bar: black,
   // app-bar:    white,//map_get($mat-grey, 900),
@@ -33,61 +34,35 @@ $custom-dark-theme-background: (
   tooltip: map_get($mat-grey, 700),
 );
 
+// Foreground palette.
+$custom-dark-theme-foreground: (
+  //   base:              white,
+  //   divider:           $light-dividers,
+  //   dividers:          $light-dividers,
+  //   disabled:          $light-disabled-text,
+  //   disabled-button:   rgba(white, 0.3),
+  //   disabled-text:     $light-disabled-text,
+  //   elevation:         black,
+  //   hint-text:         $light-disabled-text,
+  secondary-text: #8b949e,
+  //   icon:              white,
+  //   icons:             white,
+  text: #c9d1d9 //   slider-min:        white,
+  //   slider-off:        rgba(white, 0.3),
+  //   slider-off-active: rgba(white, 0.3),
+);
+
 $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
-// Remplacement de la couleur de fond par défaut
+// Remplacement des palettes par défaut
 $background: map-get($dark-theme, background);
+$foreground: map-get($dark-theme, foreground);
 $background: map_merge($background, $custom-dark-theme-background);
+$foreground: map-merge($foreground, $custom-dark-theme-foreground);
 $dark-theme: map_merge(
   $dark-theme,
   (
     background: $background,
+    foreground: $foreground,
   )
 );
-
-// // Background palette.
-// $custom-dark-theme-background: (
-//   status-bar: black,
-//   app-bar:    map_get($mat-grey, 900),
-//   background: #393b45,
-//   hover:      rgba(white, 0.04),
-//   card:       map_get($mat-grey, 800),
-//   dialog:     map_get($mat-grey, 800),
-//   disabled-button: rgba(white, 0.12),
-//   raised-button: map-get($mat-grey, 800),
-//   focused-button: $light-focused,
-//   selected-button: map_get($mat-grey, 900),
-//   selected-disabled-button: map_get($mat-grey, 800),
-//   disabled-button-toggle: black,
-//   unselected-chip: map_get($mat-grey, 700),
-//   disabled-list-option: black,
-//   tooltip: map_get($mat-grey, 700),
-// );
-
-// // Foreground palette.
-// $custom-dark-theme-foreground: (
-//   base:              white,
-//   divider:           $light-dividers,
-//   dividers:          $light-dividers,
-//   disabled:          $light-disabled-text,
-//   disabled-button:   rgba(white, 0.3),
-//   disabled-text:     $light-disabled-text,
-//   elevation:         black,
-//   hint-text:         $light-disabled-text,
-//   secondary-text:    $light-secondary-text,
-//   icon:              white,
-//   icons:             white,
-//   text:              white,
-//   slider-min:        white,
-//   slider-off:        rgba(white, 0.3),
-//   slider-off-active: rgba(white, 0.3),
-// );
-
-// // Remplacement des palettes par défaut
-// $background: map-get($dark-theme, background);
-// $foreground: map-get($dark-theme, foreground);
-// $background: map_merge($background, $custom-dark-theme-background);
-// $dark-theme: map_merge($dark-theme, $custom-dark-theme-foreground);
-
-// $custom-background-color: #393b45;
-// $background: map_merge($background, (background: $custom-background-color));

@@ -1,7 +1,9 @@
 @import 'abstracts/variables';
+@import 'abstracts/mixins';
+
 // Local variables //? move to variables.scss ?
 $navbar-height: 50px;
-$sub-navbar-height: 60px;
+$sub-header-height: 40px;
 
 // Styles
 .main-layout-container {
@@ -16,22 +18,21 @@ $sub-navbar-height: 60px;
     display: flex;
     width: 100%;
     padding: 0;
+
+    @include SMALLER_MONITOR_AND_ABOVE_MEDIAQUERY {
+      box-shadow: unset;
+    }
   }
 
-  .sub-navbar {
+  .sub-header {
+    display: flex;
     top: $navbar-height;
     position: fixed;
-    height: $sub-navbar-height;
+    height: $sub-header-height;
     z-index: 2;
 
-    markdown {
-      color: white;
-      font-weight: 400;
-      font-size: 14px;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow-x: hidden;
-      margin-bottom: -12px;
+    @include TABLET_AND_BELOW_MEDIAQUERY {
+      display: none;
     }
   }
 
@@ -42,7 +43,7 @@ $sub-navbar-height: 60px;
     transition: transform 0.4s ease;
   }
   .cd-auto-hide-header.is-hidden {
-    transform: translate3d(0, -101%, 0);
+    transform: translate3d(0, -101%, 0) !important;
   }
 }
 
@@ -53,30 +54,54 @@ $sub-navbar-height: 60px;
     position: fixed;
     display: block;
     height: 100%;
+    will-change: transform;
 
-    &.with-sub-navbar-visible {
-      ::ng-deep .mat-drawer-inner-container {
-        display: flex;
-        app-left-sidenav,
-        app-table-of-contents {
-          padding-top: $sub-navbar-height;
-          transition: 0.4s ease;
+    ::ng-deep .mat-drawer-inner-container {
+      display: flex;
+      app-left-sidenav,
+      app-table-of-contents {
+        @include SMALLER_MONITOR_AND_ABOVE_MEDIAQUERY {
+          padding-top: $sub-header-height;
+        }
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+      }
+    }
+
+    @include SMALLER_MONITOR_AND_ABOVE_MEDIAQUERY {
+      &.without-sub-navbar {
+        ::ng-deep .mat-drawer-inner-container {
+          app-left-sidenav,
+          app-table-of-contents {
+            transform: translate3d(0, -$sub-header-height, 0) !important;
+          }
         }
       }
     }
 
-    &.without-sub-navbar {
-      ::ng-deep .mat-drawer-inner-container {
-        app-left-sidenav,
-        app-table-of-contents {
-          transform: translate3d(0, -$sub-navbar-height, 0) !important;
-        }
+    &.scully-running {
+      @include TABLET_AND_BELOW_MEDIAQUERY {
+        transform: translate3d(-100%, 0, 0) !important;
       }
+    }
+
+    &.left-sidenav {
+      border: 0;
     }
 
     &.right-sidenav {
       background-color: inherit;
       border: none;
+
+      @include SMALLER_MONITOR_AND_BELOW_MEDIAQUERY {
+        transform: translate3d(100%, 0, 0) !important;
+      }
+
+      .external-toc {
+        margin: 2rem 2rem 2rem 0;
+      }
     }
   }
 
@@ -86,16 +111,26 @@ $sub-navbar-height: 60px;
     display: flex;
     align-content: center;
     justify-content: center;
+    margin: $sub-header-height 268px 0 268px;
+    padding: 1.5rem;
 
-    &.with-sub-navbar-visible {
-      margin-top: $sub-navbar-height;
+    @include SMALLER_MONITOR_AND_BELOW_MEDIAQUERY {
+      margin-right: 0 !important;
+    }
+    @include TABLET_AND_BELOW_MEDIAQUERY {
+      margin: 0 !important;
+      padding: 0 !important;
     }
   }
 }
 
 .main-content-wrapper {
   padding: 0;
-  border-radius: 2px;
+  // border-radius: 2px;
   width: 100%;
   max-width: $medium-breakpoint;
+
+  .main-content {
+    min-height: 100vh;
+  }
 }

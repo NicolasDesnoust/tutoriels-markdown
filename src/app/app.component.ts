@@ -1,37 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+} from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
-import { routeAnimations } from './core/animations/route.animations';
 
 @Component({
   selector: 'app-root',
-  template: `<div
-    [@routeAnimations]="
-      o.isActivated &&
-      o.activatedRoute.routeConfig.data &&
-      o.activatedRoute.routeConfig.data.title
-    "
-  >
-    <router-outlet #o="outlet"></router-outlet>
-  </div>`,
-  styles: [':host { display: block; height: 100% }'],
-  animations: [routeAnimations],
+  template: `<router-outlet></router-outlet>`,
+  styles: [':host, app-root-scully { display: block; height: 100% }'],
 })
 export class AppComponent implements OnInit {
-  private title = 'Tutoriels | N&V';
+  private title = 'Desnote Book';
 
-  constructor(private titleService: Title, private metaService: Meta) {}
+  constructor(
+    private titleService: Title,
+    private metaService: Meta
+  ) {}
 
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.metaService.addTags([
       {
         name: 'keywords',
-        content: 'Tutoriels, Github, Desnoust, Niaba, Spring, Java, JEE',
+        content: 'Desnote Book, Github, Desnoust, Nicolas, Spring, Java, JEE',
       },
       {
         name: 'description',
         content:
-          'Tutoriels portant sur différentes techonlogies du web : Java, Jakarta EE, Spring, HTML, SCSS, ...',
+          'Notes personnelles portant sur différentes technologies du web : Java, Jakarta EE, Spring, HTML, SCSS, ...',
       },
       { name: 'robots', content: 'index, follow' },
     ]);

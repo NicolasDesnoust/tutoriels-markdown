@@ -1,51 +1,26 @@
-<ng-container
-  *ngIf="{
-    isUserLoggedIn: isUserLoggedIn$ | async
-  } as observables"
->
-  <mat-toolbar class="navbar-container">
-    <!-- Hamburger menu -->
-    <div class="side-menu-container" *ngIf="showToggleSidenav">
-      <button mat-icon-button (click)="toggleSidenav.emit()">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </div>
-
-    <!-- Branding -->
-    <div class="branding-container">
-      <a mat-flat-button routerLink="/">Tutoriels N&V</a>
-    </div>
-
-    <span class="spacer"></span>
-
-    <!-- Search Button -->
-    <button mat-icon-button>
-      <mat-icon>search</mat-icon>
+<mat-toolbar class="navbar">
+  <!-- Hamburger menu -->
+  <div class="hamburger-button-container" *ngIf="showToggleSidenav">
+    <button mat-icon-button (click)="toggleSidenav.emit()">
+      <i-feather name="menu"></i-feather>
     </button>
-    <!-- Theme switcher -->
-    <button mat-icon-button (click)="toggleTheme()">
-      <mat-icon> brightness_6 </mat-icon>
-    </button>
-    <!-- Login button -->
-    <button
-      *ngIf="!observables.isUserLoggedIn && !showFullLogin"
-      mat-icon-button
-    >
-      <mat-icon>login</mat-icon>
-    </button>
-    <a
-      mat-button
-      *ngIf="!observables.isUserLoggedIn && showFullLogin"
-      [routerLink]="['/auth/login']"
-      >{{ observables.isUserLoggedIn ? 'Déconnexion' : 'Connexion' }}</a
-    >
+  </div>
 
-    <button
-      *ngIf="observables.isUserLoggedIn"
-      mat-icon-button
-      (click)="logout()"
-    >
-      <mat-icon>account_circle</mat-icon>
-    </button>
-  </mat-toolbar>
-</ng-container>
+  <!-- Branding -->
+  <div class="branding">
+    <a mat-flat-button routerLink="/">Desnote Book</a>
+  </div>
+
+  <span class="spacer"></span>
+
+  <!-- Fullscreen toggle -->
+  <button mat-icon-button (click)="toggleFullscreen()">
+    <i-feather name="maximize"></i-feather>
+  </button>
+
+  <!-- Theme switcher -->
+  <button mat-icon-button (click)="switchTheme()">
+    <i-feather *ngIf="theme === 'light'" name="moon" class="fill"></i-feather>
+    <i-feather *ngIf="theme === 'dark'" name="sun" class="fill"></i-feather>
+  </button>
+</mat-toolbar>

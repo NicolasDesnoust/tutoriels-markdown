@@ -1,0 +1,18 @@
+@import '~@angular/material/theming';
+
+@mixin home-page-component-theme($theme) {
+  $is-dark: map-get($theme, is-dark);
+
+  .home-page {
+    @if not $is-dark {
+      background-color: #f1f3f8;
+    }
+  }
+
+  .home-title,
+  .home-description {
+    // @if not $is-dark {
+      color: white;
+    // }
+  }
+}

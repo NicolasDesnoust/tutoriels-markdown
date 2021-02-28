@@ -7,22 +7,22 @@
 
   @include MONITOR_MEDIAQUERY {
     max-width: 64rem;
-    padding: 2rem 6rem;
+    // padding: 2rem 6rem;
     margin: 0 auto;
     font-size: 1.1rem;
   }
 
   @include SMALLER_MONITOR_MEDIAQUERY {
-    padding: 2rem 4rem;
+    // padding: 2rem 4rem;
     font-size: 1.1rem;
   }
   @include TABLET_MEDIAQUERY {
-    padding: 2rem 4rem;
+    // padding: 2rem 4rem;
     font-size: 1.1rem;
   }
 
   @include MOBILE_MEDIAQUERY {
-    padding: 2rem 1rem;
+    // padding: 2rem 1rem;
     font-size: 1rem;
   }
 

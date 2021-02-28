@@ -1,38 +1,32 @@
-<ng-container
-  *ngIf="{
-    categories: categories$ | async
-  } as observables"
->
-  <!-- MAIN NAVIGATION LIST -->
-  <mat-nav-list *ngIf="observables.categories">
-    <!-- MAIN LIST ITEMS -->
-    <ng-container *ngFor="let category of observables.categories">
-      <mat-expansion-panel
-        *ngIf="category.posts && category.posts.length > 0"
-        routerLinkActive
-        #rla="routerLinkActive"
-        [expanded]="rla.isActive"
-        class="mat-elevation-z0"
-      >
-        <!-- MAIN ITEM HEADERS -->
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{ category.label }}
-          </mat-panel-title>
-        </mat-expansion-panel-header>
+<!-- MAIN NAVIGATION LIST -->
+<mat-nav-list>
+  <!-- MAIN LIST ITEMS -->
+  <ng-container *ngFor="let category of categories">
+    <mat-expansion-panel
+      *ngIf="category.posts && category.posts.length > 0"
+      routerLinkActive
+      #rla="routerLinkActive"
+      [expanded]="rla.isActive"
+      class="mat-elevation-z0"
+    >
+      <!-- MAIN ITEM HEADERS -->
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ category.label }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
 
-        <!-- SUB ITEMS -->
-        <a
-          mat-list-item
-          [disableRipple]="true"
-          matRipple
-          *ngFor="let post of category.posts"
-          [routerLink]="'/tutoriels/' + post.category + '/' + post.id"
-          routerLinkActive="active-link"
-        >
-          <span matLine>{{ post.title }}</span>
-        </a>
-      </mat-expansion-panel>
-    </ng-container>
-  </mat-nav-list>
-</ng-container>
+      <!-- SUB ITEMS -->
+      <a
+        mat-list-item
+        [disableRipple]="true"
+        matRipple
+        *ngFor="let post of category.posts"
+        [routerLink]="post.route"
+        routerLinkActive="active-link"
+      >
+        <span matLine>{{ post.title }}</span>
+      </a>
+    </mat-expansion-panel>
+  </ng-container>
+</mat-nav-list>

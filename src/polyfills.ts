@@ -70,3 +70,9 @@ window.process = process;
 (window as any).global = window;
 
 global.Buffer = global.Buffer || require('buffer').Buffer;
+
+/***************************************************************************************************
+* SCULLY IMPORTS
+*/
+// tslint:disable-next-line: align
+import 'zone.js/dist/task-tracking';

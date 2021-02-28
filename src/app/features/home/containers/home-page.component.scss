@@ -1,0 +1,16 @@
+@import 'abstracts/mixins';
+
+.home-title {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: 'Brandon Grotesque';
+  font-size: 30px;
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+@include SMALLER_MONITOR_AND_ABOVE_MEDIAQUERY {
+  .category-list-top-divider {
+    display: none;
+  }
+}

@@ -1,63 +1,42 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { isScullyRunning } from '@scullyio/ng-lib';
+import * as screenfull from 'screenfull';
 
 import { Theme } from 'src/app/core/model/theme';
-import { AuthService } from 'src/app/core/services/auth.service';
 import { ThemeHandler } from 'src/app/core/services/startup/theme-handler.service';
-import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
-  myControl: FormControl = new FormControl();
-  options: string[] = [];
-  filteredOptions: Observable<string[]>;
-
-  isUserLoggedIn$: Observable<boolean>;
-
+export class NavbarComponent {
   @Input() showToggleSidenav = false;
   @Input() showFullSearchBar = true;
   @Input() showFullLogin = true;
   @Output() toggleSidenav = new EventEmitter<void>();
+  theme: Theme = this.themeHandler.theme;
+  scullyDone: boolean;
 
-  constructor(
-    private themeHandler: ThemeHandler,
-    private userService: UserService,
-    private authService: AuthService
-  ) {
-    this.isUserLoggedIn$ = this.userService.isLoggedIn$();
+  constructor(private themeHandler: ThemeHandler) {
+    this.scullyDone = !isScullyRunning();
   }
 
-  ngOnInit() {
-    this.options = ['css', 'spring']; // Rendre asynchrone quand la méthode sera dev.
-
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map((value) => this._filter(value))
-    );
-  }
-
-  toggleTheme(): void {
-    const currentTheme = this.themeHandler.theme;
+  switchTheme(): void {
     this.themeHandler.updateTheme(
-      currentTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
+      this.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
     );
+
+    this.theme = this.themeHandler.theme; // TODO: make themeHandler.theme an observable
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter((option) =>
-      option.toLowerCase().includes(filterValue)
-    );
+  private get screenfull(): screenfull.Screenfull {
+    return screenfull as screenfull.Screenfull;
   }
 
-  logout() {
-    this.authService.logout();
+  toggleFullscreen() {
+    if (this.screenfull.isEnabled) {
+      this.screenfull.toggle();
+    }
   }
 }

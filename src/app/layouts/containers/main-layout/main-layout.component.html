@@ -1,68 +1,52 @@
 <div class="main-layout-container">
   <!-- Navbar -->
   <app-navbar
-    class="navbar"
-    [ngClass]="{ 'mat-elevation-z1': !showSubNavbar }"
-    [showToggleSidenav]="!showSideMenu"
-    [showFullSearchBar]="false"
-    [showFullLogin]="showFullLogin"
+    class="navbar mat-elevation-z1"
+    [showToggleSidenav]="true"
     (toggleSidenav)="sidenav.toggle()"
   ></app-navbar>
 
-  <mat-toolbar
-    *ngIf="showSubNavbar"
-    class="sub-navbar cd-auto-hide-header mat-elevation-z1"
+  <!-- Sub Header -->
+  <app-sub-header
+    class="sub-header cd-auto-hide-header"
     [ngClass]="{ 'is-hidden': hideNavbar }"
-  >
-    <markdown emoji
-      >:rocket: Si ça c'est pas un super sous-menu ! :tada:</markdown
-    >
-  </mat-toolbar>
+  ></app-sub-header>
 
   <mat-sidenav-container class="d-flex">
     <!-- Left Sidenav -->
     <mat-sidenav
       #sidenav
+      [mode]="isScullyRunning ? 'side' : isTabletOrBelow ? 'over' : 'side'"
+      [opened]="isScullyRunning ? true : isTabletOrBelow ? false : true"
+      class="left-sidenav mat-elevation-z2"
       [ngClass]="{
         'without-sub-navbar': hideNavbar,
-        'with-sub-navbar-visible': showSubNavbar
+        'scully-running': isScullyRunning
       }"
-      [mode]="isOver ? 'over' : 'side'"
-      [opened]="showSideMenu"
-      class="mat-elevation-z2"
     >
-      <app-left-sidenav [ngClass]="routeAnimationsElements"></app-left-sidenav>
+      <app-left-sidenav [categories]="categories$ | async"></app-left-sidenav>
     </mat-sidenav>
 
     <!-- Main content -->
-    <mat-sidenav-content
-      [ngClass]="{
-        'p-4': showSideMenu,
-        'with-sub-navbar-visible': showSubNavbar
-      }"
-    >
-      <div
-        class="mat-elevation-z2 main-content-wrapper"
-        role="main"
-        [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.path"
-      >
-        <router-outlet #o="outlet"></router-outlet>
+    <mat-sidenav-content class="with-sub-navbar-visible p-4">
+      <div class="main-content-wrapper" role="main" addCodeHeaders>
+        <main class="main-content">
+          <router-outlet></router-outlet>
+        </main>
       </div>
     </mat-sidenav-content>
 
     <!-- Right Sidenav -->
     <mat-sidenav
       mode="side"
-      [ngClass]="{
-        'without-sub-navbar': hideNavbar,
-        'with-sub-navbar-visible': showSubNavbar
-      }"
       position="end"
       opened
-      class="mat-elevation-z0 right-sidenav"
-      *ngIf="showTableOfContents"
+      class="mat-elevation-z0 right-sidenav with-sub-navbar-visible"
+      [ngClass]="{
+        'without-sub-navbar': hideNavbar
+      }"
     >
-      <app-table-of-contents></app-table-of-contents>
+      <app-table-of-contents class="external-toc"></app-table-of-contents>
     </mat-sidenav>
   </mat-sidenav-container>
 </div>

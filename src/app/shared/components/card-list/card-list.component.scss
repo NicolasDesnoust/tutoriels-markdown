@@ -1,0 +1,16 @@
+.mat-card {
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+
+  .mat-chip.mat-standard-chip {
+    border-radius: 0.3rem;
+    
+    &:hover {
+        cursor: pointer;
+    }
+  }
+}

@@ -1,21 +1,23 @@
-$category-img-border-color: #70766e45;
-
-mat-card-content img {
-  border: solid 1px $category-img-border-color;
-}
-
-a {
-  mat-icon {
-    vertical-align: text-bottom;
-    margin-left: 0.1rem;
-    transition: 0.2s ease-in;
-  }
+.mat-chip.mat-standard-chip {
+  border-radius: 0.3rem;
 
   &:hover {
-    text-decoration: none;
+    cursor: pointer;
+  }
 
-    mat-icon {
-      transform: translateX(30%);
+  .category-icon {
+    width: auto;
+    height: 22px;
+    margin-right: 0.5rem;
+
+    &.docker-icon {
+      height: 28px;
+    }
+    &.java-icon {
+      height: 22px;
+    }
+    &.spring-icon {
+      height: 18px;
     }
   }
 }

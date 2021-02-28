@@ -1,0 +1,9 @@
+<div class="keen-slider" #sliderRef>
+  <div class="keen-slider__slide number-slide" *ngFor="let option of options">
+    <ng-container
+      *ngIf="template"
+      [ngTemplateOutlet]="template"
+      [ngTemplateOutletContext]="{ $implicit: option }"
+    ></ng-container>
+  </div>
+</div>

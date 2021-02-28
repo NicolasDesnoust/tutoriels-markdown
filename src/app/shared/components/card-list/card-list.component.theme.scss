@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+
+@mixin card-list-component-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  $accent: map-get($theme, accent);
+
+  .post-description,  .post-date {
+    color: mat-color($foreground, secondary-text);
+  }
+
+  .mat-chip.mat-standard-chip {
+    color: mat-color($accent);
+  }
+}

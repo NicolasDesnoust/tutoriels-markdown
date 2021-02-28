@@ -5,19 +5,14 @@ import { MarkdownModule } from 'ngx-markdown';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { RouterModule } from '@angular/router';
 
-import { LoginComponent } from './components/login/login.component';
-import { SharedModule } from '../shared/shared.module';
 import { ThemeHandler } from './services/startup/theme-handler.service';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 
-const COMPONENTS = [LoginComponent];
-
 @NgModule({
-  declarations: [...COMPONENTS],
+  declarations: [],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    SharedModule, // TODO: refactorer le core module pour supprimer cette dépendance
     RouterModule,
     FormsModule,
     MarkdownModule.forChild(),
@@ -27,7 +22,6 @@ const COMPONENTS = [LoginComponent];
       serverLogLevel: NgxLoggerLevel.INFO,
     }),
   ],
-  exports: [...COMPONENTS],
   providers: [ThemeHandler],
 })
 export class CoreModule {

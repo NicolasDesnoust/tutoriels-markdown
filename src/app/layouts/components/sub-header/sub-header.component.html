@@ -1,0 +1,13 @@
+<mat-toolbar class="sub-navbar mat-elevation-z1" color="primary">
+  <a
+    *ngFor="let navItem of navItems"
+    mat-button
+    class="sub-navbar-link"
+    [routerLink]="navItem.link"
+    routerLinkActive
+    disabled
+    style="pointer-events: none; cursor: default"
+  >
+    {{ navItem.label }}
+  </a>
+</mat-toolbar>

@@ -1,0 +1,22 @@
+@import '~@angular/material/theming';
+
+@mixin sub-header-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $background: map-get($theme, background);
+  $accent: map-get($theme, accent);
+
+  .sub-navbar {
+    background-color: mat-color($accent, 700) !important;
+
+    &-link {
+      color: #c9d1d9;
+
+      &:hover,
+      &:hover:visited,
+      &:visited,
+      &.active {
+        color: white;
+      }
+    }
+  }
+}

@@ -4,8 +4,9 @@
 
 html,
 body {
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
   height: 100%;
+  width: 100%;
   padding: 0;
   margin: 0;
   text-rendering: optimizeLegibility;
@@ -30,11 +31,7 @@ h6::before {
   transition: visibility 0s linear 100ms;
   visibility: hidden;
 
-  @include TABLET_MEDIAQUERY {
-    visibility: visible;
-  }
-
-  @include MOBILE_MEDIAQUERY {
+  @include TABLET_AND_BELOW_MEDIAQUERY {
     visibility: visible;
   }
 }
@@ -46,15 +43,13 @@ h4,
 h5,
 h6 {
   span {
-    margin-left: -1.4rem;
-    a {
-      margin-right: 0.2rem;
-    }
+    display: inline-block;
+    margin-left: 0.2rem;
   }
 
   &:hover,
   a:hover {
-    img {
+    i-feather {
       visibility: visible;
     }
   }
