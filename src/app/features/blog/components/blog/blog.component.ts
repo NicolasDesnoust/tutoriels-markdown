@@ -45,7 +45,7 @@ export class BlogComponent {
 
     this.post$ = this.route.paramMap.pipe(
       switchMap((params) =>
-        this.http.get(`assets/blog/${params.get('slug')}`, {
+        this.http.get(`assets/blog/${params.get('slug')}.md`, {
           responseType: 'text',
         })
       )
