@@ -34,7 +34,7 @@ setPluginConfig(baseHrefRewrite, { href: '/tutoriels-markdown/' });
 /* -------------------------------------------------------------------------- */
 
 const defaultPostRenderers = [
-  'seoHrefOptimise',
+  // 'seoHrefOptimise',
   baseHrefRewrite,
   // criticalCSS,
   // CopyToClipboard,
