@@ -14,3 +14,7 @@ jobs:
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages
+      - uses: "finnp/create-file-action@master"
+        env:
+          FILE_NAME: ".nojekyll"
+          FILE_DATA: ""
