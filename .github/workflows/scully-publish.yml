@@ -18,3 +18,48 @@ jobs:
         env:
           FILE_NAME: ".nojekyll"
           FILE_DATA: ""
+      - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version
+        with:
+          # The arguments for the `git add` command (see the paragraph below for more info)
+          # Default: '.'
+          add: '.nojekyll'
+
+          # The name of the user that will be displayed as the author of the commit
+          # Default: author of the commit that triggered the run
+          author_name: NicolasDesnoust
+
+          # The email of the user that will be displayed as the author of the commit
+          # Default: author of the commit that triggered the run
+          author_email: desnoust.nicolas451@gmail.com
+
+          # Name of the branch to use, if different from the one that triggered the workflow
+          # Default: the branch that triggered the run
+          branch: gh-pages
+
+          # The local path to the directory where your repository is located. You should use actions/checkout first to set it up
+          # Default: '.'
+          #cwd: './path/to/the/repo'
+
+          # The message for the commit
+          # Default: 'Commit from GitHub Actions (name of the workflow)'
+          message: 'CI: désactivation automatique de Jekyll'
+
+          # The flag used on the pull strategy
+          # Default: '--no-rebase'
+          #pull_strategy: '--no-rebase or --no-ff or --rebase'
+
+          # Whether to push the commit and, if any, its tags to the repo. It can also be used to set the git push arguments (see the paragraph below for more info)
+          # Default: true
+          #push: false
+
+          # The arguments for the `git rm` command (see the paragraph below for more info)
+          # Default: ''
+          #remove: './dir/old_file.js'
+
+          # Whether to use the --signoff option on `git commit` (only `true` and `false` are accepted)
+          # Default: false
+          #signoff: true
+
+          # Arguments for the git tag command (the tag name always needs to be the first word not preceded by an hyphen)
+          # Default: ''
+          #tag: 'v1.0.0 --force'
