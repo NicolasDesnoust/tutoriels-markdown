@@ -21,7 +21,7 @@ jobs:
           git config user.name NicolasDesnoust
           git config user.email desnoust.nicolas451@gmail.com
           git checkout gh-pages
-          git pull origin gh-pages
+          git pull origin gh-pages --allow-unrelated-histories
           touch .nojekyll
           git add .nojekyll
           git commit -m "CI: désactivation automatique de Jekyll"
