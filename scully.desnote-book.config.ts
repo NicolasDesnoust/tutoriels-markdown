@@ -40,7 +40,7 @@ const defaultPostRenderers = [
   // CopyToClipboard,
   getFlashPreventionPlugin({ appRootSelector: 'app-root' }),
   THEME_APPLIER_NAME,
-  MinifyHtml
+  // MinifyHtml
 ];
 
 export const config: ScullyConfig = {
