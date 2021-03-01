@@ -1,5 +1,5 @@
 {
-  "name": "tutoriels",
+  "name": "desnote-book",
   "version": "0.0.0",
   "scripts": {
     "deploy": "ng deploy --base-href=/tutoriels-markdown/ --name=\"NicolasDesnoust\" --email=\"desnoust.nicolas451@gmail.com\" --no-silent",

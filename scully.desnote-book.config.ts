@@ -27,7 +27,7 @@ import 'prismjs/components/prism-properties.js';
 /* -------------------------------------------------------------------------- */
 
 setPluginConfig('md', { enableSyntaxHighlighting: true });
-setPluginConfig(baseHrefRewrite, { href: '/tutoriels-markdown/' });
+setPluginConfig(baseHrefRewrite, { href: '/Desnote-Book/' });
 
 /* -------------------------------------------------------------------------- */
 /*                   Configuration de Scully pour le projet                   */
@@ -45,7 +45,7 @@ const defaultPostRenderers = [
 
 export const config: ScullyConfig = {
   projectRoot: './src',
-  projectName: 'tutoriels',
+  projectName: 'desnote-book',
   outDir: './dist/static',
   defaultPostRenderers,
   routes: {

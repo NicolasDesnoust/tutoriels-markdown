@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "projects",
+  "newProjectRoot": "desnote-book",
   "projects": {
-    "tutoriels": {
+    "desnote-book": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tutoriels",
+            "outputPath": "dist/desnote-book",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -87,18 +87,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "tutoriels:build"
+            "browserTarget": "desnote-book:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "tutoriels:build:production"
+              "browserTarget": "desnote-book:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tutoriels:build"
+            "browserTarget": "desnote-book:build"
           }
         },
         "test": {
@@ -137,11 +137,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "tutoriels:serve"
+            "devServerTarget": "desnote-book:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "tutoriels:serve:production"
+              "devServerTarget": "desnote-book:serve:production"
             }
           }
         },
@@ -152,5 +152,5 @@
       }
     }
   },
-  "defaultProject": "tutoriels"
+  "defaultProject": "desnote-book"
 }
