@@ -27,7 +27,6 @@ $code-blocks-padding: 2rem;
     }
 
     markdown {
-
       @include TABLET_AND_ABOVE_MEDIAQUERY {
         pre {
           padding-top: 0 !important;
@@ -35,16 +34,29 @@ $code-blocks-padding: 2rem;
       }
 
       @include MOBILE_MEDIAQUERY {
-        > .code-header,
-        > div[id^='code-'] {
-          margin-left: -$code-blocks-padding;
-          margin-right: -$code-blocks-padding;
-          border-radius: 0;
+        .code-header {
+          border-radius: 4px 0px 0px 0px;
+        }
+        div[id^='code-'] {
+          border-radius: 0px 0px 0px 4px;
         }
 
+        > .code-header,
         > div[id^='code-'] {
+          border-radius: 0;
           > pre {
             border-radius: 0;
+          }
+        }
+
+        .code-header,
+        div[id^='code-'] {
+          margin-left: -$code-blocks-padding;
+          margin-right: -$code-blocks-padding;
+        }
+
+        div[id^='code-'] {
+          > pre {
             border: 0;
             padding-top: 0;
             padding-left: $code-blocks-padding;
