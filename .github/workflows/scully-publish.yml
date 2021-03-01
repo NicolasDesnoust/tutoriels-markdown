@@ -10,24 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+
+      - name: Disable Jekyll
+        working-directory: ./dist/static
+        run: touch .nojekyll
       
       - uses: cmgriffing/scully-gh-pages-action@v9
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages
           build-args: --prod
-      
-      - name: Disable Jekyll
-        run: |
-          git config user.name NicolasDesnoust
-          git config user.email desnoust.nicolas451@gmail.com
-          touch .nojekyll
-          git add .nojekyll
-          git commit -m "CI: désactivation automatique de Jekyll"
-      
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
-          branch: gh-pages
-          force: true
