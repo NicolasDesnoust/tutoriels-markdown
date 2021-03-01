@@ -52,12 +52,12 @@ main {
   overflow-x: -moz-hidden-unscrollable;
   margin-bottom: 4rem;
   margin-top: 2rem;
-  padding-left: 10rem;
-  padding-right: 10rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
 
   @include TABLET_MEDIAQUERY {
-    padding-left: 6rem;
-    padding-right: 6rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
   @include MOBILE_MEDIAQUERY {

@@ -56,7 +56,7 @@ import { CardItem } from 'src/app/shared/components/card-list/card-list.componen
       </section>
 
       <main class="container">
-        <div class="row" style="display:flex; padding: 4rem 0">
+        <div class="row" style="display:flex; padding: 2rem 0">
           <div class="col-md-12 col-lg-9">
             <app-card-list
               [items]="items$ | async"
