@@ -21,7 +21,6 @@ jobs:
         run: |
           git config user.name NicolasDesnoust
           git config user.email desnoust.nicolas451@gmail.com
-          git checkout gh-pages
           touch .nojekyll
           git add .nojekyll
           git commit -m "CI: désactivation automatique de Jekyll"
