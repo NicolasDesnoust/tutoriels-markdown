@@ -19,8 +19,6 @@ export class CardListComponent implements OnChanges {
   @Input() items: CardItem[];
   paginatedItems: CardItem[];
   private readonly PAGE_SIZE = 10;
-  
-  cardRippleDisabled = false;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.items) {

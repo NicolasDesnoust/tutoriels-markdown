@@ -7,8 +7,6 @@
     *ngFor="let item of paginatedItems"
     style="margin-bottom: 1rem; border-radius: 0.3rem"
     [routerLink]="item.route"
-    matRipple
-    [matRippleDisabled]="cardRippleDisabled"
   >
     <div
       *ngIf="item.header"
@@ -38,10 +36,8 @@
     >
       <mat-chip
         class="mat-elevation-z0"
-        click-stop-propagation
-        (click)="$event.stopPropagation()"
-        (mousedown)="cardRippleDisabled = true"
-        (mouseup)="cardRippleDisabled = false"
+        disableRipple
+        [selectable]="false"
         style="
           min-width: 5rem;
           justify-content: center;

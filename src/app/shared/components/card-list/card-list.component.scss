@@ -9,6 +9,10 @@
   .mat-chip.mat-standard-chip {
     border-radius: 0.3rem;
     
+    &::after {
+      display: none;
+    }
+
     &:hover {
         cursor: pointer;
     }
