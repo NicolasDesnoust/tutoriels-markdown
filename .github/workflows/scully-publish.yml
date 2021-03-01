@@ -15,6 +15,7 @@ jobs:
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages
+          build-args: --prod
       
       - name: Disable Jekyll
         run: |
