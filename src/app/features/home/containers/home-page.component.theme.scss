@@ -4,7 +4,9 @@
   $is-dark: map-get($theme, is-dark);
 
   .home-page {
-    @if not $is-dark {
+    @if $is-dark {
+      background-color: #0a0d12;
+    } @else {
       background-color: #f1f3f8;
     }
   }
