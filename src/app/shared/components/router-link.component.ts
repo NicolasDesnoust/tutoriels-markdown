@@ -21,7 +21,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
       padding: 0;
       font-size: 1.2em;
       width: auto;
-      background-color: transparent"
+      background-color: transparent;
     }
   `,
   ],
