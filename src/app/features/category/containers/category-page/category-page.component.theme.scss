@@ -28,14 +28,7 @@
       background-color: #f1f3f8;
     }
   }
-
-  .category-title,
-  .category-description {
-    // @if not $is-dark {
-      color: white;
-    // }
-  }
-
+  
   .category-header {
     @if not $is-dark {
       background-color: #f6f7fc;

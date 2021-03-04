@@ -12,13 +12,9 @@
   flex-direction: column;
 }
 
-.category-title {
-  font-family: 'Brandon Grotesque';
-  font-size: 30px;
-  display: inline-block;
-  margin-bottom: 0 !important;
-  text-transform: uppercase;
-  font-weight: 600;
+.category-page {
+  height: 100%;
+  flex-grow: 1;
 }
 
 .category-header {

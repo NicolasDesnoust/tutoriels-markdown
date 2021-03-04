@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
+import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { categories } from '../data/categories';
 import { Category } from '../model/category';
+import { filterNonBlogRoutes } from '../util/blog-utils';
 import { CategoryAdapterService } from './category-adapter.service';
 
 @Injectable({
@@ -18,7 +19,7 @@ export class CategoryService {
     private categoryAdapter: CategoryAdapterService
   ) {
     this.scully.available$
-      .pipe(map((scullyRoutes) => this.filterNonBlogRoutes(scullyRoutes)))
+      .pipe(map((scullyRoutes) => filterNonBlogRoutes(scullyRoutes)))
       .subscribe((postRoutes) => {
         const categories = this.categoryAdapter.toCategories(
           this.categories,
@@ -39,13 +40,5 @@ export class CategoryService {
     return this.categories$.pipe(
       map((categories) => categories.find((category) => category.id === id))
     );
-  }
-
-  private filterNonBlogRoutes(scullyRoutes: ScullyRoute[]) {
-    return scullyRoutes.filter((scullyRoute) => this.isABlogRoute(scullyRoute));
-  }
-
-  private isABlogRoute(scullyRoute: ScullyRoute): boolean {
-    return scullyRoute.route.startsWith('/blog/');
   }
 }

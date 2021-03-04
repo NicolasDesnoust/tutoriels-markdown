@@ -1,0 +1,16 @@
+.page {
+  &__title {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Brandon Grotesque';
+    font-size: 30px;
+    margin-top: 2rem;
+    margin-bottom: 0 !important;
+    display: inline-block;
+  }
+
+  &__title,
+  &__description {
+    color: white;
+  }
+}

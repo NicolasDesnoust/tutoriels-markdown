@@ -1,18 +1,11 @@
 import { PlatformLocation } from '@angular/common';
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   template: `
     <button
-      class="btn"
-      style="    border: 0;
-    margin: 0;
-    padding: 0;
-    font-size: 1.2em;
-    width: auto;
-    background-color: transparent"
+      class="btn copy-button"
       matTooltip="Copier le lien vers cette section"
       [attr.data-clipboard-text]="url + '#' + href"
       (click)="openSnackBar(message)"
@@ -20,6 +13,18 @@ import { ActivatedRoute, Router } from '@angular/router';
       <i-feather name="link-2" class="header-link"></i-feather>
     </button>
   `,
+  styles: [
+    `
+    .copy-button {
+      border: 0;
+      margin: 0;
+      padding: 0;
+      font-size: 1.2em;
+      width: auto;
+      background-color: transparent"
+    }
+  `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RouterLinkComponent {
@@ -29,7 +34,6 @@ export class RouterLinkComponent {
 
   constructor(
     private _snackBar: MatSnackBar,
-    private router: Router,
     private platformLocation: PlatformLocation
   ) {
     const location = (this.platformLocation as any).location.toString();

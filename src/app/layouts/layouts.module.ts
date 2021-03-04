@@ -13,15 +13,13 @@ const COMPONENTS = [
   NavbarComponent,
   TableOfContentsComponent,
   LeftSidenavComponent,
+  SubHeaderComponent,
 ];
 
-const LAYOUTS = [
-  MainLayoutComponent,
-  NavbarOnlyLayoutComponent,
-];
+const LAYOUTS = [MainLayoutComponent, NavbarOnlyLayoutComponent];
 
 @NgModule({
-  declarations: [...COMPONENTS, ...LAYOUTS, SubHeaderComponent],
+  declarations: [...COMPONENTS, ...LAYOUTS],
   imports: [SharedModule, MarkdownModule.forChild()],
   exports: [TableOfContentsComponent],
 })

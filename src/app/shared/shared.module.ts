@@ -1,30 +1,26 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from './modules/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { ConvertLinksDirective } from './directives/convert-links.directive';
-import { CopyButtonComponent } from './components/copy-button.component';
 import { ClipboardModule } from 'ngx-clipboard';
-import { AddCodeHeadersDirective } from './directives/add-code-headers.directive';
 import { AutosizeModule } from 'ngx-autosize';
+
+import { MaterialModule } from './modules/material.module';
 import { FeatherModule } from './modules/feather.module';
+import { ConvertLinksDirective } from './directives/convert-links.directive';
+import { AddCodeHeadersDirective } from './directives/add-code-headers.directive';
+import { CopyButtonComponent } from './components/copy-button.component';
 import { RouterLinkComponent } from './components/router-link.component';
 import { CardListComponent } from './components/card-list/card-list.component';
-import { CardSliderComponent } from './components/card-slider/card-slider.component';
-import { CardComponent } from './components/card/card.component';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
 
 // Contient les composants partagés
 const COMPONENTS = [
   RouterLinkComponent,
   CopyButtonComponent,
   CardListComponent,
-  CardComponent,
-  CardSliderComponent
+  PageHeaderComponent
 ];
-
-// Contient les pipes partagés
-const PIPES = [];
 
 // Contient les directives partagées
 const DIRECTIVES = [
@@ -32,6 +28,7 @@ const DIRECTIVES = [
   AddCodeHeadersDirective,
 ];
 
+// Contient les modules partagés
 const MODULES = [
   MaterialModule,
   FeatherModule,
@@ -44,9 +41,9 @@ const MODULES = [
 ];
 
 @NgModule({
-  declarations: [...COMPONENTS, ...PIPES, ...DIRECTIVES, CardComponent],
+  declarations: [...COMPONENTS, ...DIRECTIVES],
   imports: [...MODULES],
-  exports: [...DIRECTIVES, ...COMPONENTS, ...PIPES, ...MODULES],
+  exports: [...DIRECTIVES, ...COMPONENTS, ...MODULES],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedModule {}

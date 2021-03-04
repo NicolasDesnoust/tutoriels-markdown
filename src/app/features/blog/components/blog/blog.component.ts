@@ -2,14 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { isScullyRunning } from '@scullyio/ng-lib';
-import ClipboardJS from 'clipboard';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import ClipboardJS from 'clipboard';
+
 import { Post } from 'src/app/core/model/post';
 import { PostService } from 'src/app/core/services/post.service';
 import { TableOfContentsService } from 'src/app/core/services/table-of-contents.service';
-
-declare var ng: any;
 
 @Component({
   selector: 'app-blog',

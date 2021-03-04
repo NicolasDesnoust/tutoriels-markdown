@@ -56,7 +56,6 @@
 
   a {
     color: mat-color($accent);
-    // transition: 0.2s ease-in;
 
     &:hover,
     &:hover:visited {
@@ -80,8 +79,6 @@
   }
 
   table {
-    // background-color: mat-color($background, dialog);
-
     th,
     td {
       @if $is-dark {
@@ -109,39 +106,6 @@
       }
     }
   }
-
-  //   blockquote {
-  //     background: mat-color($primary, 300, 0.14);
-  //     border-left: 4px solid mat-color($accent);
-  //     border-radius: 4px;
-  //     color: soften-color(mat-color($foreground, base), 40%);
-  //     margin: 20px 0;
-  //     padding: 1px 20px;
-  //   }
-
-  //   code:not([class*="language-"]) {
-  //     background: mat-color($foreground, secondary-text, 0.07);
-  //     border-radius: 3px;
-  //     font-size: 0.94em;
-  //     padding: 0px 6px 2px;
-  //   }
-
-  //   hr {
-  //     border-color: mat-color($foreground, divider);
-  //     border-style: solid;
-  //     border-width: 1px 0 0 0;
-  //   }
-
-  //   table {
-  //     th {
-  //       color: mat-color($foreground, secondary-text);
-  //     }
-
-  //     td,
-  //     th {
-  //       border-bottom-color: mat-color($foreground, divider);
-  //     }
-  //   }
 }
 
 /**

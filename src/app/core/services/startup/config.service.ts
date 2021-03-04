@@ -23,32 +23,6 @@ export class ConfigService extends BaseStartupService {
     return this._configuration;
   }
 
-  // load(): Promise<any> {
-  //   return new Promise((resolve, reject) => {
-  //     const xhr = new XMLHttpRequest();
-  //     xhr.open("GET", this.configUrl);
-
-  //     xhr.addEventListener("readystatechange", () => {
-  //       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-  //         this._configuration = deepmerge(
-  //           JSON.parse(xhr.responseText),
-  //           defaultConfiguration
-  //         );
-
-  //         setTimeout(function () {
-  //           console.log("config loaded");
-  //           resolve(this._configuration);
-  //         }, 10000);
-
-  //       } else if (xhr.readyState === XMLHttpRequest.DONE) {
-  //         reject();
-  //       }
-  //     });
-
-  //     xhr.send(null);
-  //   });
-  // }
-
   // TODO: valider la configuration
   protected load(): Observable<void> {
     return this.http.get<Configuration>(this._configUrl).pipe(

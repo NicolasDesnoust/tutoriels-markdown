@@ -4,11 +4,9 @@
   $foreground: map-get($theme, foreground);
   $accent: map-get($theme, accent);
 
-  .post-description,  .post-date {
-    color: mat-color($foreground, secondary-text);
-  }
-
-  .mat-chip.mat-standard-chip {
-    color: mat-color($accent);
+  .card {
+    &__body,  &__tags {
+      color: mat-color($foreground, secondary-text);
+    }
   }
 }

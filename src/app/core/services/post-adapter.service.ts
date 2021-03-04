@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { CardItem } from 'src/app/shared/components/card-list/card-list.component';
 import { Category } from '../model/category';
 
 import { Post } from '../model/post';

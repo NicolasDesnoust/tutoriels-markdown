@@ -9,20 +9,11 @@ $custom-dark-theme-background: (
   code-block: #161b22,
   status-bar: black,
   app-bar: #161b22,
-  //map_get($mat-grey, 900),
   background: #0d1117,
   login-background: #2a2d35,
   hover: rgba(white, 0.04),
   card: #161b22,
-  //map_get($mat-grey, 800),
   dialog: #161b22,
-  //map_get($mat-grey, 800),
-  // status-bar: black,
-  // app-bar:    white,//map_get($mat-grey, 900),
-  // background: #2f3a52,
-  // hover:      rgba(white, 0.04),
-  // card:       #212c42,//map_get($mat-grey, 800),
-  // dialog:     #1d2539,//map_get($mat-grey, 800),
   disabled-button: rgba(white, 0.12),
   raised-button: map-get($mat-grey, 800),
   focused-button: $light-focused,
@@ -36,20 +27,8 @@ $custom-dark-theme-background: (
 
 // Foreground palette.
 $custom-dark-theme-foreground: (
-  //   base:              white,
-  //   divider:           $light-dividers,
-  //   dividers:          $light-dividers,
-  //   disabled:          $light-disabled-text,
-  //   disabled-button:   rgba(white, 0.3),
-  //   disabled-text:     $light-disabled-text,
-  //   elevation:         black,
-  //   hint-text:         $light-disabled-text,
   secondary-text: #8b949e,
-  //   icon:              white,
-  //   icons:             white,
-  text: #c9d1d9 //   slider-min:        white,
-  //   slider-off:        rgba(white, 0.3),
-  //   slider-off-active: rgba(white, 0.3),
+  text: #c9d1d9
 );
 
 $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);

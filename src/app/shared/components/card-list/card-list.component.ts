@@ -1,13 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-
-export interface CardItem {
-  title: string;
-  header?: string;
-  body: string;
-  footer?: string;
-  route: string;
-  display? : 'none';
-}
+import { CardItem } from '../../model/card-item';
 
 @Component({
   selector: 'app-card-list',
@@ -26,7 +18,7 @@ export class CardListComponent implements OnChanges {
     }
   }
 
-  loadMoreItems() {
+  loadMoreItems(): void {
     this.paginatedItems = this.items.slice(
       0,
       this.paginatedItems.length + this.PAGE_SIZE

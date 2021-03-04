@@ -52,3 +52,4 @@ Thumbs.db
 scully.log
 scully/plugins/*.js
 scully/plugins/*.js.map
+!/dist/static/.nojekyll

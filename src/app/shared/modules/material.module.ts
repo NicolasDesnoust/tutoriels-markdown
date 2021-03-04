@@ -16,9 +16,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-// import { MatNativeDateModule } from '@angular/material';
-// import { MatMomentDateModule } from '@angular/material-moment-adapter';
-
 //
 // Navigation
 //
@@ -74,7 +71,7 @@ import { MatTableModule } from '@angular/material/table';
 //
 import { MatRippleModule } from '@angular/material/core';
 
-const modules: any[] = [
+const MODULES: any[] = [
   LayoutModule,
 
   MatAutocompleteModule,
@@ -86,9 +83,6 @@ const modules: any[] = [
   MatSelectModule,
   MatSliderModule,
   MatSlideToggleModule,
-
-  // MatNativeDateModule,
-  // MatMomentDateModule,
 
   MatMenuModule,
   MatSidenavModule,
@@ -124,7 +118,7 @@ const modules: any[] = [
 ];
 
 @NgModule({
-  imports: [...modules],
-  exports: [...modules],
+  imports: [...MODULES],
+  exports: [...MODULES],
 })
 export class MaterialModule {}
