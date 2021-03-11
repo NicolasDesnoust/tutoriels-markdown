@@ -4,7 +4,7 @@
   } as observables"
 >
   <div class="main-blog">
-    <h1 *ngIf="currentPost$ | async as currentPost">
+    <h1 *ngIf="currentPost">
       {{ currentPost.title }}
     </h1>
 

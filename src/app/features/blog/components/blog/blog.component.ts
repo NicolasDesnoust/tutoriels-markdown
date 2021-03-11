@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { isScullyRunning } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
@@ -17,19 +17,20 @@ import { TableOfContentsService } from 'src/app/core/services/table-of-contents.
   preserveWhitespaces: true,
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class BlogComponent {
-  currentPost$: Observable<Post>;
+export class BlogComponent implements OnInit, OnDestroy {
+  currentPost: Post;
   post$: Observable<string>;
   isScullyRunning: boolean = isScullyRunning();
+  subscription$;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private postService: PostService,
     private http: HttpClient,
-    private tocService: TableOfContentsService
+    private tocService: TableOfContentsService,
   ) {
-    this.currentPost$ = this.postService.currentPost$;
+    this.subscription$ = this.postService.currentPost$.subscribe(currentPost => this.currentPost = currentPost);
   }
 
   ngOnInit(): void {
@@ -51,6 +52,10 @@ export class BlogComponent {
     );
   }
 
+  ngOnDestroy(): void {
+    this.subscription$.unsubscribe();
+  }
+
   onError(error) {
     this.router.navigate(['/']);
   }
@@ -61,3 +66,4 @@ export class BlogComponent {
     });
   }
 }
+
