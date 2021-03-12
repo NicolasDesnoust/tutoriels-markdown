@@ -10,30 +10,27 @@ export const THEME_APPLIER_NAME = 'theme-applier';
  *
  * Ce plugin extrait les informations du thème à partir du localStorage
  * pour l'appliquer au pré-rendu de l'application.
- * 
- * NB: L'application d'un thème consiste à placer la classe 
+ *
+ * NB: L'application d'un thème consiste à placer la classe
  * "<nom-du-theme>-theme" sur le tag <body>.
  */
-const themeApplierPlugin: any = async (
-  html: string,
-  route: HandledRoute
-) => {
+const themeApplierPlugin: any = async (html: string, route: HandledRoute) => {
   const regex = /(<body[^>]*>)/;
 
   return html.replace(
     regex,
     `$1<script>
-          const theme = localStorage.getItem('theme');
-    
-          if (theme === 'light' || theme === 'dark') {
-            const bodyClassList = document.querySelector('body').classList;
-            const removeClassList = /\w*-theme\b/.exec(bodyClassList.value);
-            if (removeClassList) {
-              bodyClassList.remove(...removeClassList);
-            }
-            bodyClassList.add(theme + '-theme');
-          }
-        </script>`
+      const theme = localStorage.getItem('theme');
+
+      if (theme === 'light' || theme === 'dark') {
+        const bodyClassList = document.querySelector('body').classList;
+        const removeClassList = /\\w*-theme\\b/.exec(bodyClassList.value);
+        if (removeClassList) {
+          bodyClassList.remove(...removeClassList);
+        }
+        bodyClassList.add(theme + '-theme');
+      }
+    </script>`
   );
 };
 
