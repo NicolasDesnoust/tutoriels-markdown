@@ -22,7 +22,7 @@ export class CategoryAdapterService {
           `Category not found for : ${JSON.stringify(scullyRoute)}`
         );
       } else {
-        category.posts.push(this.postAdapter.toPost(scullyRoute, categories));
+        category.postsMetadata.push(this.postAdapter.toPostMetadata(scullyRoute, categories));
       }
     });
 

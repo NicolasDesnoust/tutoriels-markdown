@@ -1,25 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Category } from '../model/category';
 
-import { Post } from '../model/post';
+import { PostMetadata } from '../model/post';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostAdapterService {
-  toPosts(rawPosts: any[], categories: Category[]): Post[] {
-    return rawPosts.map((rawPost) => this.toPost(rawPost, categories));
+  toPostsMetadata(
+    rawPostsMetadata: any[],
+    categories: Category[]
+  ): PostMetadata[] {
+    return rawPostsMetadata.map((rawPostMetadata) =>
+      this.toPostMetadata(rawPostMetadata, categories)
+    );
   }
 
-  toPost(rawPost: any, categories: Category[]): Post {
+  toPostMetadata(rawPostMetadata: any, categories: Category[]): PostMetadata {
     const category = categories.find(
-      (category) => category.id === rawPost.category
+      (category) => category.id === rawPostMetadata.category
     );
 
     return {
-      ...rawPost,
+      ...rawPostMetadata,
       category,
-      createdAt: new Date(rawPost.createdAt),
+      createdAt: new Date(rawPostMetadata.createdAt),
     };
   }
 }

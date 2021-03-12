@@ -1,8 +1,8 @@
-import { Post } from "./post";
+import { PostMetadata } from "./post";
 
 export class Category {
   id: string;
   label: string;
   description: string;
-  posts: Post[];
+  postsMetadata: PostMetadata[];
 }

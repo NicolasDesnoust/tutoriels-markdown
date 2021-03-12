@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Category } from 'src/app/core/model/category';
-import { Post } from 'src/app/core/model/post';
+import { Post, PostMetadata } from 'src/app/core/model/post';
 import { CategoryService } from 'src/app/core/services/category.service';
 import { PostService } from 'src/app/core/services/post.service';
 import { CardItem } from 'src/app/shared/model/card-item';
@@ -50,27 +50,27 @@ export class HomePageComponent {
     private datePipe: DatePipe,
     @Inject(LOCALE_ID) private locale: string
   ) {
-    this.items$ = this.postService.availablePosts$.pipe(
-      map((posts) => this.toCardItems(posts))
+    this.items$ = this.postService.availablePostsMetadata$.pipe(
+      map((postsMetadata) => this.toCardItems(postsMetadata))
     );
     this.categories$ = this.categoryService.categories$.pipe(
       map((categories) =>
-        categories.filter((category) => category.posts.length > 0)
+        categories.filter((category) => category.postsMetadata.length > 0)
       )
     );
   }
 
-  private toCardItems(posts: Post[]): CardItem[] {
-    return posts.map((post) => ({
-      title: post.title,
-      body: post.description,
+  private toCardItems(postsMetadata: PostMetadata[]): CardItem[] {
+    return postsMetadata.map((postMetadata) => ({
+      title: postMetadata.title,
+      body: postMetadata.description,
       header: this.datePipe.transform(
-        post.createdAt.toISOString(),
+        postMetadata.createdAt.toISOString(),
         'longDate',
         this.locale
       ),
-      footer: post.category.label,
-      route: post.route,
+      footer: postMetadata.category.label,
+      route: postMetadata.route,
     }));
   }
 }

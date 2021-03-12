@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
 import { Category } from 'src/app/core/model/category';
-import { Post } from 'src/app/core/model/post';
+import { PostMetadata } from 'src/app/core/model/post';
 import { CategoryService } from 'src/app/core/services/category.service';
 import { CardItem } from 'src/app/shared/model/card-item';
 
@@ -41,20 +41,20 @@ export class CategoryPageComponent {
       switchMap((params) => this.categoryService.findCategory(params.get('id')))
     );
     this.items$ = this.category$.pipe(
-      map((category) => this.toCardItems(category.posts))
+      map((category) => this.toCardItems(category.postsMetadata))
     );
   }
 
-  private toCardItems(posts: Post[]): CardItem[] {
-    return posts.map((post) => ({
-      title: post.title,
-      body: post.description,
+  private toCardItems(postsMetadata: PostMetadata[]): CardItem[] {
+    return postsMetadata.map((postMetadata) => ({
+      title: postMetadata.title,
+      body: postMetadata.description,
       header: this.datePipe.transform(
-        post.createdAt.toISOString(),
+        postMetadata.createdAt.toISOString(),
         'longDate',
         this.locale
       ),
-      route: post.route,
+      route: postMetadata.route,
     }));
   }
 }
