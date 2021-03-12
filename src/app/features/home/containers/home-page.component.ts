@@ -51,7 +51,13 @@ export class HomePageComponent {
     @Inject(LOCALE_ID) private locale: string
   ) {
     this.items$ = this.postService.availablePostsMetadata$.pipe(
-      map((postsMetadata) => this.toCardItems(postsMetadata))
+      map((postsMetadata) =>
+        this.toCardItems(
+          postsMetadata.sort((a, b) => {
+            return b.createdAt.getTime() - a.createdAt.getTime();
+          })
+        )
+      )
     );
     this.categories$ = this.categoryService.categories$.pipe(
       map((categories) =>

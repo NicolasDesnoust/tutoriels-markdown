@@ -41,7 +41,13 @@ export class CategoryPageComponent {
       switchMap((params) => this.categoryService.findCategory(params.get('id')))
     );
     this.items$ = this.category$.pipe(
-      map((category) => this.toCardItems(category.postsMetadata))
+      map((category) =>
+        this.toCardItems(
+          category.postsMetadata.sort((a, b) => {
+            return b.createdAt.getTime() - a.createdAt.getTime();
+          })
+        )
+      )
     );
   }
 
