@@ -3,7 +3,7 @@ import { RouteTypes, ScullyConfig, setPluginConfig } from '@scullyio/scully';
 // Core Plugins
 // import { criticalCSS } from '@scullyio/scully-plugin-critical-css';
 import { docLink } from '@scullyio/scully-plugin-docs-link-update';
-import {MinifyHtml} from './scully/plugins/minifyHtmlPlugin';
+import { MinifyHtml } from './scully/plugins/minifyHtmlPlugin';
 import { baseHrefRewrite } from '@scullyio/scully-plugin-base-href-rewrite';
 
 // Community Plugins
@@ -11,6 +11,7 @@ import { baseHrefRewrite } from '@scullyio/scully-plugin-base-href-rewrite';
 const {
   getFlashPreventionPlugin,
 } = require('@scullyio/scully-plugin-flash-prevention');
+import { timeToRead, timeToReadOptions } from 'scully-plugin-time-to-read';
 
 // Custom Plugins
 import './scully/plugins/theme-applier';
@@ -28,6 +29,7 @@ import 'prismjs/components/prism-properties.js';
 
 setPluginConfig('md', { enableSyntaxHighlighting: true });
 setPluginConfig(baseHrefRewrite, { href: '/Desnote-Book/' });
+setPluginConfig(timeToRead, { path: '/blog' } as timeToReadOptions);
 
 /* -------------------------------------------------------------------------- */
 /*                   Configuration de Scully pour le projet                   */
@@ -59,11 +61,11 @@ export const config: ScullyConfig = {
     },
     '/categories/:id': {
       type: CATEGORY_ROUTES_RESOLVER_NAME,
-      postRenderers: [...defaultPostRenderers]
+      postRenderers: [...defaultPostRenderers],
     },
   },
   puppeteerLaunchOptions: {
-    // executablePath:
-    //   'C:\\Users\\desno\\AppData\\Local\\Chromium\\Application\\chrome.exe',
+    executablePath:
+      // 'C:\\Users\\desno\\AppData\\Local\\Chromium\\Application\\chrome.exe',
   },
 };

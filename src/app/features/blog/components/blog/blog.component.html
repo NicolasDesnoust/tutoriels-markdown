@@ -1,7 +1,61 @@
 <div class="main-blog">
-  <h1 *ngIf="post">
-    {{ post.metadata.title }}
-  </h1>
+  <h1>{{ post.metadata.title }}</h1>
+
+  <div class="post__subheader">
+    <span>{{ post.metadata.createdAt | date }}</span>
+    <span class="ml-2 mr-2">·</span>
+    <span
+      >{{ post.metadata.readingTime | number: '1.0-0' }} min. de lecture</span
+    >
+    <span class="spacer"></span>
+    <button
+      mat-icon-button
+      matTooltip="Partager le post"
+      [matMenuTriggerFor]="shareMenu"
+    >
+      <i-feather name="share"></i-feather>
+    </button>
+    <mat-menu #shareMenu="matMenu" class="share__menu">
+      <a
+        mat-menu-item
+        target="_blank"
+        href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+      >
+        <fa-icon [icon]="['fab', 'twitter']" size="lg" class="mr-2"></fa-icon
+        >Twitter
+      </a>
+      <a
+        mat-menu-item
+        target="_blank"
+        href="https://www.facebook.com/sharer/sharer.php?u={{
+          window.location.href
+        }}"
+      >
+        <fa-icon
+          [icon]="['fab', 'facebook-square']"
+          size="lg"
+          class="mr-2"
+        ></fa-icon>
+        Facebook
+      </a>
+      <a
+        mat-menu-item
+        target="_blank"
+        href="https://www.linkedin.com/sharing/share-offsite/?url={{ window.location.href }}"
+      >
+        <fa-icon [icon]="['fab', 'linkedin']" size="lg" class="mr-2"></fa-icon
+        >Linkedin
+      </a>
+      <button
+        class="btn"
+        mat-menu-item
+        [attr.data-clipboard-text]="url"
+        (click)="openSnackBar(message)"
+      >
+        <i-feather name="link-2" class="mr-2"></i-feather>Copier le lien
+      </button>
+    </mat-menu>
+  </div>
 
   <div class="inner-toc">
     <app-table-of-contents limit="5"></app-table-of-contents>

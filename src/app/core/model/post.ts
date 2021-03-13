@@ -11,4 +11,5 @@ export interface PostMetadata extends ScullyRoute {
    category: Category;
    createdAt: Date;
    description: string;
+   readingTime: number;
 }

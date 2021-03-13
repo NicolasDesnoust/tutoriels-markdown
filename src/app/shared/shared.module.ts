@@ -7,6 +7,7 @@ import { AutosizeModule } from 'ngx-autosize';
 
 import { MaterialModule } from './modules/material.module';
 import { FeatherModule } from './modules/feather.module';
+import { FontAwesomeModule } from './modules/fontawesome.module';
 import { ConvertLinksDirective } from './directives/convert-links.directive';
 import { AddCodeHeadersDirective } from './directives/add-code-headers.directive';
 import { CopyButtonComponent } from './components/copy-button.component';
@@ -38,6 +39,7 @@ const MODULES = [
   ReactiveFormsModule,
   ClipboardModule,
   AutosizeModule,
+  FontAwesomeModule
 ];
 
 @NgModule({
