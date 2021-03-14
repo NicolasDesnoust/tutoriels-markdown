@@ -1,8 +1,10 @@
+@import 'abstracts/mixins';
+
 .page {
   &__title {
     text-transform: uppercase;
     font-weight: 600;
-    font-family: 'Brandon Grotesque';
+    font-family: $title-font-family;
     font-size: 30px;
     margin-top: 2rem;
     margin-bottom: 0 !important;
