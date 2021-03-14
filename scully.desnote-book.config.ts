@@ -11,10 +11,11 @@ import { baseHrefRewrite } from '@scullyio/scully-plugin-base-href-rewrite';
 const {
   getFlashPreventionPlugin,
 } = require('@scullyio/scully-plugin-flash-prevention');
-import { timeToRead, timeToReadOptions } from 'scully-plugin-time-to-read';
 
 // Custom Plugins
 import './scully/plugins/theme-applier';
+import './scully/plugins/time-to-read';
+import { timeToRead, timeToReadOptions } from './scully/plugins/time-to-read';
 import { THEME_APPLIER_NAME } from './scully/plugins/theme-applier';
 import './scully/plugins/category-routes-resolver';
 import { CATEGORY_ROUTES_RESOLVER_NAME } from './scully/plugins/category-routes-resolver';
