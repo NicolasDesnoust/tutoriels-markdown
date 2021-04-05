@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { isScullyRunning } from '@scullyio/ng-lib';
 import * as screenfull from 'screenfull';
 
 import { Theme } from 'src/app/core/model/theme';
 import { ThemeHandler } from 'src/app/core/services/startup/theme-handler.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -17,9 +19,26 @@ export class NavbarComponent {
   @Output() toggleSidenav = new EventEmitter<void>();
   theme: Theme = this.themeHandler.theme;
   scullyDone: boolean;
+  config = {
+    indexName: 'posts',
+    searchClient: environment.searchClient,
+  };
+  showSearchBar = false;
 
-  constructor(private themeHandler: ThemeHandler) {
+  constructor(private themeHandler: ThemeHandler, private router: Router) {
     this.scullyDone = !isScullyRunning();
+  }
+
+  onShowSearchBar() {
+    this.showSearchBar = true;
+  }
+  onCloseSearchBar() {
+    this.showSearchBar = false;
+    console.log("closing searchbar");
+  }
+
+  navigateToPostPage(option: any) {
+    this.router.navigate([option.link]);
   }
 
   switchTheme(): void {
