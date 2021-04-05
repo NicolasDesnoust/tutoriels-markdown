@@ -8,19 +8,30 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { TableOfContentsComponent } from './components/table-of-contents/table-of-contents.component';
 import { SharedModule } from '../shared/shared.module';
 import { SubHeaderComponent } from './components/sub-header/sub-header.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { NgAisModule } from 'angular-instantsearch';
+import { A11yModule } from '@angular/cdk/a11y';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 const COMPONENTS = [
   NavbarComponent,
   TableOfContentsComponent,
   LeftSidenavComponent,
   SubHeaderComponent,
+  SearchbarComponent,
 ];
 
 const LAYOUTS = [MainLayoutComponent, NavbarOnlyLayoutComponent];
 
 @NgModule({
   declarations: [...COMPONENTS, ...LAYOUTS],
-  imports: [SharedModule, MarkdownModule.forChild()],
+  imports: [
+    SharedModule,
+    MarkdownModule.forChild(),
+    NgAisModule,
+    A11yModule,
+    ClickOutsideModule,
+  ],
   exports: [TableOfContentsComponent],
 })
 export class LayoutsModule {}

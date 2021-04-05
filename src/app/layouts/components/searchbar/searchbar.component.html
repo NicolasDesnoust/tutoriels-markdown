@@ -1,0 +1,42 @@
+<mat-toolbar
+  (clickOutside)="onCloseButtonClick.emit()"
+  delayClickOutsideInit="true"
+  class="searchbar"
+>
+  <mat-form-field floatLabel="always" class="w-100">
+    <mat-label></mat-label>
+    <input
+      matInput
+      [matAutocomplete]="auto"
+      #searchInput
+      (keyup)="handleChange($event)"
+      placeholder="Rechercher un post..."
+      class="w-100"
+    />
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      style="margin-top: 30px; max-height: 600px"
+    >
+      <div *ngFor="let index of state.indices || []">
+        <mat-option
+          *ngFor="let option of index.hits"
+          [value]="option"
+          (click)="onQuerySuggestionClick.emit(option)"
+          style="font-size: 14px"
+        >
+          {{ option.title }}
+          <span style="color: gray; font-style: italic; padding-left: 0.5rem">
+            {{ option.description }}
+          </span>
+        </mat-option>
+      </div>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <span class="spacer"></span>
+
+  <!-- Close button -->
+  <button mat-icon-button (click)="onCloseButtonClick.emit()">
+    <i-feather name="x"></i-feather>
+  </button>
+</mat-toolbar>

@@ -1,10 +1,16 @@
+import algoliasearch from 'algoliasearch/lite';
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
   production: false,
-  useHash: false, // cannot use hash strategy because of GumshoeJS
+  useHash: false, // cannot use hash strategy because of GumshoeJS,
+  searchClient: algoliasearch(
+    'W1EFSZBSFF',
+    'a4b21a45d39e603d954bf91120672cce'
+  )
 };
 
 /*

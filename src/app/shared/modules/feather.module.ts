@@ -12,7 +12,9 @@ import {
   List,
   Link2,
   Maximize,
-  Share
+  Share,
+  Search,
+  X
 } from 'angular-feather/icons';
 
 // Select some icons (use an object, not an array)
@@ -25,7 +27,9 @@ const icons = {
   List,
   Link2,
   Maximize,
-  Share
+  Share,
+  Search,
+  X
 };
 
 @NgModule({

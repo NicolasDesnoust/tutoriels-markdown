@@ -13,6 +13,20 @@
 
   <span class="spacer"></span>
 
+  <!-- Search Bar -->
+  <ais-instantsearch class="searchbar" *ngIf="showSearchBar" [config]="config">
+    <app-searchbar
+      (onCloseButtonClick)="onCloseSearchBar()"
+      (onQuerySuggestionClick)="navigateToPostPage($event)"
+    >
+    </app-searchbar>
+  </ais-instantsearch>
+
+  <!-- Searchbar button -->
+  <button mat-icon-button (click)="onShowSearchBar()">
+    <i-feather name="search"></i-feather>
+  </button>
+
   <!-- Fullscreen toggle -->
   <button mat-icon-button (click)="toggleFullscreen()">
     <i-feather name="maximize"></i-feather>
