@@ -2,11 +2,12 @@
   <h1>{{ post.metadata.title }}</h1>
 
   <div class="post__subheader">
+    <i-feather class="clock" name="clock"></i-feather>
     <span>{{ post.metadata.createdAt | date }}</span>
     <span class="ml-2 mr-2">·</span>
-    <span
-      >{{ post.metadata.readingTime | number: '1.0-0' }} min. de lecture</span
-    >
+    <span>
+      {{ post.metadata.readingTime | number: '1.0-0' }} min. de lecture
+    </span>
     <span class="spacer"></span>
     <button
       mat-icon-button
@@ -41,7 +42,9 @@
       <a
         mat-menu-item
         target="_blank"
-        href="https://www.linkedin.com/sharing/share-offsite/?url={{ window.location.href }}"
+        href="https://www.linkedin.com/sharing/share-offsite/?url={{
+          window.location.href
+        }}"
       >
         <fa-icon [icon]="['fab', 'linkedin']" size="lg" class="mr-2"></fa-icon
         >Linkedin

@@ -14,7 +14,8 @@ import {
   Maximize,
   Share,
   Search,
-  X
+  X,
+  Clock
 } from 'angular-feather/icons';
 
 // Select some icons (use an object, not an array)
@@ -29,7 +30,8 @@ const icons = {
   Maximize,
   Share,
   Search,
-  X
+  X,
+  Clock
 };
 
 @NgModule({
