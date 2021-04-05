@@ -38,7 +38,7 @@ export class NavbarComponent {
   }
 
   navigateToPostPage(option: any) {
-    this.router.navigate([option.link]);
+    this.router.navigate([option.route]);
   }
 
   switchTheme(): void {
