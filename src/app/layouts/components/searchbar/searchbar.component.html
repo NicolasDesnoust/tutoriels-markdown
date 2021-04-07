@@ -3,7 +3,7 @@
   delayClickOutsideInit="true"
   class="searchbar"
 >
-  <mat-form-field floatLabel="always" class="w-100">
+  <mat-form-field class="search-form-field" floatLabel="always">
     <mat-label></mat-label>
     <input
       matInput
@@ -11,7 +11,6 @@
       #searchInput
       (keyup)="handleChange($event)"
       placeholder="Rechercher un post..."
-      class="w-100"
     />
     <mat-autocomplete
       #auto="matAutocomplete"

@@ -15,18 +15,5 @@
         }
       }
     }
-
-    // .main-content-wrapper {
-    //   background: mat-color($background, card);
-
-    //   @include SMALLER_MONITOR_AND_ABOVE_MEDIAQUERY {
-    //     @if $is-dark {
-    //       border: 1px solid #dadce01c;
-    //     }
-    //   }
-    //   @include TABLET_AND_BELOW_MEDIAQUERY {
-    //     border: 0;
-    //   }
-    // }
   }
 }
