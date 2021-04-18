@@ -29,7 +29,6 @@
               "src/posts"
             ],
             "styles": [
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles/main.scss",
               "src/styles/vendors/prism-vsc-dark-plus.css",
               "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",

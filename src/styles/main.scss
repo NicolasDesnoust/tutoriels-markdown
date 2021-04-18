@@ -1,19 +1,21 @@
 @charset "UTF-8";
 
-/*  1. Abstracts (Configuration and helpers)  */
+/* 1. Abstracts (Configuration and helpers) */
 @import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins';
 
-//* Vendors scripts are imported in angular.json file
+/* 2. Vendors */
+@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/bootstrap-grid';
 
-/*  2. Base  */
+/* 3. Base */
 @import 'base/fonts', 'base/typography', 'base/base';
 
-/*  3. Components  */
+/* 4. Components */
 @import 'components/table', 'components/button', 'components/main-content',
   'components/project', 'components/skip-to-content', 'components/custom-tag';
 
-/* 4. Ugly fixes */
+/* 5. Ugly fixes */
 @import 'shame';
 
-/*  5. Themes  */
+/* 6. Themes */
 @import 'themes/material-theme';

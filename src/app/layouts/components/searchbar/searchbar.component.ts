@@ -10,6 +10,9 @@ import {
 } from '@angular/core';
 import { BaseWidget, NgAisInstantSearch } from 'angular-instantsearch';
 import { connectAutocomplete } from 'instantsearch.js/es/connectors';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { ThemeHandler } from 'src/app/core/services/startup/theme-handler.service';
 
 @Component({
   selector: 'app-searchbar',
@@ -28,7 +31,10 @@ export class SearchbarComponent extends BaseWidget implements AfterViewInit {
 
   @ViewChild('searchInput') searchInput: ElementRef;
 
+  algoliaCreditPath: Observable<string>;
+
   constructor(
+    private themeHandler: ThemeHandler,
     @Inject(forwardRef(() => NgAisInstantSearch))
     public instantSearchParent
   ) {
@@ -42,6 +48,10 @@ export class SearchbarComponent extends BaseWidget implements AfterViewInit {
   ngOnInit() {
     this.createWidget(connectAutocomplete, {});
     super.ngOnInit();
+
+    this.algoliaCreditPath = this.themeHandler.theme$.pipe(
+      map((theme) => `assets/logos/search-by-algolia-${theme}-background.svg`)
+    );
   }
 
   ngAfterViewInit() {

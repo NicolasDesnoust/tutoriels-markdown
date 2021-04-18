@@ -3,8 +3,18 @@
   width: 100%;
 }
 
-.mat-form-field {
+.algolia-credit {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 1rem;
+  padding-bottom: 1rem;
+  opacity: 82%;
+  position: sticky;
+}
+
+.search-form-field {
   flex-grow: 1;
+  width: 100%;
 }
 
 ::ng-deep .mat-form-field-placeholder {

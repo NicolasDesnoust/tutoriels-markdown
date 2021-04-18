@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 import { toEnum } from '../../util/enum-utils';
 import { BaseStartupService } from './base-startup.service';
@@ -13,7 +13,7 @@ import { Theme } from '../../model/theme';
  */
 @Injectable()
 export class ThemeHandler extends BaseStartupService {
-  private _theme: Theme = null;
+  private themeSubject: BehaviorSubject<Theme> = new BehaviorSubject(null);
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -23,7 +23,10 @@ export class ThemeHandler extends BaseStartupService {
   }
 
   get theme() {
-    return this._theme;
+    return this.themeSubject.value;
+  }
+  get theme$() {
+    return this.themeSubject.asObservable();
   }
 
   /**
@@ -40,12 +43,12 @@ export class ThemeHandler extends BaseStartupService {
   }
 
   /**
-   * Met à jour le thème de l'application. 
+   * Met à jour le thème de l'application.
    */
   updateTheme(theme: Theme) {
     if (theme !== this.theme) {
-      const oldTheme = this._theme;
-      this._theme = theme;
+      const oldTheme = this.themeSubject.value;
+      this.themeSubject.next(theme);
 
       const bodyClassList = this.document.querySelector('body').classList;
       const removeClassList = /\w*-theme\b/.exec(bodyClassList.value);
@@ -53,8 +56,8 @@ export class ThemeHandler extends BaseStartupService {
         bodyClassList.remove(...removeClassList);
       }
       this.logger.info(`Updating theme: ${oldTheme} -> ${theme}`);
-      bodyClassList.add(`${this._theme}-theme`);
-      localStorage.setItem('theme', this._theme);
+      bodyClassList.add(`${theme}-theme`);
+      localStorage.setItem('theme', theme);
     }
   }
 }
