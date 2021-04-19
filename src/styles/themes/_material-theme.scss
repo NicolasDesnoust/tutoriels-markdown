@@ -59,7 +59,7 @@
   }
 
   a {
-    color: mat-color($accent);
+    color: mat-color($accent, lighter);
 
     &:hover,
     &:hover:visited {
@@ -71,12 +71,11 @@
   a:active,
   a:focus,
   a:visited {
-    color: mat-color($accent);
+    color: mat-color($accent, lighter);
     text-decoration: none;
   }
 
   code {
-    font-weight: 500;
     @if not($is-dark) {
       border: 1px solid #edeeef;
     }

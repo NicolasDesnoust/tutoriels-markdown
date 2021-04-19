@@ -1,9 +1,14 @@
 @import 'abstracts/mixins';
 
-.navbar {
+.navbar-toolbar {
   display: flex;
   width: 100%;
   height: 100%;
+
+  &--transparent {
+    background-color: transparent !important;
+    border: none !important;
+  }
 
   .hamburger-button-container {
     display: flex;
@@ -36,7 +41,7 @@
     justify-content: center;
 
     i-feather {
-      width: 1.35rem;
+      width: 1.2rem;
 
       svg {
         stroke-width: 2px;

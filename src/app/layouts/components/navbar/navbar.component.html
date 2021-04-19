@@ -1,4 +1,8 @@
-<mat-toolbar class="navbar">
+<mat-toolbar
+  class="navbar-toolbar"
+  [color]="color"
+  [ngClass]="{ 'navbar-toolbar--transparent': isTransparent }"
+>
   <!-- Hamburger menu -->
   <div class="hamburger-button-container" *ngIf="showToggleSidenav">
     <button mat-icon-button (click)="toggleSidenav.emit()">
@@ -7,7 +11,7 @@
   </div>
 
   <!-- Branding -->
-  <div class="branding">
+  <div class="branding" *ngIf="showBranding">
     <a mat-flat-button routerLink="/">Desnote Book</a>
   </div>
 
@@ -34,7 +38,7 @@
 
   <!-- Theme switcher -->
   <button mat-icon-button (click)="switchTheme()">
-    <i-feather *ngIf="theme === 'light'" name="moon" class="fill"></i-feather>
-    <i-feather *ngIf="theme === 'dark'" name="sun" class="fill"></i-feather>
+    <i-feather *ngIf="theme === 'light'" name="moon"></i-feather>
+    <i-feather *ngIf="theme === 'dark'" name="sun"></i-feather>
   </button>
 </mat-toolbar>

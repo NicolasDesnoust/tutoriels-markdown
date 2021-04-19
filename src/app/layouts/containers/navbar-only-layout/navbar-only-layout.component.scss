@@ -9,7 +9,7 @@ $main-background-color: #e8eaed;
 
   .navbar {
     height: $navbar-height;
-    position: sticky;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 2;

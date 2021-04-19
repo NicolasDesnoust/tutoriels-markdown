@@ -1,9 +1,26 @@
 @import '~@angular/material/theming';
+@import 'abstracts/mixins';
 
 @mixin category-list-component-theme($theme) {
   $accent: map-get($theme, accent);
+  $background: map-get($theme, background);
+  $is-dark: map-get($theme, is-dark);
 
   .mat-chip.mat-standard-chip {
-    color: mat-color($accent);
+    // color: mat-color($accent);
+  }
+
+  .category-tag.mat-chip.mat-standard-chip {
+    background-color: map-get($background, card);
+  }
+
+  .mat-list-base .mat-subheader.category-list-title {
+    color: #ffffffea;
+
+    @include TABLET_AND_BELOW_MEDIAQUERY {
+      @if not $is-dark {
+        color: black !important;
+      }
+    }
   }
 }

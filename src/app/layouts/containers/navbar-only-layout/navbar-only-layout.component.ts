@@ -5,9 +5,12 @@ import { Component } from '@angular/core';
   template: `
     <div class="navbar-only-layout-container">
       <app-navbar
-        class="navbar mat-elevation-z1"
+        class="navbar"
         [showToggleSidenav]="false"
         [showFullSearchBar]="false"
+        [showBranding]="false"
+        [isTransparent]="true"
+        color="primary"
       ></app-navbar>
 
       <!-- Main content -->

@@ -14,8 +14,11 @@ import { environment } from 'src/environments/environment';
 })
 export class NavbarComponent {
   @Input() showToggleSidenav = false;
+  @Input() showBranding = true;
   @Input() showFullSearchBar = true;
   @Input() showFullLogin = true;
+  @Input() isTransparent = false;
+  @Input() color;
   @Output() toggleSidenav = new EventEmitter<void>();
   theme: Theme = this.themeHandler.theme;
   scullyDone: boolean;
