@@ -5,23 +5,12 @@
   $foreground: map-get($theme, foreground);
   $is-dark: map-get($theme, is-dark);
 
-  .navbar {
-    background: mat-color($background, app-bar);
-    border-bottom: 1px solid #dadce00d;
-
+  .navbar-toolbar .branding {
     a,
-    button,
     a:hover,
     a:visited,
     a:hover:visited {
       color: mat-color($foreground, text);
-    }
-
-    .mat-button-wrapper i-feather svg {
-      color: #959da5;
-    }
-    .fill {
-      fill: #959da5;
     }
   }
 }

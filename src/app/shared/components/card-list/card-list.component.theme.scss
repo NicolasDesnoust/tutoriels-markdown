@@ -3,10 +3,16 @@
 @mixin card-list-component-theme($theme) {
   $foreground: map-get($theme, foreground);
   $accent: map-get($theme, accent);
+  $is-dark: map-get($theme, is-dark);
 
   .card {
-    &__body,  &__tags {
+    &__body,
+    &__tags {
       color: mat-color($foreground, secondary-text);
+    }
+    &__tag.mat-chip.mat-standard-chip {
+      color: mat-color($accent, 300);
+      background-color: rgba(mat-color($accent, 500), .1);
     }
   }
 }

@@ -19,7 +19,10 @@ import { CardItem } from 'src/app/shared/model/card-item';
           [description]="category.description"
         ></app-page-header>
 
-        <main *ngIf="items$ | async as items">
+        <main
+          *ngIf="items$ | async as items"
+          class="container category-page-content"
+        >
           <app-card-list [items]="items" title="Posts récents"></app-card-list>
         </main>
       </div>

@@ -6,7 +6,7 @@ import { Category } from 'src/app/core/model/category';
   selector: 'app-category-list',
   template: `
     <mat-list>
-      <div mat-subheader>Catégories</div>
+      <div mat-subheader class="category-list-title">Catégories</div>
     </mat-list>
 
     <mat-chip-list aria-label="Category selection">
@@ -15,11 +15,6 @@ import { Category } from 'src/app/core/model/category';
         *ngFor="let category of categories"
         [routerLink]="'/categories/' + category.id"
       >
-        <img
-          class="category-icon {{ category.id }}-icon"
-          src="./assets/logos/{{ category.id }}-icon.svg"
-          alt="{{ category.label }} icon"
-        />
         {{ category.label }}
       </mat-chip>
     </mat-chip-list>

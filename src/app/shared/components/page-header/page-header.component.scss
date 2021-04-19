@@ -5,7 +5,7 @@
     text-transform: uppercase;
     font-weight: 600;
     font-family: $title-font-family;
-    font-size: 30px;
+    font-size: 25px;
     margin-top: 2rem;
     margin-bottom: 0 !important;
     display: inline-block;
@@ -14,5 +14,6 @@
   &__description {
     color: white;
     font-size: 1.25rem;
+    line-height: 1.5rem;
   }
 }

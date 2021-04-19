@@ -17,6 +17,10 @@
   flex-grow: 1;
 }
 
+.category-page-content {
+  margin-top: -8rem;
+}
+
 .category-header {
   background-image: url('/assets/sw_ov_intro_hero.svg');
   background-size: cover;
@@ -48,16 +52,16 @@ main {
   overflow-x: -moz-hidden-unscrollable;
   margin-bottom: 4rem;
   margin-top: 2rem;
-  padding-left: 6rem;
-  padding-right: 6rem;
+  // padding-left: 6rem;
+  // padding-right: 6rem;
 
-  @include TABLET_MEDIAQUERY {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
+  // @include TABLET_MEDIAQUERY {
+  //   padding-left: 3rem;
+  //   padding-right: 3rem;
+  // }
 
-  @include MOBILE_MEDIAQUERY {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+  // @include MOBILE_MEDIAQUERY {
+  //   padding-left: 1rem;
+  //   padding-right: 1rem;
+  // }
 }

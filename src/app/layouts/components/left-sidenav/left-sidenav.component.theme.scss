@@ -14,7 +14,7 @@
       background-color: mat-color($accent, A400, 10%);
 
       span {
-        color: mat-color($accent);
+        color: mat-color($accent, lighter);
         transition: 0.2s ease-in;
       }
     }
