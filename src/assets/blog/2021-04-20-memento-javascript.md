@@ -36,44 +36,44 @@ createdAt: '2021-04-20'
 - Une fonction qui a été déclarée sans qu'aucun identifiant de fonction nommée ne s'y réfère - elle n'est généralement pas accessible après sa création initiale. Ces fonctions sont créées au moment de l'exécution du programme.
 - [Lire la suite](https://www.javascripttutorial.net/javascript-anonymous-functions/)
 
-## Que sont les **fonctions d'ordre supérieur** ?
+## Que sont les fonctions d'ordre supérieur ?
 
 - Fonctions qui **reçoivent une fonction en argument** ou **renvoient une fonction en sortie**.
 - Par exemple, `Array.prototype.map`, `Array.prototype.filter` et `Array.prototype.reduce` sont quelques-unes des fonctions d'ordre supérieur intégrées au langage.
 - [Plus d'informations ici](https://blog.bitsrc.io/understanding-higher-order-functions-in-javascript-75461803bad)
 
-## Qu'est-ce que le mode **"strict"** en JS ?
+## Qu'est-ce que le mode "strict" en JS ?
 
 - Le mode strict permet un contrôle plus rigoureux des erreurs dans votre code et facilite le débogage.
 - Vous activez le mode strict en ajoutant `"use strict";` au début du fichier.
 - [Lire la suite](https://www.educative.io/edpresso/what-is-use-strict-in-javascript?utm_source=Google AdWords&aid=5082902844932096&utm_medium=cpc&utm_campaign=kb-dynamic-edpresso&gclid=CjwKCAjwoc_8BRAcEiwAzJevtZyt8ueI8zRKbsnF5_b0OYQXvsk4kA5GMACgxLhBfJQH-XNfPt_WmRoCC0wQAvD_BwE)
 
-## **Promesses vs Async/Await** ?
+## Promesses vs Async/Await ?
 
 - **Portée** : dans une promesse, seule la chaîne de promesses est asynchrone - elle ne bloque pas l'exécution ; avec async/await, l'ensemble de la fonction wrapper est asynchrone.
 - **Logique** : dans une promesse, le travail synchrone peut être traité dans le même callback, et plusieurs promesses peuvent être traitées en utilisant `Promise.all` ; avec async/await le travail synchrone doit être placé en dehors du callback, et plusieurs promesses peuvent être traitées avec des variables plus simples.
 - **Gestion des erreurs** : Promesses : `then`, `catch`, `finally` ; Async/await : `try`, `catch`, `finally`.
 - [Voir des exemples ici](https://levelup.gitconnected.com/async-await-vs-promises-4fe98d11038f)
 
-## **Mutable** vs **Immutable** en JS
+## Mutable vs Immutable en JS
 
 - La différence entre immuable et mutable : si un élément est mutable, lorsque l'on change la valeur de la variable de référence, cela affectera également la valeur de la variable référencée originale.
 - Les types de données primaires tels que les nombres, les chaînes de caractères et les booléens sont **immuables** - il est impossible de modifier les valeurs de ces types en changeant la référence - vous pouvez les combiner et en dériver de nouvelles valeurs, mais lorsque vous attribuez une valeur spécifique, cette valeur restera toujours la même ; vous pouvez faire en sorte qu'un nom de variable pointe vers une nouvelle valeur, mais la valeur précédente est toujours conservée en mémoire.
 - **Mutable** est un type de variable qui peut être modifié par sa référence - en JS, seuls les **objets et les tableaux** sont mutables : vous pouvez modifier leurs propriétés ; par exemple : faire en sorte que la valeur d'un seul objet ait un contenu différent à différents moments.
 - [En savoir plus et voir des exemples](https://gomakethings.com/mutable-vs.-immutable-in-javascript/)
 
-## Qu'est-ce qu'un **langage typé** ?
+## Qu'est-ce qu'un langage typé ?
 
 - Les valeurs sont associées à des valeurs et non à des variables - il peut être *statique ou dynamique*.
 - **Statique** : la variable ne peut contenir qu'un seul type, comme en Java : une variable déclarée de type string ne peut contenir qu'un ensemble de caractères et rien d'autre.
 - **Dynamique** : la variable peut contenir plusieurs types - comme en JS : une variable peut prendre un nombre, des caractères, etc...
 
-## Qu'est-ce que le **hoisting** ?
+## Qu'est-ce que le hoisting ?
 
 - Le comportement par défaut de JavaScript qui consiste à déplacer toutes les déclarations vers le haut de la portée actuelle (vers le haut du script actuel ou de la fonction actuelle).
 - JavaScript ne hisse que les *déclarations*, pas les *initialisations*.
 
-## Qu'est-ce que la **délégation d'événements** en JS ?
+## Qu'est-ce que la délégation d'événements en JS ?
 
 - Une technique simple par laquelle vous ajoutez un seul gestionnaire d'événements à un élément parent afin d'éviter d'avoir à ajouter des gestionnaires d'événements à plusieurs éléments enfants.
 - En utilisant la délégation d'événements, il est possible d'ajouter un gestionnaire d'événements à un élément, d'attendre qu'un événement surgisse d'un élément enfant et de déterminer facilement de quel élément provient l'événement.
@@ -112,7 +112,7 @@ createdAt: '2021-04-20'
 - Tout code JavaScript qui prend trop de temps pour renvoyer le contrôle à la boucle d'événements **bloquera l'exécution** de tout code JavaScript dans la page, voire bloquera le thread de l'interface utilisateur, et l'utilisateur ne pourra pas cliquer, faire défiler la page, etc.
 - [Lire la suite](https://flaviocopes.com/javascript-event-loop/#:~:text=La boucle d'événements vérifie continuellement, exécute chacun d'eux dans l'ordre)
 
-## Qu'est-ce que la **propagation d'événements** ?
+## Qu'est-ce que la propagation d'événements ?
 
 - La propagation d'événements est un mécanisme qui définit la manière dont les événements se propagent ou voyagent dans l'arbre DOM pour arriver à leur cible et ce qui leur arrive ensuite.
 - Dans les navigateurs modernes, la propagation des événements se déroule en deux phases : la phase de **capture**, et la phase de **bubbling**.
@@ -134,13 +134,13 @@ createdAt: '2021-04-20'
 - En raison de la difficulté d'adapter le CSP aux sites web existants, le CSP est **obligatoire** pour tous les nouveaux sites web et est fortement recommandé pour tous les sites existants à haut risque.
 - [Lire la suite](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
 
-## Qu'est-ce que le **Cross-Site Scripting (XSS)** ?
+## Qu'est-ce que le Cross-Site Scripting (XSS) ?
 
 - Le **Cross-Site Scripting (XSS)** est une **attaque** qui se produit lorsqu'un attaquant utilise une application Web pour envoyer un code malveillant, généralement sous la forme d'un script côté navigateur, à un autre utilisateur final.
 - La page fournie par le serveur lorsque quelqu'un la demande n'est pas modifiée ; en revanche, une attaque XSS exploite une **faiblesse** dans une page qui inclut une variable soumise dans une requête pour qu'elle apparaisse sous forme brute dans la réponse.
 - [En savoir plus sur les attaques](https://developer.mozilla.org/en-US/docs/Web/Security/Types_of_attacks#Cross-site_scripting_XSS)
 
-## Qu'est-ce que **CORS (Cross-Origin Resource Sharing)** ?
+## Qu'est-ce que CORS (Cross-Origin Resource Sharing) ?
 
 - Le **partage des ressources entre origines** ([CORS](https://developer.mozilla.org/en-US/docs/Glossary/CORS)) est un **mécanisme** qui utilise des en-têtes [HTTP](https://developer.mozilla.org/en-US/docs/Glossary/HTTP) supplémentaires pour indiquer aux navigateurs de donner à une application Web exécutée à une [origine](https://developer.mozilla.org/en-US/docs/Glossary/origin), l'accès à des ressources sélectionnées à partir d'une origine différente.
 - Une application Web exécute une requête HTTP inter-origine lorsqu'elle demande une ressource qui a une **origine** (domaine, protocole ou port) différente de la sienne.
