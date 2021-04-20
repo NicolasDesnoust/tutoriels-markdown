@@ -12,7 +12,7 @@ createdAt: '2021-04-20'
 
 - **La valeur de `this` (contexte)** : dans une fonction régulière, la valeur de `this` n'a rien à voir avec la classe sur laquelle elle a été définie ; elle dépend plutôt de l'objet sur lequel elle a été appelée ; dans une fonction fléchée, cette valeur est toujours égale à la valeur de `this` de la fonction externe.
 - **Les constructeurs** : les fonctions régulières peuvent facilement construire des objets, tandis qu'une fonction fléchée ne peut pas être utilisée comme constructeur.
-- **L'objet `Arguments` **: il s'agit d'un objet spécial de type tableau contenant la liste des arguments avec lesquels la fonction a été invoquée. Dans une fonction fléchée, l'objet `Arguments` est résolu lexicalement : il accède aux arguments de la fonction externe.
+- **L'objet `Arguments`**: il s'agit d'un objet spécial de type tableau contenant la liste des arguments avec lesquels la fonction a été invoquée. Dans une fonction fléchée, l'objet `Arguments` est résolu lexicalement : il accède aux arguments de la fonction externe.
 - **Retour implicite** : les fonctions régulières utilisent l'expression `return` - sinon, elles renvoient simplement une valeur indéfinie, tandis qu'avec les fonctions fléchées, si elles contiennent une expression et que les accolades de la fonction sont absentes, l'expression est implicitement retournée.
 - [Lire d'avantage](https://dmitripavlutin.com/differences-between-arrow-and-regular-functions/)
 
@@ -29,7 +29,7 @@ createdAt: '2021-04-20'
 - [En savoir plus](https://www.freecodecamp.org/news/javascript-callback-functions-what-are-callbacks-in-js-and-how-to-use-them/) sur les callbacks
 - **Les closures** : sont créées chaque fois qu'une variable définie en dehors de la portée actuelle est accessible à partir d'une portée interne - elles vous donnent accès à la portée d'une fonction externe à partir d'une fonction interne.
 - Pour utiliser une **closure**, il suffit de définir une fonction à l'intérieur d'une autre fonction et de l'exposer.
-- [En savoir plus](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#:~:text=A closure is the combination,scope from an inner function.) sur les closures
+- [En savoir plus](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#:~:text=A) closure is the combination,scope from an inner function.) sur les closures
 
 ## Qu'est-ce qu'une fonction anonyme ?
 
@@ -46,7 +46,7 @@ createdAt: '2021-04-20'
 
 - Le mode strict permet un contrôle plus rigoureux des erreurs dans votre code et facilite le débogage.
 - Vous activez le mode strict en ajoutant `"use strict";` au début du fichier.
-- [Lire la suite](https://www.educative.io/edpresso/what-is-use-strict-in-javascript?utm_source=Google AdWords&aid=5082902844932096&utm_medium=cpc&utm_campaign=kb-dynamic-edpresso&gclid=CjwKCAjwoc_8BRAcEiwAzJevtZyt8ueI8zRKbsnF5_b0OYQXvsk4kA5GMACgxLhBfJQH-XNfPt_WmRoCC0wQAvD_BwE)
+- [Lire la suite](https://www.educative.io/edpresso/what-is-use-strict-in-javascript?utm_source=Google%20AdWords&aid=5082902844932096&utm_medium=cpc&utm_campaign=kb-dynamic-edpresso&gclid=CjwKCAjwoc_8BRAcEiwAzJevtZyt8ueI8zRKbsnF5_b0OYQXvsk4kA5GMACgxLhBfJQH-XNfPt_WmRoCC0wQAvD_BwE)
 
 ## Promesses vs Async/Await ?
 
@@ -77,7 +77,7 @@ createdAt: '2021-04-20'
 
 - Une technique simple par laquelle vous ajoutez un seul gestionnaire d'événements à un élément parent afin d'éviter d'avoir à ajouter des gestionnaires d'événements à plusieurs éléments enfants.
 - En utilisant la délégation d'événements, il est possible d'ajouter un gestionnaire d'événements à un élément, d'attendre qu'un événement surgisse d'un élément enfant et de déterminer facilement de quel élément provient l'événement.
-- [Exemples](https://www.sitepoint.com/javascript-event-delegation-is-easier-than-you-think/#:~:text=JavaScript event delegation is a,handlers to multiple child elements.)
+- [Exemples](https://www.sitepoint.com/javascript-event-delegation-is-easier-than-you-think/#:~:text=JavaScript%20event%20delegation%20is%20a,handlers%20to%20multiple%20child%20elements.)
 
 ## Quelle est la différence entre call, apply et bind ?
 
@@ -110,7 +110,7 @@ createdAt: '2021-04-20'
 - Les [Web Workers](https://flaviocopes.com/web-workers/) fonctionnent également dans leur propre boucle d'événements.
 - Vous devez principalement vous préoccuper du fait que votre code s'exécutera sur une **boucle d'événements unique**, et écrire votre code en tenant compte de ce fait pour éviter de le bloquer.
 - Tout code JavaScript qui prend trop de temps pour renvoyer le contrôle à la boucle d'événements **bloquera l'exécution** de tout code JavaScript dans la page, voire bloquera le thread de l'interface utilisateur, et l'utilisateur ne pourra pas cliquer, faire défiler la page, etc.
-- [Lire la suite](https://flaviocopes.com/javascript-event-loop/#:~:text=La boucle d'événements vérifie continuellement, exécute chacun d'eux dans l'ordre)
+- [Lire la suite](https://flaviocopes.com/javascript-event-loop/#:~:text=The%20event%20loop%20continuously%20checks,executes%20each%20one%20in%20order.)
 
 ## Qu'est-ce que la propagation d'événements ?
 
