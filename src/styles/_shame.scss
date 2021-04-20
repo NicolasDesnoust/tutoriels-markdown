@@ -4,6 +4,25 @@
   }
 }
 
+.without-sub-navbar .mat-nav-list {
+  max-height: calc(100% - 10px);
+}
+.mat-nav-list {
+  transition: max-height 0.4s ease;
+  max-height: calc(100% - 50px);
+}
+.without-sub-navbar .toc {
+  max-height: 100%;
+}
+.toc {
+  transition: max-height 0.4s ease;
+  max-height: calc(100% - 40px);
+}
+
+.toc__expand-button i-feather svg {
+  display: block !important;
+}
+
 button:focus {
   outline: none;
 }
@@ -27,11 +46,11 @@ button:focus {
 
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 

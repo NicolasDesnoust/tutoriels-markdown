@@ -1,5 +1,12 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+
 .mat-nav-list {
   padding-top: 0;
+  overflow-y: auto;
 }
 
 .mat-expansion-panel {
