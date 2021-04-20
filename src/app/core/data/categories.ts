@@ -14,6 +14,12 @@ export const categories: Category[] = [
     postsMetadata: [],
   },
   {
+    id: 'javascript',
+    label: 'Javascript',
+    description: '',
+    postsMetadata: [],
+  },
+  {
     id: 'docker',
     label: 'Docker',
     description: '',
